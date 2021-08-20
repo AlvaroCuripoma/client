@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+}
+.btn {
+  background-color: white;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  font-family: Dunkin;
+  word-wrap: break-word;
+  color: black;
+  cursor: pointer;
+}
+.container_create_products {
+  width: 100%;
+  text-align: right;
+}
+#opc_create {
+  border: 1px solid transparent;
+  display: inline-block;
+  font-size: 0.9rem;
+  max-width: 100%;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s;
+  background-color: rgb(255, 255, 255);
+  font-family: Dunkin;
+  word-wrap: break-word;
+  color: black;
+
+  position: relative;
+  top: 20px;
+  right: 2%;
+}
+.opc_create:hover {
+  border: 1px solid white;
+  border-radius: 0.5rem;
+}
+.table_list_prod {
+  max-width: 1200px;
+  width: 100%;
+  height: auto;
+  border: 1px solid #016c97;
+}
+.heder_table {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(4, 33.333%);
+  padding: 0.5rem 0rem 0.5rem 0rem;
+}
+.heder_iteam {
+  background-color: #016c97;
+  font-family: Dunkin;
+  color: white;
+  font-size: 0.9rem;
+  padding: 0.7rem;
+  text-align: center;
+}
+.body_table {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(4, 33.333%);
+}
+.body_iteam {
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  background-color: rgba(154, 156, 255, 0.3);
+  font-family: Dunkin;
+  color: white;
+  font-size: 0.8rem;
+  margin: 0.5rem 0rem 0.5rem 0rem;
+  line-height: 50px;
+  text-align: center;
+}
+#opc_see,
+#opc_edit,
+#opc_delete {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 0.2rem;
+}
+#opc_create:hover {
+  background-color: rgb(75, 255, 75);
+  color: white;
+}
+#opc_edit:hover {
+  background-color: rgb(43, 124, 231);
+  color: white;
+}
+#opc_delete:hover {
+  background-color: rgb(243, 31, 31);
+  color: white;
+}
+
+/* ----------------------------------- */
+/* popup */
+/* ----------------------------------- */
+.overlay {
+  color: white;
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  background-color: rgba(154, 156, 255, 0.151);
+  position: fixed;
+  top: -200px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+.popup {
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  height: auto;
+  min-height: 350px;
+  width: 550px;
+  text-align: right;
+}
+.visible {
+  visibility: visible;
+}
+.view_nav {
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  background-color: rgba(154, 156, 255, 0.151);
+  width: 100%;
+}
+#close_create,
+#close_see,
+#close_edit,
+#close_delete {
+  background: rgb(255, 0, 0);
+  border-radius: 50px;
+  padding: 5px;
+  height: 15px;
+  width: 15px;
+  margin: 8px 8px;
+  margin-right: 10px;
+}
+.content_view {
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  background-color: rgba(35, 37, 190, 0.664);
+  text-align: center;
+  font-family: Dunkin;
+  min-height: 340px;
+}
+.content_view h1 {
+  font-size: 1.5rem;
+}
+.form_create {
+  display: grid;
+  grid-template-rows: auto;
+  margin: auto;
+  width: 400px;
+}
+.form_create label {
+  font-size: 1.2rem;
+}
+.form_create input[type="number"],
+.form_create input[type="datetime"],
+.form_create input[type="text"] {
+  font-family: Dunkin;
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 1rem;
+}
+#btn_submit {
+  margin: auto;
+  margin-top: 1rem;
+  width: 100px;
+}
+/* ----------------------------------- */
+/* animations */
+/* ----------------------------------- */
+
+/* ----------------------------------- */
+/* campos see */
+/* ----------------------------------- */
+.container_data_see {
+  width: 500px;
+  margin: auto;
+  position: relative;
+  top: 40px;
+}
+.names_see {
+  display: grid;
+  grid-template-columns: 1;
+  text-align: right;
+  min-width: 30%;
+  max-width: 47%;
+  
+}
+.values_see {
+  float: right;
+  position: relative;
+  top: -150px;
+  width: 50%;
+}
+.container_data_see input, label {
+  color: white;
+  background-color: transparent;
+  cursor: unset;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+}
+.campo_see {
+  font-family: Dunkin;
+  width: auto;
+}
+/* ----------------------------------- */
+/* campos see */
+/* ----------------------------------- */

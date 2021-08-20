@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+}
+@font-face {
+  font-family: "Dunkin";
+  src: url(../font/Tangiang.otf);
+}
+@font-face {
+  font-family: "socialmedia";
+  src: url(../font/socialmedia.ttf);
+}
+.container {
+  background: black;
+  background: linear-gradient(135deg, black, #016c97);
+  max-width: 100vw;
+  min-height: 100vh;
+}
+.content {
+  max-width: 1200px;
+  margin: auto;
+  min-height: 100vh;
+}
+/*==================*/
+/* patalla cargando */
+/*==================*/
+.loader-page {
+  position: fixed;
+  z-index: 25000;
+  background: black;
+  background: linear-gradient(135deg, black, #016c97);
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+.loader-page::before {
+  content: "";
+  position: absolute;
+  border: 2.5px solid rgb(50, 150, 176);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border-left: 2px solid rgba(50, 150, 176, 0);
+  border-top: 2px solid rgba(50, 150, 176, 0);
+  animation: rotarload 1s linear infinite;
+  transform: rotate(0deg);
+}
+@keyframes rotarload {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader-page::after {
+  content: "";
+  position: absolute;
+  border: 5px solid rgba(50, 150, 176, 0.5);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border-left: 2px solid rgba(50, 150, 176, 0);
+  border-top: 2px solid rgba(50, 150, 176, 0);
+  animation: rotarload 1s ease-out infinite;
+  transform: rotate(0deg);
+}
