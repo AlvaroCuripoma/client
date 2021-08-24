@@ -44,6 +44,7 @@ html {
   border-radius: 0.5rem;
 }
 .table_list_prod {
+  margin: auto;
   max-width: 1200px;
   width: 100%;
   height: auto;
@@ -198,7 +199,6 @@ html {
   text-align: right;
   min-width: 30%;
   max-width: 47%;
-  
 }
 .values_see {
   float: right;
@@ -206,7 +206,8 @@ html {
   top: -150px;
   width: 50%;
 }
-.container_data_see input, label {
+.container_data_see input,
+label {
   color: white;
   background-color: transparent;
   cursor: unset;

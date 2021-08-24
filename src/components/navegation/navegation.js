@@ -19,6 +19,7 @@ btn_login.addEventListener("click", function () {
   window.location.replace("../login/login.php");
 });
 btn_logout.addEventListener("click", function () {
+  localStorage.removeItem('data');
   window.location.replace("../dashboard/dashboard.php");
 });
 ver_productos_baratos.addEventListener("click", function () {

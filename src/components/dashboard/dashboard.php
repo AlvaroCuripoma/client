@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../resource/css/main.css" />
     <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="../../resource/css/main.css" />
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="icon" href="../../resource/img/logo.jpg" type="image/x-icon">
     <title><?php echo basename(__FILE__); ?></title>
   </head>
   <body>
-    <div class="container">
-      <div class="content">
+    <div class="container_page">
+      <div class="content_page">
         <!-- navegation -->
         <?php
         include '../navegation/navegation.php';
@@ -19,90 +21,54 @@
       <!-- navegation -->
       
       <!-- start content -->
-        <div class="content">
-          <div class="container_carrucel" id="container_carrucel">
-            <div class="carrucel">
-              <div class="slider_element">
-                <div class="element-1">
-                  <div class="blur_1">
-                    <p>Encuetra los mejores planes</p>
-                  </div>
-                </div>
+
+          <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../../resource/img/carrucel/carrucel_1.jpg" class="d-block w-100" alt="...">
               </div>
-              <div class="slider_element">
-                <div class="element-2">
-                  <div class="blur_2">
-                    <p></p>
-                  </div>
-                </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_2.jpg" class="d-block w-100" alt="...">
               </div>
-              <div class="slider_element">
-                <div class="element-3">
-                  <div class="blur_3">
-                    <p>Tenemos planes que se ajustan a usted</p>
-                  </div>
-                </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_3.jpg" class="d-block w-100" alt="...">
               </div>
-              <div class="slider_element">
-                <div class="element-4">
-                  <div class="blur_4">
-                    <p></p>
-                  </div>
-                </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_4.jpg" class="d-block w-100" alt="...">
               </div>
-              <div class="slider_element">
-                <div class="element-5">
-                  <div class="blur_5">
-                    <p>Tenemos los mejores planes</p>
-                  </div>
-                </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_5.jpg" class="d-block w-100" alt="...">
               </div>
-              <div class="slider_element">
-                <div class="element-6">
-                  <p class="blur_6"></p>
-                </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_6.jpg" class="d-block w-100" alt="...">
               </div>
-              <div class="slider_element">
-                <div class="element-7">
-                  <div class="blur_7">
-                    <p>Encontrará más de los que busca</p>
-                  </div>
-                </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_7.jpg" class="d-block w-100" alt="...">
               </div>
-              <div class="slider_element">
-                <div class="element-8">
-                  <div class="blur_8">
-                    <p></p>
-                  </div>
-                </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_8.png" class="d-block w-100" alt="...">
               </div>
-              <div class="slider_element">
-                <div class="element-9">
-                  <div class="blur_9">
-                    <p>Compra con un solo click</p>
-                  </div>
-                </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_9.jpg" class="d-block w-100" alt="...">
               </div>
-              <div class="slider_element">
-                <div class="element-10">
-                  <div class="blur_10">
-                    <p></p>
-                  </div>
-                </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_10.jpg" class="d-block w-100" alt="...">
               </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
-          <div class="info_dashboard" id="info_dashboard">
-            <img src="../../resource/img/info_dashboard.jpg" alt="">
-            <p>
-              Ofrecemos planes desde cinco dolares, 
-              para que siempre estes conectado con las personas que amas.
-            </p>
-          </div>
+         
         </div>
         <!-- finish content -->
 
-      </div>
+    
       <!-- footer -->
       <?php
         include '../../components/footer/footer.php';
@@ -110,6 +76,7 @@
       <!-- footer -->
     </div>
 
-    <script src="../dashboard/script_dashboard.js"></script>
+    <script src="../dashboard/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
   </body>
 </html>

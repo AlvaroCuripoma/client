@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="../../resource/css/main.css" />
+  <link rel="icon" href="../../resource/img/logo.jpg" type="image/x-icon">
   <link rel="stylesheet" href="login.css" />
   <title><?php echo basename(__FILE__); ?></title>
 </head>
 <body>
-  <div class="container">
-    <div class="content">
+  <div class="container_page">
+    <div class="content_page">
     <!-- navegation -->
     <?php
         include '../navegation/navegation.php';
@@ -33,6 +35,7 @@
         action="verificar.php"
         method="POST"
         class="formulario__login"
+        id="login_form"
         >
         <h2>Iniciar Sesión</h2>
         <div class="msm_llenar_campso" id="cont_msm_llenar_campso">
@@ -46,6 +49,7 @@
             type="text"
              placeholder="Correo Electronico" 
             name="correo" 
+            id="correo" 
             autocomplete="on"
           /></i>
 
@@ -54,12 +58,11 @@
             type="password" 
             placeholder="Contraseña" 
             name="pass"
+            id="pass"
             autocomplete="on"
           /></i>
 
-          <div align="center"></div>
-
-          <button>Entrar</button>
+          <button onclick="login()">Entrar</button>
         </form>
         <!------------------------------------------------------------------------>
       </div>
@@ -75,6 +78,7 @@
   <!-- footer -->
   </div>
   <!-------------------------------------------------------------------------------->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
   <script src="login.js"></script>
   <!-------------------------------------------------------------------------------->
 </body>

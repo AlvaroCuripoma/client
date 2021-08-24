@@ -57,7 +57,7 @@ main {
   max-width: 380px;
   position: relative;
   top: -100px;
-  left: 650px;
+  left: 70%;
   transition: left 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation: moveForm 0.2s linear;
 }
@@ -67,7 +67,7 @@ main {
     opacity: 0.7;
   }
   to {
-    left: 650px;
+    left: 70%;
   }
 }
 .contenedor__login-register form {
@@ -111,11 +111,6 @@ input[type="email"] {
   opacity: 1;
   display: block;
 }
-/* .formulario__register {
-    display: none;
-  }
-*/
-
 @media screen and( max-width:850px) {
   main {
     margin-top: 50px;

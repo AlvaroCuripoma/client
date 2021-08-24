@@ -48,6 +48,7 @@ html {
   width: 100%;
   height: auto;
   border: 1px solid #016c97;
+  margin: auto;
 }
 .heder_table {
   display: grid;

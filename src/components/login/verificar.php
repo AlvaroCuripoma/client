@@ -10,8 +10,8 @@
         include '../../../environment/environment_api_connection.php';
         include '../../../environment/environment_api.php';
         $result = CurlHelper::perform_http_request(
-            'POST', 
-            $base . "/clientes/login", 
+            'POST',
+            $base . "/clientes/login",
             $data
         );
         //---------------------------------------------//

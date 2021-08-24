@@ -1,140 +1,73 @@
 <style>
     /* nagiation */
-.nav {
-    height: auto;
-    width: 100%;
-    padding: 20px 0px 20px 0px;
-    font-family: Dunkin;
-    background-color: transparent;
-  }
-  .nav_left {
-    height: auto;
-    font-family: Dunkin;
-  }
-  .nav_left_opc {
-    text-align: center;
-    min-width: auto;
+  .navegation {
+    background-color: #2874A6;
+    display: flex;
+    justify-content: space-between;
   }
   .logo_nav {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
+    width: 80px;
+    height: 80px;
   }
-  .nav_right {
-    padding: 1rem;
-    height: auto;
-    font-family: Dunkin;
-  }
-  .btns_register {
-    line-height: 2.9rem;
-    text-align: center;
-  }
-  .btn {
-    background-color:transparent;
-    font-family: Dunkin;
-    font-size: 1.2rem;
+  .nav {
     color: white;
-    cursor: pointer;
   }
-  @media screen and (min-width: 640px) {
-    .nav {
-      display: grid;
-      grid-template-columns: repeat(2, 0.5fr);
-    }
-    .nav_right {
-      display: flex;
-      justify-content: flex-end;
-    }
-  }
-  /*---------------------------------------------------*/
-  /* OPCIONES DESPLEGABLES */
-  /*---------------------------------------------------*/
-  .opc_1 {
-    padding: 0.5rem;
-  }
-  .opc_1 label {
-    padding: 0.5rem;
-    color: red;
-  }
-  #menu {
-    display: flex;
+  .nav * {
     color: white;
-    width: 100%;
   }
-  /*---------------------------------------------------*/
-  .interior{display: none;color: #A7AAFF;}
-  input.checked ~ ul {display: block;}
-  #menu * {list-style:none;}
-  #menu li{ line-height:180%;width:100%;font-size: 1.2rem;}
-  #menu li a{color:#222; text-decoration:none;}
-  #menu li a:before{ content:"\025b8"; margin-right:4px;}
-  #menu input[name="list"] {position: absolute;left: -1000em;}
-  #menu label:before{ content:"\025b8"; margin-right:4px;}
-  #menu input:checked ~ label:before{ content:"\025be";}
-  #menu .interior{display: none;}
-  #menu input:checked ~ ul{display:block;}
-  /*---------------------------------------------------*/
-  /* OPCIONES DESPLEGABLES */
-  /*---------------------------------------------------*/
-
+  .nav li *{
+    font-family: Dunkin;
+    background-color: #2874A6;
+  }
+  .nav li *:hover{
+    color: white;
+  }
+  .nav li *:focus{
+    color: white;
+  }
+  .nav li ul li *:hover{
+    color: black;
+  }
+  .btn{ 
+    padding-top: 25px;
+  }
 </style>
 
 <!-- navegation -->
-<header>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<div class="loader-page"></div>
-  <nav class="nav">
-    <div class="nav_left">
-      <div class="nav_left_opc">
-        <img
-        class="logo_nav"
-        src="../../resource/img/logo.png"
-        alt="logo de la empresa"
-        />
-      </div>
-    </div>
-    <div class="nav_right">
-      <ul id="menu">
-        <li><button id="btn_dashboard"  class="btn">
-                dashboard
-              </button>
-        </li>
-        <li><input type="checkbox" name="list" id="nivel1-1" checked=""><label for="nivel1-1">Productos</label>
-          <ul class="interior">
-            <li><button id="ver_productos_baratos" class="btn">más baratos</button></li>
-            <li><button id="ver_productos" class="btn">ver todo</button></li>
-          </ul>
-        </li>
-        <li><input type="checkbox" name="list" id="nivel1-3"><label for="nivel1-3">crear datos</label>
-          <ul class="interior">
-            <li><button id="btn_crear_roles" class="btn">
-                crear roles
-              </button>
-            </li>
-            <li><button id="btn_crear_productos" class="btn">
-                crear productos
-              </button>
-            </li>
-          </ul>
-        </li>
-        <li><input type="checkbox" name="list" id="nivel1-2"><label for="nivel1-2">Usuario</label>
-          <ul class="interior">
-            <li><button id="btn_register" class="btn">
-                Register
-              </button>
-            </li>
-            <li><button id="btn_login" class="btn">
-                Login
-              </button>
-            </li>
-            <li><button id="btn_logout" class="btn">
-                Logout
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <div class="loader-page"></div>
+  <nav class="navegation">
+    <img
+    class="logo_nav"
+    src="../../resource/img/logo.jpg"
+    alt="logo de la empresa"
+    />
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a id="btn_dashboard" class="btn fs-5">dashboard</a></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle btn fs-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Productos</a>
+        <ul class="dropdown-menu">
+          <li><button class="dropdown-item fs-5" id="ver_productos_baratos">más baratos</button></li>
+          <li><button id="ver_productos" class="dropdown-item fs-5">ver todo</button></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle btn fs-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Crear datos</a>
+        <ul class="dropdown-menu">
+          <li><button class="dropdown-item fs-5" id="btn_crear_roles">crear roles</button></li>
+          <li><button class="dropdown-item fs-5"id="btn_crear_productos">crear productos</button></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle btn fs-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Usuario</a>
+        <ul class="dropdown-menu">
+          <li><button class="dropdown-item fs-5" id="btn_register">Register</button></li>
+          <li><button class="dropdown-item fs-5" id="btn_login">Login</button></li>
+          <li><button  class="dropdown-item fs-5" id="btn_logout">Logout</button></li>
+        </ul>
+      </li>
+    </ul>
   </nav>
-</header>
-<script src="../navegation/script_navegation.js"></script>
+
+<script src="../navegation/navegation.js"></script>
 <!-- navegation -->
