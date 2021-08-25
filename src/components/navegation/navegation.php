@@ -55,6 +55,7 @@ if (isset($_SESSION['id_user'])) {
     alt="logo de la empresa"
     />
     <ul class="nav nav-pills">
+    <li class="nav-item"><a id="btn_carrito" class="btn fs-5">Carrito</a></li>
       <li class="nav-item"><a id="btn_dashboard" class="btn fs-5">dashboard</a></li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle btn fs-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Productos</a>

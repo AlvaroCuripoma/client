@@ -1,6 +1,7 @@
 //_____________ INICIO LINKS _____________
 const btn_dashboard = document.getElementById("btn_dashboard");
 const btn_register = document.getElementById("btn_register");
+const btn_carrito = document.getElementById("btn_carrito");
 const btn_login = document.getElementById("btn_login");
 const btn_logout = document.getElementById("btn_logout");
 const ver_productos_baratos = document.getElementById("ver_productos_baratos");
@@ -19,7 +20,11 @@ if (btn_register && btn_login) {
   btn_login.addEventListener("click", function () {
     window.location.replace("../login/login.php");
   });
+
 }
+btn_carrito.addEventListener("click", function () {
+  window.location.replace("../carrito/index.php");
+});
 if (btn_logout) {
   btn_logout.addEventListener("click", function () {
     localStorage.removeItem("data");
