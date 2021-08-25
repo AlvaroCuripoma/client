@@ -58,11 +58,18 @@ function edit($id) {
       document.getElementById("state_edit").value = res["estado"];
       document.getElementById("name_edit").value = res["nombre"];
     });
-}
-// ------------- finish open view edit -------------
-
-// ------------- start open view delete -------------
-function cleanUp($id) {
+  }
+  // ------------- finish open view edit -------------
+  
+  // ------------- start open view delete -------------
+  function cleanUp($id) {
+    document.getElementById("view_delete").classList.add("visible");
+    fetch(`${base}/roles/show/${$id}`)
+    .then((res) => res.json())
+    .then((res) => {
+      document.getElementById("id_delete").value = res["id"];
+      document.getElementById("name_delete").value = res["nombre"];
+    });
   document.getElementById("view_delete").classList.add("visible");
 }
 // ------------- finish open view edit -------------
