@@ -173,7 +173,12 @@ html {
   font-family: Dunkin;
   width: 100%;
   font-size: 0.9rem;
-  padding: 1rem;
+  padding: 0.5rem;
+}
+.form_create input[type="number"]:focus,
+.form_create input[type="datetime"]:focus,
+.form_create input[type="text"]:focus {
+  outline: none;
 }
 #btn_submit {
   margin: auto;
@@ -203,11 +208,19 @@ html {
 .values_see {
   float: right;
   position: relative;
-  top: -150px;
+  top: -144px;
   width: 50%;
 }
-.container_data_see input,
+.container_data_see,
 label {
+  color: white;
+  background-color: transparent;
+  cursor: unset;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+}
+.container_data_see input{
   color: white;
   background-color: transparent;
   cursor: unset;
@@ -221,4 +234,14 @@ label {
 }
 /* ----------------------------------- */
 /* campos see */
+/* ----------------------------------- */
+
+
+
+/* ----------------------------------- */
+/* campos edit */
+/* ----------------------------------- */
+
+/* ----------------------------------- */
+/* campos edit */
 /* ----------------------------------- */

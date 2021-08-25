@@ -11,6 +11,7 @@
   }
   .nav {
     color: white;
+    padding: 0px 0px 15px 0px;
   }
   .nav * {
     color: white;
@@ -56,13 +57,7 @@ if (isset($_SESSION['id_user'])) {
     />
     <ul class="nav nav-pills">
       <li class="nav-item"><a id="btn_dashboard" class="btn fs-5">dashboard</a></li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle btn fs-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Productos</a>
-        <ul class="dropdown-menu">
-          <li><button class="dropdown-item fs-5" id="ver_productos_baratos">más baratos</button></li>
-          <li><button id="ver_productos" class="dropdown-item fs-5">ver todo</button></li>
-        </ul>
-      </li>
+      <li class="nav-item"><a id="ver_productos" class="btn fs-5">Productos</a></li>
     
       <?php if (isset($_SESSION['id_user']) && $result['rol_fk'] == '1') {?>
         <li class="nav-item dropdown">

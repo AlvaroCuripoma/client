@@ -61,7 +61,7 @@ if (isset($_SESSION['id_user'])) {
             type="number" 
             name="rol_fk" 
             id="rol_fk" 
-            value="3" 
+            value="2" 
             style="visibility: hidden;"
             >
           <input

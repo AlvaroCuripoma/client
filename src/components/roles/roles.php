@@ -91,7 +91,7 @@
             <div class="content_view">
               <h1>create</h1>
               <form action="create.php" method="post" class="form_create">
-                <label for="tipo_producto">name</label>
+                <label for="name">name</label>
                 <input type="text" name="name" id="name" placeholder="type product">
                 <input type="submit" id="btn_submit" class="btn" value="send">
               </form>
@@ -139,7 +139,16 @@
             </div>
             <div class="content_view">
               <h1>edit</h1>
-              <form action="#" method="put" class="form_create">
+              <form action="edit.php" method="post" class="form_create">
+                <label for="id_edit">id</label>
+                <input type="number" name="id_edit" id="id_edit">
+                <label for="visible_edit">visible</label>
+                <input type="number" name="visible_edit" id="visible_edit">
+                <label for="state_edit">state</label>
+                <input type="number" name="state_edit" id="state_edit">
+                <label for="name_edit">name</label>
+                <input type="text" name="name_edit" id="name_edit">
+                <input type="submit" id="btn_submit" class="btn" value="send">
               </form>
             </div>
           </div>

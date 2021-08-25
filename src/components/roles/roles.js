@@ -50,6 +50,14 @@ function see($id) {
 // ------------- start open view edit -------------
 function edit($id) {
   document.getElementById("view_edit").classList.add("visible");
+  fetch(`${base}/roles/show/${$id}`)
+    .then((res) => res.json())
+    .then((res) => {
+      document.getElementById("id_edit").value = res["id"];
+      document.getElementById("visible_edit").value = res["visible"];
+      document.getElementById("state_edit").value = res["estado"];
+      document.getElementById("name_edit").value = res["nombre"];
+    });
 }
 // ------------- finish open view edit -------------
 
