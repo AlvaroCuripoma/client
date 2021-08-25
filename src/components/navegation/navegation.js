@@ -4,7 +4,6 @@ const btn_register = document.getElementById("btn_register");
 const btn_carrito = document.getElementById("btn_carrito");
 const btn_login = document.getElementById("btn_login");
 const btn_logout = document.getElementById("btn_logout");
-const ver_productos_baratos = document.getElementById("ver_productos_baratos");
 const ver_productos = document.getElementById("ver_productos");
 const btn_crear_roles = document.getElementById("btn_crear_roles");
 
@@ -31,9 +30,6 @@ if (btn_logout) {
     window.location.replace("../navegation/logout.php");
   });
 }
-ver_productos_baratos.addEventListener("click", function () {
-  window.location.replace("../buy/buy.php");
-});
 ver_productos.addEventListener("click", function () {
   window.location.replace("../buy/buy.php");
 });

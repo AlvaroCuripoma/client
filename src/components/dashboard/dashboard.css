@@ -1,7 +1,40 @@
-  /* 
+/* 
   .blur_9 {
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     background-color: rgba(211, 212, 255, 0.3);
     font-family: Dunkin;
 } */
+.carousel,
+.carousel-inner {
+  max-height: 60vh;
+}
+*{
+  word-break: break-word;
+  font-family: Dunkin;
+  font-size: 16px;
+}
+.titulo {
+  color: white;
+  font-size: 100px;
+  font-family: Dunkin;
+  text-align: center;
+  padding: 100px 0px 50px 0px;
+}
+.container_informacion {
+  padding: 100px 0px 100px 0px;
+  max-width: 1200px;
+  margin: auto;
+}
+.container_informacion h1 {
+  text-align: center;
+  background-color: teal;
+  width: 100%;
+  color: white;
+  padding: 20px 40px 20px 40px;
+}
+.mision,
+.vision {
+  background-color: white;
+  padding: 20px 40px 20px 40px;
+}

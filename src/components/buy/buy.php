@@ -84,7 +84,7 @@ if (isset($_SESSION['id_user'])) {
               "
               >
               <div class="item-contenido">
-                  <img src="imaMetodos/5.PNG" alt="" />
+                  <img src="../../resource/img/fondo_planes.jpg" alt="" />
                   <div class="detalle_producto">
                     <p>Nombre: <?php echo $result_one['nombre']?></p>
                     <p>Precio: <?php echo $result_one['precio']?></p>
@@ -93,7 +93,7 @@ if (isset($_SESSION['id_user'])) {
             </div>
             <?php
               }
-            ?>
+              ?>
           </section>
           <section class="overlay" id="overlay">
             <div class="contenedor-img">
@@ -101,6 +101,7 @@ if (isset($_SESSION['id_user'])) {
               <img src="" alt="" />
             </div>
             <p class="descripcion" style="text-align: justify"></p>
+            <button class="comprar">Comprar</button>
           </section>
 
         </div>

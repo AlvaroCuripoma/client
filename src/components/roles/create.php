@@ -4,23 +4,19 @@
   include '../../../environment/environment_api.php';
 
   if ($_POST['name'] != null) {
-    $url_creat_rol = $base . "/store/roles";
-    // creatting data roles
-    $data_create = [
+    $data = [
       "visible" => true,
       "estado" => true,
       "nombre" => $_POST['name'],
     ];
-  
-    $action = "POST";
-    $url = $base . "/roles/store";
-    echo "Trying to reach ...";
-    echo $url;
-    // $parameters = array("param" => "value");
-    $parameters = $data_create;
-    $result = CurlHelper::perform_http_request($action, $url, $parameters);
-    echo print_r($result);
+
+    $result = CurlHelper::perform_http_request(
+      'POST',
+      $base . "/roles/store", 
+      $data
+    );
+    header("Location: roles.php");
   }
-  header("Location: index.php");
+  header("Location: roles.php");
   exit;
 ?>
