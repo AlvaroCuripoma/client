@@ -1,4 +1,7 @@
 <?php
+
+    session_start();
+
     //-------------------------------------------------//
     // VERIFICAMSO SI ESTAN LLENOS LOS CAMPOS DEL FORM //
     //-------------------------------------------------//
@@ -18,12 +21,11 @@
         // VERIFICAMSO SI HAY DATOS EN EL CAMPO ROL_FK //
         //---------------------------------------------//
         $result = json_decode($result, true);
+        $_SESSION['id_user'] = $result['id'];
         if (isset($result['rol_fk'])) {
             if ($result['rol_fk'] == 1) {
                 header("Location: ../products/products.php");
             } if ($result['rol_fk'] == 2) {
-                header("Location: ../products/products.php");
-            } if ($result['rol_fk'] == 3) {
                 header("Location: ../buy/buy.php");
             }
         }

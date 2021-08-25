@@ -25,33 +25,3 @@ switch (tipo_error) {
   default:
     break;
 }
-
-//-------------------//
-// VERIFICANDO LOGIN //
-//-------------------//
-function login() {
-  const correo = document.getElementById("correo").value;
-  const pass = document.getElementById("pass").value;
-  async function postData(url = "", data = {}) {
-    const response = await fetch(url, {
-      method: "POST",
-      mode: "cors",
-      cache: "default",
-      credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      redirect: "follow",
-      referrerPolicy: "no-referrer",
-      body: JSON.stringify(data),
-    });
-    return response.json();
-  }
-
-  postData("http://127.0.0.1:8000/api/clientes/login", {
-    correo: correo,
-    pass: pass,
-  }).then((data) => {
-    localStorage.setItem("data", JSON.stringify(data));
-  });
-}

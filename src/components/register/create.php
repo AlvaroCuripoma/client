@@ -1,5 +1,6 @@
 <?php
 
+    session_start();
     // ==================================================================== //
     // VERIFICAMOS DATOS DEL USUARIO PARA REGISTRARLO O RECORDALE SU CUENTA //
     // ==================================================================== //
@@ -80,6 +81,7 @@
                 localStorage.setItem('register', '3');
                 window.location = '../buy/buy.php';
                 </script>";
+                $_SESSION['id_user'] = $result['id'];
                 exit();
             }
             //============================//
@@ -120,6 +122,7 @@
             localStorage.setItem('register', '3');
             window.location = '../buy/buy.php';
             </script>";
+            $_SESSION['id_user'] = $result['id'];
         }
         //=============================//
         // CUANDO EL USUARIO YA EXISTE //

@@ -5,6 +5,15 @@
   $action_all = "GET";
   $url_all = $base . "/roles";
   $result_all = CurlHelper::perform_http_request($action_all, $url_all, $parameters='');
+
+  session_start();
+  if (isset($_SESSION['id_user'])) {
+    $result = CurlHelper::perform_http_request(
+      'GET',
+      $base . "/clientes/show/". $_SESSION['id_user'],
+    );
+    $result = json_decode($result, true);
+  }
 ?>
 
 <!DOCTYPE html>

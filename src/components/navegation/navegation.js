@@ -12,30 +12,36 @@ const btn_crear_productos = document.getElementById("btn_crear_productos");
 btn_dashboard.addEventListener("click", function () {
   window.location.replace("../dashboard/dashboard.php");
 });
-btn_register.addEventListener("click", function () {
-  window.location.replace("../register/register.php");
-});
-btn_login.addEventListener("click", function () {
-  window.location.replace("../login/login.php");
-});
-btn_logout.addEventListener("click", function () {
-  localStorage.removeItem('data');
-  window.location.replace("../dashboard/dashboard.php");
-});
+if (btn_register && btn_login) {
+  btn_register.addEventListener("click", function () {
+    window.location.replace("../register/register.php");
+  });
+  btn_login.addEventListener("click", function () {
+    window.location.replace("../login/login.php");
+  });
+}
+if (btn_logout) {
+  btn_logout.addEventListener("click", function () {
+    localStorage.removeItem("data");
+    window.location.replace("../navegation/logout.php");
+  });
+}
 ver_productos_baratos.addEventListener("click", function () {
   window.location.replace("../buy/buy.php");
 });
 ver_productos.addEventListener("click", function () {
   window.location.replace("../buy/buy.php");
 });
-btn_crear_roles.addEventListener("click", function () {
-  window.location.replace("../roles/roles.php");
-});
-btn_crear_productos.addEventListener("click", function () {
-  window.location.replace("../products/products.php");
-});
+if (btn_crear_roles && btn_crear_productos) {
+  btn_crear_roles.addEventListener("click", function () {
+    window.location.replace("../roles/roles.php");
+  });
+  btn_crear_productos.addEventListener("click", function () {
+    window.location.replace("../products/products.php");
+  });
+}
 //_____________ FIN LINKS _____________
 
 window.onload = function () {
   $(".loader-page").css({ visibility: "hidden", opacity: "0" });
-}; 
+};

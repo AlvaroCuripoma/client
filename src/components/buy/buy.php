@@ -1,3 +1,16 @@
+<?php
+session_start();
+include '../../../environment/environment_api_connection.php';
+include '../../../environment/environment_api.php';
+if (isset($_SESSION['id_user'])) {
+  $result = CurlHelper::perform_http_request(
+    'GET',
+    $base . "/clientes/show/". $_SESSION['id_user'],
+  );
+  $result = json_decode($result, true);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,7 +63,6 @@
 
           <section class="grid" id="grid">
             <?php
-              include '../../../environment/environment_api_connection.php';
               include '../../../environment/environment_api.php';
               $action = "GET";
               $url = $base . "/productos";

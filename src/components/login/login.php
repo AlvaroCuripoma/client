@@ -37,32 +37,29 @@
         class="formulario__login"
         id="login_form"
         >
-        <h2>Iniciar Sesión</h2>
-        <div class="msm_llenar_campso" id="cont_msm_llenar_campso">
-          <p>Llena todos los campos...</p>
-        </div>
-        <div class="msm_no_usuario" id="cont_msm_no_usuario">
-          <p>Usuario no encontrado. Registrarse, por favor!...</p>
-        </div>
-          <i class="fas fa-user icon">
+          <h2>Iniciar Sesión</h2>
+          <div class="msm_llenar_campso" id="cont_msm_llenar_campso">
+            <p>Llena todos los campos...</p>
+          </div>
+          <div class="msm_no_usuario" id="cont_msm_no_usuario">
+            <p>Usuario no encontrado. Registrarse, por favor!...</p>
+          </div>
             <input 
             type="text"
              placeholder="Correo Electronico" 
             name="correo" 
             id="correo" 
             autocomplete="on"
-          /></i>
-
-          <i class="fas fa-key icon">
+          />
             <input 
             type="password" 
             placeholder="Contraseña" 
             name="pass"
             id="pass"
             autocomplete="on"
-          /></i>
+          />
 
-          <button onclick="login()">Entrar</button>
+          <button>Entrar</button>
         </form>
         <!------------------------------------------------------------------------>
       </div>

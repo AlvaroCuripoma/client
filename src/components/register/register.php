@@ -1,3 +1,16 @@
+<?php
+session_start();
+include '../../../environment/environment_api_connection.php';
+include '../../../environment/environment_api.php';
+if (isset($_SESSION['id_user'])) { 
+  $result = CurlHelper::perform_http_request(
+    'GET',
+    $base . "/clientes/show/". $_SESSION['id_user'],
+  );
+  $result = json_decode($result, true);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,7 +125,6 @@
             >
             <!--  -->
             <?php
-              include '../../../environment/environment_api_connection.php';
               include '../../../environment/environment_api.php';
               $url = $base . "/tipos_cuentas_bancarias";
               $tipos_cuentas = CurlHelper::perform_http_request(
