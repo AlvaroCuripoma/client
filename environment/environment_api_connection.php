@@ -12,7 +12,10 @@
                     break;
                 case "PUT":
                     curl_setopt($curl, CURLOPT_PUT, 1);
-                    break;
+                    if ($data)
+                        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                case "DELETE":
+                    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
                 default:
                     if ($data)
                         $url = sprintf("%s?%s", $url, http_build_query($data));

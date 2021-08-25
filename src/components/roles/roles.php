@@ -81,7 +81,7 @@
       </table>
 
       <div>
-        <div id="valores" style="visibility: hidden;"></div>
+        <div id="valores" style="visibility: hidden;" readonly></div>
         <!-- start create -->
         <div id="view_create" class="overlay">
           <div class="popup">
@@ -92,8 +92,8 @@
               <h1>create</h1>
               <form action="create.php" method="post" class="form_create">
                 <label for="name">name</label>
-                <input type="text" name="name" id="name" placeholder="type product">
-                <input type="submit" id="btn_submit" class="btn" value="send">
+                <input type="text" name="name" id="name" placeholder="nombre del rol">
+                <input type="submit" class="btn" value="send">
               </form>
             </div>
           </div>
@@ -137,18 +137,18 @@
             <div class="view_nav">
               <button id="close_edit" class="btn"></button>
             </div>
-            <div class="content_view">
-              <h1>edit</h1>
+            <div class="content_edit">
+              <h1>Editar</h1>
               <form action="edit.php" method="post" class="form_create">
                 <label for="id_edit">id</label>
-                <input type="number" name="id_edit" id="id_edit">
+                <input class="input_edit" type="number" name="id_edit" id="id_edit">
                 <label for="visible_edit">visible</label>
-                <input type="number" name="visible_edit" id="visible_edit">
+                <input class="input_edit" type="number" name="visible_edit" id="visible_edit">
                 <label for="state_edit">state</label>
-                <input type="number" name="state_edit" id="state_edit">
+                <input class="input_edit" type="number" name="state_edit" id="state_edit">
                 <label for="name_edit">name</label>
-                <input type="text" name="name_edit" id="name_edit">
-                <input type="submit" id="btn_submit" class="btn" value="send">
+                <input class="input_edit" type="text" name="name_edit" id="name_edit">
+                <input type="submit" class="btn_submit_edit" value="send">
               </form>
             </div>
           </div>
@@ -161,8 +161,18 @@
             <div class="view_nav">
               <button id="close_delete" class="btn"></button>
             </div>
-            <div class="content_view">
-              <h1>delete</h1>
+            <div class="content_delete">
+              <h1>¿Seguro quieres borrar el rol?</h1>
+              <form action="delete.php" method="post">
+                <input class="name_delete" type="text" name="name_delete" id="name_delete">
+                <input 
+                id="id_delete" 
+                name="id_delete" 
+                type="number" 
+                style="visibility: hidden; width: 100%;"
+                >
+                <input class="btn_submit_delete" type="submit" class="btn" value="Borrar">
+              </form>
             </div>
           </div>
         </div>
