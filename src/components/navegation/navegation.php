@@ -54,6 +54,7 @@
     alt="logo de la empresa"
     />
     <ul class="nav nav-pills">
+    <li class="nav-item"><a id="btn_carrito" class="btn fs-5">Carrito</a></li>
       <li class="nav-item"><a id="btn_dashboard" class="btn fs-5">dashboard</a></li>
       <li class="nav-item"><a id="ver_comprar_productos" class="btn fs-5">Comprar</a></li>
     
