@@ -9,11 +9,6 @@
     );
     $result = json_decode($result, true);
   }
-  $result_prueba = CurlHelper::perform_http_request(
-    'GET',
-    $base . "/productos"
-  );
-  $result_prueba = json_decode($result_prueba, true);
 ?>
 
 <!DOCTYPE html>
@@ -43,88 +38,92 @@
         <!-- navegation -->
 
         <!-- start content -->
-        <div class="container_logo">
-          <div class="logo">
-            <h1>PRODUCTOS EN VENTA</h1>
-            <p>S T A R S -- P R O D U C T</p>
+        <div class="content_general">
+          <div class="container_logo">
+            <div class="logo">
+              <h1>PRODUCTOS EN VENTA</h1>
+              <p>S T A R S -- P R O D U C T</p>
+            </div>
           </div>
-        </div>
-        <?php if (!empty($result_prueba) && isset($result_prueba)) { ?>
-          <div class="contenedor">
-            <header>
-              <form action="">
-                <input
-                  type="text"
-                  class="barra-busqueda"
-                  id="barra-busqueda"
-                  placeholder="Buscar por precio"
-                />
-              </form>
-              <div class="categorias" id="categorias">
-                <a href="#" class="activo">Todos</a>
-                <a href="#">Combo_$25.00</a>
-                <a href="#">Combo_$20.00</a>
-                <a href="#">Combo_$10.00</a>
-                <a href="#">Combo_$5.00</a>
-              </div>
-            </header>
-
-            <section class="grid" id="grid">
-              <?php
-                include '../../../environment/environment_api.php';
-                $result = CurlHelper::perform_http_request(
-                  'GET',
-                  $base . "/productos"
-                );
-                $result = json_decode($result, true);
-                foreach ($result as $result_one) {
-              ?>
-              <div
-                class="item"
-                data-categoria="<?php echo 'combo_$'.$result_one['precio']?>"
-                data-etiquetas="<?php echo $result_one['precio']?>"
-                data-descripcion="
-                <?php echo 'Nombre: '.$result_one['nombre'] ?> <br>
-                <?php echo'Precio: '.$result_one['precio']?> <br>
-                <?php echo'Cantidad: '.$result_one['cantidad']?> <br>
-                <?php echo'Fecha_fabricacion: '.$result_one['fecha_fabricacion']?> <br>
-                <?php echo'Fecha_vencimiento: '.$result_one['fecha_vencimiento']?> <br>
-                <?php echo'Descripcion: '.$result_one['descripcion']?> <br>
-                "
-                >
-                <div class="item-contenido">
-                    <img src="../../resource/img/fondo_planes.jpg" alt="" />
-                    <div class="detalle_producto">
-                      <p>Nombre: <?php echo $result_one['nombre']?></p>
-                      <p>Precio: <?php echo $result_one['precio']?></p>
-                    </div>
+            <div class="contenedor">
+              <header>
+                <form action="">
+                  <input
+                    type="text"
+                    class="barra-busqueda"
+                    id="barra-busqueda"
+                    placeholder="Buscar por precio"
+                  />
+                </form>
+                <div class="categorias" id="categorias">
+                  <a href="#" class="activo">Todos</a>
+                  <a href="#">Combo_$25.00</a>
+                  <a href="#">Combo_$20.00</a>
+                  <a href="#">Combo_$10.00</a>
+                  <a href="#">Combo_$5.00</a>
                 </div>
-              </div>
-              <?php
-                }
+              </header>
+
+              <section class="grid" id="grid">
+                <?php
+                  include '../../../environment/environment_api.php';
+                  $productos = CurlHelper::perform_http_request(
+                    'GET',
+                    $base . "/productos"
+                  );
+                  $productos = json_decode($productos, true);
+                  foreach ($productos as $producto) {
                 ?>
-            </section>
-            <section class="overlay" id="overlay">
-              <div class="contenedor-img">
-                <button id="btn-cerrar-popup"><i class="fas fa-times"></i></button>
-                <img src="" alt="" />
-              </div>
-              <p class="descripcion" style="text-align: justify"></p>
-              <button class="comprar">Comprar</button>
-            </section>
-          </div>
-        <?php } else {?>
-          <div class="error_server">
-            <h3>Error al conectarse con el servidor!</h3>
-          </div>
-        <?php }?>
+                  <div
+                    class="item"
+                    data-categoria="<?php echo 'combo_$'.$producto['precio']?>"
+                    data-etiquetas="<?php echo $producto['precio']?>"
+                    data-descripcion="
+                    <?php echo 'Nombre: '.$producto['nombre'] ?> <br>
+                    <?php echo'Precio: '.$producto['precio']?> <br>
+                    <?php echo'Disponible: '.$producto['cantidad']?> <br>
+                    <?php echo'Fecha_fabricacion: '.$producto['fecha_fabricacion']?> <br>
+                    <?php echo'Fecha_vencimiento: '.$producto['fecha_vencimiento']?> <br>
+                    <?php echo'Descripcion: '.$producto['descripcion']?> <br>
+                    "
+                    data-idproducto="<?php echo $producto['id'] ?>"
+                    data-iduser="<?php echo $_SESSION['id_user'] ?>"
+                  >
+                  <div class="item-contenido">
+                        <img src="../../resource/img/fondo_planes.jpg" alt="" />
+                        <div class="detalle_producto">
+                          <p>Disponible: <?php echo $producto['cantidad']?></p>
+                          <p>Nombre: <?php echo $producto['nombre']?></p>
+                          <p>Precio: <?php echo $producto['precio']?></p>
+                        </div>
+                    </div>
+                  </div>
+                <?php
+                  }
+                ?>
+                </section>
+                <section class="overlay" id="overlay">
+                  <div class="contenedor-img">
+                    <button id="btn-cerrar-popup"><i class="fas fa-times"></i></button>
+                    <img src="" alt="" />
+                  </div>
+                  <p class="descripcion" style="text-align: justify"></p>
+                  <?php if (!empty($_SESSION['id_user'])) { ?>
+                  <button onclick="comprar()" class="comprar">Añadir al carrito</button>
+                  <?php } else {?>
+                    <p><a href="../login/login.php">Inicia session</a> para poder comprar</p>
+                  <?php }?>
+                </section>
+              
+            </div>
+        </div>
         <!-- finish content -->
+        <!-- footer -->
+        <?php
+          include '../footer/footer.php';
+        ?>
+        <!-- footer -->
       </div>
-      <!-- footer -->
-      <?php
-        include '../footer/footer.php';
-      ?>
-      <!-- footer -->
     </div>
 
     <script src="https://unpkg.com/web-animations-js@2.3.2/web-animations.min.js"></script>

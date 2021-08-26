@@ -25,10 +25,9 @@ if (btn_register && btn_login) {
   btn_login.addEventListener("click", function () {
     window.location.replace("../login/login.php");
   });
-
 }
 btn_carrito.addEventListener("click", function () {
-  window.location.replace("../carrito/index.php");
+  window.location.replace("../carrito/carrito.php");
 });
 if (btn_logout) {
   btn_logout.addEventListener("click", function () {
@@ -39,7 +38,12 @@ if (btn_logout) {
 ver_comprar_productos.addEventListener("click", function () {
   window.location.replace("../compra/compra.php");
 });
-if (btn_crear_roles && btn_crear_productos && btn_crear_tipo_producto && btn_crear_tipo_cuenta_bancaria) {
+if (
+  btn_crear_roles &&
+  btn_crear_productos &&
+  btn_crear_tipo_producto &&
+  btn_crear_tipo_cuenta_bancaria
+) {
   btn_crear_roles.addEventListener("click", function () {
     window.location.replace("../roles/roles.php");
   });

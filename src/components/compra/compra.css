@@ -1,3 +1,6 @@
+.content_general {
+  padding: 0px 0px 100px 0px;
+}
 .container_logo * {
   color: white;
 }
@@ -148,6 +151,14 @@ header .categorias a.activo {
   max-width: 100%;
 }
 
+.overlay p {
+  max-width: 100%;
+  color: white;
+}
+.overlay p a {
+  color: rgb(14, 207, 255);
+}
+
 .overlay .descripcion {
   display: block;
   background: #fff;
@@ -157,6 +168,7 @@ header .categorias a.activo {
   border-radius: 10px;
   max-width: 50%;
   width: 500px;
+  color: black;
 }
 
 .contenedor-img {
@@ -173,8 +185,9 @@ header .categorias a.activo {
   top: -20px;
 }
 .comprar {
-  padding: 0.5rem 1rem;
-  background-color: yellowgreen;
+  padding: 5px 20px;
+  background-color: rgb(166, 228, 42);
+  box-shadow: 0px 0px 5px 1px rgb(170, 255, 0, 0.5);
   color: black;
 }
 /* ------------------------- */
