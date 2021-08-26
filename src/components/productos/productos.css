@@ -1,3 +1,6 @@
+.content_general{ 
+  padding: 0px 0px 100px 0px;
+}
 /* + titulo */
 .container_titulo {
   width: 100%;
@@ -27,11 +30,11 @@
 
 /* + muestra lista de datos*/
 .table_list_prod {
-  margin: auto;
   max-width: 1200px;
   width: 100%;
   height: auto;
   border: 1px solid #016c97;
+  margin: auto;
 }
 .heder_table {
   max-width: 1200px;

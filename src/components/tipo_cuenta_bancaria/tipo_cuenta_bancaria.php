@@ -36,151 +36,150 @@
       <!-- navegation -->
       
       <!-- start content -->
-      
-      <div class="container_titulo">
-        <h1>TIPO CUENTAS BANCARIAS</h1>
-      </div>
-      <table class="table_list_prod">
-        <tr class="heder_table">
-          <div class="container_create">
-            <button id="opc_create" class="my_btn">crear</button>
-          </div>
-          <tr>
-            <td class="heder_iteam">número</td>
-            <td class="heder_iteam">nombre</td>
-            <td class="heder_iteam">operaciones</td>
+      <div class="content_general">
+        <div class="container_titulo">
+          <h1>TIPO CUENTAS BANCARIAS</h1>
+        </div>
+        <table class="table_list_prod">
+          <tr class="heder_table">
+            <div class="container_create">
+              <button id="opc_create" class="my_btn">crear</button>
+            </div>
+            <tr>
+              <td class="heder_iteam">número</td>
+              <td class="heder_iteam">nombre</td>
+              <td class="heder_iteam">operaciones</td>
+            </tr>
           </tr>
-        </tr>
-        <tr class="body_table">
-        <?php
-          function see($id){
-            include '../../../environment/environment_api.php';
-            return $result_see = CurlHelper::perform_http_request(
-              'GET',
-              $base."/roles"."/show"."/".$id
-            );
-          }
-        
-          $tipos_cuentas_bancarias = json_decode($tipos_cuentas_bancarias, true);
-          foreach($tipos_cuentas_bancarias as $tipos_cuenta_bancaria) {
-          ?>
-          <tr>
-            <td class="body_iteam"><?php echo $tipos_cuenta_bancaria['id'] ?></td>
-            <td class="body_iteam"><?php echo $tipos_cuenta_bancaria['nombre'] ?></td>
-            <td class="body_iteam">
-              <button onclick="see(<?php echo $tipos_cuenta_bancaria['id'] ?>)" id="opc_see" class="my_btn opc_see">ver</button>
-              <button onclick="edit(<?php echo $tipos_cuenta_bancaria['id'] ?>)" id="opc_edit" class="my_btn opc_edit">editar</button>
-              <button onclick="cleanUp(<?php echo $tipos_cuenta_bancaria['id'] ?>)" id="opc_delete" class="my_btn opc_delete">borrar</button>
-            </td>
-          </tr>
+          <tr class="body_table">
           <?php
-          }
-          ?>
-        </tr>
-      </table>
-
-      <div>
-        <div id="valores" style="visibility: hidden;" readonly></div>
-        <!-- start create -->
-        <div id="view_create" class="overlay">
-          <div class="popup">
-            <div class="view_nav">
-              <button id="close_create" class="my_btn"></button>
-            </div>
-            <div class="content_creat">
-              <h3>Crear</h3>
-              <form action="crear.php" method="post" class="form_create">
-                <label for="name">nombre</label>
-                <input type="text" name="name" id="name">
-                <input type="submit" class="my_btn" value="send">
-              </form>
-            </div>
-          </div>
-        </div>
-        <!-- finish create -->
+            function see($id){
+              include '../../../environment/environment_api.php';
+              return $result_see = CurlHelper::perform_http_request(
+                'GET',
+                $base."/roles"."/show"."/".$id
+              );
+            }
+          
+            $tipos_cuentas_bancarias = json_decode($tipos_cuentas_bancarias, true);
+            foreach($tipos_cuentas_bancarias as $tipos_cuenta_bancaria) {
+            ?>
+            <tr>
+              <td class="body_iteam"><?php echo $tipos_cuenta_bancaria['id'] ?></td>
+              <td class="body_iteam"><?php echo $tipos_cuenta_bancaria['nombre'] ?></td>
+              <td class="body_iteam">
+                <button onclick="see(<?php echo $tipos_cuenta_bancaria['id'] ?>)" id="opc_see" class="my_btn opc_see">ver</button>
+                <button onclick="edit(<?php echo $tipos_cuenta_bancaria['id'] ?>)" id="opc_edit" class="my_btn opc_edit">editar</button>
+                <button onclick="cleanUp(<?php echo $tipos_cuenta_bancaria['id'] ?>)" id="opc_delete" class="my_btn opc_delete">borrar</button>
+              </td>
+            </tr>
+            <?php
+            }
+            ?>
+          </tr>
+        </table>
   
-        <!-- start see -->
-        <div id="view_see" class="overlay">
-          <div class="popup">
-            <div class="view_nav">
-              <button id="close_see" class="my_btn"></button>
+        <div>
+          <div id="valores" style="visibility: hidden;" readonly></div>
+          <!-- start create -->
+          <div id="view_create" class="overlay">
+            <div class="popup">
+              <div class="view_nav">
+                <button id="close_create" class="my_btn"></button>
+              </div>
+              <div class="content_creat">
+                <h3>Crear</h3>
+                <form action="crear.php" method="post" class="form_create">
+                  <label for="name">nombre</label>
+                  <input type="text" name="name" id="name">
+                  <input type="submit" class="my_btn" value="send">
+                </form>
+              </div>
             </div>
-            <div class="content_see">
-              <h3>Detalles</h3>
-              <label for="id_see">id</label>
-              <input type="number" name="data_see" id="id_see" readonly>
-              <label for="visible_see">visible</label>
-              <input type="number" name="data_see" id="visible_see" readonly>
-              <label for="state_see">state</label>
-              <input type="number" name="data_see" id="state_see" readonly>
-              <label for="name_see">name</label>
-              <input type="text" name="data_see" id="name_see" readonly>
-              <label for="created_at_see">created at</label>
-              <input type="datetime" name="data_see" id="created_at_see" readonly>
-              <label for="updated_at_see">updated at</label>
-              <input type="datetime" name="data_see" id="updated_at_see" readonly>
-              <button id="listo_see" class="my_btn">Listo</button>
+          </div>
+          <!-- finish create -->
+    
+          <!-- start see -->
+          <div id="view_see" class="overlay">
+            <div class="popup">
+              <div class="view_nav">
+                <button id="close_see" class="my_btn"></button>
+              </div>
+              <div class="content_see">
+                <h3>Detalles</h3>
+                <label for="id_see">id</label>
+                <input type="number" name="data_see" id="id_see" readonly>
+                <label for="visible_see">visible</label>
+                <input type="number" name="data_see" id="visible_see" readonly>
+                <label for="state_see">state</label>
+                <input type="number" name="data_see" id="state_see" readonly>
+                <label for="name_see">name</label>
+                <input type="text" name="data_see" id="name_see" readonly>
+                <label for="created_at_see">created at</label>
+                <input type="datetime" name="data_see" id="created_at_see" readonly>
+                <label for="updated_at_see">updated at</label>
+                <input type="datetime" name="data_see" id="updated_at_see" readonly>
+                <button id="listo_see" class="my_btn">Listo</button>
+              </div>
+            </div>
+          </div>
+          <!-- finish see -->
+          
+          <!-- start edit -->
+          <div id="view_edit" class="overlay">
+            <div class="popup">
+              <div class="view_nav">
+                <button id="close_edit" class="my_btn"></button>
+              </div>
+              <div class="content_edit">
+                <h3>Editar</h3>
+                <form action="actualizar.php" method="post" class="form_create">
+                  <label for="id_edit">id</label>
+                  <input class="input_edit" type="number" name="id_edit" id="id_edit">
+                  <label for="visible_edit">visible</label>
+                  <input class="input_edit" type="number" name="visible_edit" id="visible_edit">
+                  <label for="state_edit">state</label>
+                  <input class="input_edit" type="number" name="state_edit" id="state_edit">
+                  <label for="name_edit">name</label>
+                  <input class="input_edit" type="text" name="name_edit" id="name_edit">
+                  <input type="submit" class="my_btn" value="send">
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- finish edit -->
+          
+          <!-- start delete -->
+          <div id="view_delete" class="overlay">
+            <div class="popup">
+              <div class="view_nav">
+                <button id="close_delete" class="my_btn"></button>
+              </div>
+              <div class="content_delete">
+                <h3>¿Seguro quieres eliminar?</h3>
+                <form action="eliminar.php" method="post">
+                  <input class="name_delete" type="text" name="name_delete" id="name_delete">
+                  <input 
+                  id="id_delete" 
+                  name="id_delete" 
+                  type="number" 
+                  style="visibility: hidden; width: 100%;"
+                  >
+                  <input class="btn_submit_delete" type="submit" class="my_btn" value="Borrar">
+                </form>
+              </div>
             </div>
           </div>
         </div>
-        <!-- finish see -->
-        
-        <!-- start edit -->
-        <div id="view_edit" class="overlay">
-          <div class="popup">
-            <div class="view_nav">
-              <button id="close_edit" class="my_btn"></button>
-            </div>
-            <div class="content_edit">
-              <h3>Editar</h3>
-              <form action="actualizar.php" method="post" class="form_create">
-                <label for="id_edit">id</label>
-                <input class="input_edit" type="number" name="id_edit" id="id_edit">
-                <label for="visible_edit">visible</label>
-                <input class="input_edit" type="number" name="visible_edit" id="visible_edit">
-                <label for="state_edit">state</label>
-                <input class="input_edit" type="number" name="state_edit" id="state_edit">
-                <label for="name_edit">name</label>
-                <input class="input_edit" type="text" name="name_edit" id="name_edit">
-                <input type="submit" class="my_btn" value="send">
-              </form>
-            </div>
-          </div>
-        </div>
-        <!-- finish edit -->
-        
-        <!-- start delete -->
-        <div id="view_delete" class="overlay">
-          <div class="popup">
-            <div class="view_nav">
-              <button id="close_delete" class="my_btn"></button>
-            </div>
-            <div class="content_delete">
-              <h3>¿Seguro quieres eliminar?</h3>
-              <form action="eliminar.php" method="post">
-                <input class="name_delete" type="text" name="name_delete" id="name_delete">
-                <input 
-                id="id_delete" 
-                name="id_delete" 
-                type="number" 
-                style="visibility: hidden; width: 100%;"
-                >
-                <input class="btn_submit_delete" type="submit" class="my_btn" value="Borrar">
-              </form>
-            </div>
-          </div>
-        </div>
+        <!-- finish delete -->
       </div>
-      <!-- finish delete -->
-
       <!-- finish content -->
-      
-    </div>
-    <!-- footer -->
-    <?php
+      <!-- footer -->
+      <?php
       include '../footer/footer.php';
       ?>
     <!-- footer -->
+  </div>
   </div>
   
   <script src="tipo_cuenta_bancaria.js"></script>

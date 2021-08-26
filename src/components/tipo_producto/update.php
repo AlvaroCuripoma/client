@@ -16,8 +16,8 @@
     ];
 
     $result = CurlHelper::perform_http_request(
-        'POST',
-        $base . "/tipos_productos/store", 
+        'PUT',
+        $base."/tipos_productos/update/".$_POST['id_edit'], 
         $data
       );
       header("Location: tipo_producto.php");

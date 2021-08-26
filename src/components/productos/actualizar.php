@@ -12,7 +12,7 @@
         "id" => $_POST['id_edit'],
         "visible" => true,
         "estado" => true,
-        "tipo_producto_fk" => $_POST['tipo_producto_edit'],
+        "tipo_producto_fk_nombre" => $_POST['tipo_producto_edit'],
         "nombre" => $_POST['name_edit'],
         "fecha_fabricacion" => $_POST['fecha_fabricacion_edit'],
         "fecha_vencimiento" => $_POST['fecha_vencimiento_edit'],
@@ -26,6 +26,7 @@
       $data
     );
     header("Location: productos.php");
+    exit;
   }
   header("Location: productos.php");
   exit;
