@@ -6,10 +6,11 @@
   if ($_POST['id_delete'] != null) {
     $result = CurlHelper::perform_http_request(
       "DELETE",
-      $base."/roles/destroy/".$_POST['id_delete'], 
+      $base."/tipos_productos/destroy/".$_POST['id_delete'], 
     );
-    header("Location: roles.php");
-  }
-  header("Location: roles.php");
-  exit;
-?>
+      header("Location: tipo_producto.php");
+    }
+    header("Location: tipo_producto.php");
+    exit;
+  ?>
+  

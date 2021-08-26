@@ -7,9 +7,7 @@
         background: linear-gradient(180deg, black 10%, #24283b 100%);
     }
     .footer {
-        font-family: Dunkin;
         color: white;
-        flex-wrap: wrap;
         display: flex;
         max-width: 1000px;
         margin: auto;
@@ -21,7 +19,6 @@
         width: 1fr;
     }
     .titulo_iconos {
-        font-size: 1.2rem;
         text-align: center;
     }
     .inocos {
@@ -33,7 +30,6 @@
         text-decoration: none;
         color: white;
         font-family: socialmedia;
-        font-size: 1.1rem;
         max-width: 50px;
         padding: 0.3rem;
     }
@@ -49,12 +45,10 @@
     }
     .item_descripcion_1 {
         hyphens: auto;
-        font-size: 1.2rem;
         max-width: 100%;
     }
     .item_descripcion_2 {
         hyphens: auto;
-        font-size: 1.2rem;
         max-width: 100%;
     }
 </style>

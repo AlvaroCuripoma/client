@@ -1,15 +1,10 @@
-* {
-  font-family: Dunkin;
-}
-h1 {
+.container_logo * {
   color: white;
-  font-family: Dunkin;
 }
-a {
-  text-decoration: none;
-  font-family: Dunkin;
+.container_logo {
+  text-align: center;
+  padding: 100px 0px 50px 0px;
 }
-
 .contenedor {
   width: 90%;
   max-width: 2000px;
@@ -24,23 +19,19 @@ a {
 header {
   padding: 40px 0;
 }
-
 header .logo {
   text-align: center;
-  margin-bottom: 40px;
+  padding: 70px 0px 0px 35px;
 }
-
 header .logo p {
   color: #9b9b9b;
 }
-
 header form {
   width: 100%;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
-
 header .barra-busqueda {
   width: 70%;
   height: 40px;
@@ -50,7 +41,7 @@ header .barra-busqueda {
   border-radius: 100px;
   border: none;
   text-align: center;
-  font-size: 18px;
+  color: black;
 }
 header .barra-busqueda:hover {
   background: #fff;
@@ -68,7 +59,6 @@ header .categorias {
 header .categorias a {
   color: #9b9b9b;
   margin: 10px 20px;
-  font-size: 18px;
   font-weight: 700;
 }
 
@@ -121,7 +111,6 @@ header .categorias a.activo {
 }
 .detalle_producto {
   background-color: white;
-  font-family: Dunkin;
   text-align: left;
   width: 100%;
   padding: 10px 0px 10px 20px;
@@ -176,7 +165,6 @@ header .categorias a.activo {
 
 .overlay #btn-cerrar-popup {
   background: none;
-  font-size: 18px;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -184,7 +172,7 @@ header .categorias a.activo {
   right: -20px;
   top: -20px;
 }
-.comprar{
+.comprar {
   padding: 0.5rem 1rem;
   background-color: yellowgreen;
   color: black;
@@ -200,4 +188,17 @@ header .categorias a.activo {
   header .barra-busqueda {
     width: 100%;
   }
+}
+
+
+/* mensaje de error no conectado con el servidor*/
+.error_server {
+  width: 100%;
+}
+.error_server h3 {
+  padding: 20px 20px;
+  box-shadow: 0px 0px 10px 1px rgb(228, 19, 19);
+  background-color: rgb(236, 32, 32);;
+  color: white;
+  text-align: center;
 }

@@ -2,7 +2,7 @@
   // see all roles
   include '../../../environment/environment_api_connection.php';
   include '../../../environment/environment_api.php';
-  $result_all = CurlHelper::perform_http_request("GET", $base . "/roles");
+  $tipos_cuentas_bancarias = CurlHelper::perform_http_request("GET", $base . "/tipos_cuentas_bancarias");
 
   session_start();
   if (isset($_SESSION['id_user'])) {
@@ -22,7 +22,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="../../resource/css/main.css" />
-  <link rel="stylesheet" href="roles.css" />
+  <link rel="stylesheet" href="tipo_cuenta_bancaria.css" />
   <link rel="icon" href="../../resource/img/logo.jpg" type="image/x-icon">
   <title><?php echo basename(__FILE__); ?></title>
 </head>
@@ -38,7 +38,7 @@
       <!-- start content -->
       
       <div class="container_titulo">
-        <h1>ROLES</h1>
+        <h1>TIPO CUENTAS BANCARIAS</h1>
       </div>
       <table class="table_list_prod">
         <tr class="heder_table">
@@ -61,16 +61,16 @@
             );
           }
         
-          $roles = json_decode($result_all, true);
-          foreach($roles as $rol) {
+          $tipos_cuentas_bancarias = json_decode($tipos_cuentas_bancarias, true);
+          foreach($tipos_cuentas_bancarias as $tipos_cuenta_bancaria) {
           ?>
           <tr>
-            <td class="body_iteam"><?php echo $rol['id'] ?></td>
-            <td class="body_iteam"><?php echo $rol['nombre'] ?></td>
+            <td class="body_iteam"><?php echo $tipos_cuenta_bancaria['id'] ?></td>
+            <td class="body_iteam"><?php echo $tipos_cuenta_bancaria['nombre'] ?></td>
             <td class="body_iteam">
-              <button onclick="see(<?php echo $rol['id'] ?>)" id="opc_see" class="my_btn">ver</button>
-              <button onclick="edit(<?php echo $rol['id'] ?>)" id="opc_edit" class="my_btn">editar</button>
-              <button onclick="cleanUp(<?php echo $rol['id'] ?>)" id="opc_delete" class="my_btn">borrar</button>
+              <button onclick="see(<?php echo $tipos_cuenta_bancaria['id'] ?>)" id="opc_see" class="my_btn opc_see">ver</button>
+              <button onclick="edit(<?php echo $tipos_cuenta_bancaria['id'] ?>)" id="opc_edit" class="my_btn opc_edit">editar</button>
+              <button onclick="cleanUp(<?php echo $tipos_cuenta_bancaria['id'] ?>)" id="opc_delete" class="my_btn opc_delete">borrar</button>
             </td>
           </tr>
           <?php
@@ -89,9 +89,9 @@
             </div>
             <div class="content_creat">
               <h3>Crear</h3>
-              <form action="create.php" method="post" class="form_create">
-                <label for="name">name</label>
-                <input type="text" name="name" id="name" placeholder="nombre del rol">
+              <form action="crear.php" method="post" class="form_create">
+                <label for="name">nombre</label>
+                <input type="text" name="name" id="name">
                 <input type="submit" class="my_btn" value="send">
               </form>
             </div>
@@ -108,17 +108,17 @@
             <div class="content_see">
               <h3>Detalles</h3>
               <label for="id_see">id</label>
-              <input class="campo_see" type="number" name="data_see" id="id_see" readonly>
+              <input type="number" name="data_see" id="id_see" readonly>
               <label for="visible_see">visible</label>
-              <input class="campo_see" type="number" name="data_see" id="visible_see" readonly>
+              <input type="number" name="data_see" id="visible_see" readonly>
               <label for="state_see">state</label>
-              <input class="campo_see" type="number" name="data_see" id="state_see" readonly>
+              <input type="number" name="data_see" id="state_see" readonly>
               <label for="name_see">name</label>
-              <input class="campo_see" type="text" name="data_see" id="name_see" readonly>
+              <input type="text" name="data_see" id="name_see" readonly>
               <label for="created_at_see">created at</label>
-              <input class="campo_see" type="datetime" name="data_see" id="created_at_see" readonly>
+              <input type="datetime" name="data_see" id="created_at_see" readonly>
               <label for="updated_at_see">updated at</label>
-              <input class="campo_see" type="datetime" name="data_see" id="updated_at_see" readonly>
+              <input type="datetime" name="data_see" id="updated_at_see" readonly>
               <button id="listo_see" class="my_btn">Listo</button>
             </div>
           </div>
@@ -133,7 +133,7 @@
             </div>
             <div class="content_edit">
               <h3>Editar</h3>
-              <form action="update.php" method="post" class="form_create">
+              <form action="actualizar.php" method="post" class="form_create">
                 <label for="id_edit">id</label>
                 <input class="input_edit" type="number" name="id_edit" id="id_edit">
                 <label for="visible_edit">visible</label>
@@ -157,7 +157,7 @@
             </div>
             <div class="content_delete">
               <h3>¿Seguro quieres eliminar?</h3>
-              <form action="delete.php" method="post">
+              <form action="eliminar.php" method="post">
                 <input class="name_delete" type="text" name="name_delete" id="name_delete">
                 <input 
                 id="id_delete" 
@@ -165,7 +165,7 @@
                 type="number" 
                 style="visibility: hidden; width: 100%;"
                 >
-                <input type="submit" class="my_btn" value="Borrar">
+                <input class="btn_submit_delete" type="submit" class="my_btn" value="Borrar">
               </form>
             </div>
           </div>
@@ -183,7 +183,12 @@
     <!-- footer -->
   </div>
   
-  <script src="roles.js"></script>
+  <script src="tipo_cuenta_bancaria.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
 </html>
+<!--
+
+http://localhost/proyect/client/src/components/rol/index.php
+
+-->

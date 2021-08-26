@@ -9,19 +9,18 @@
   $_POST['name_edit'] != null
   ) {
     $data = [
+      "id" => $_POST["id_edit"],
       "visible" => $_POST['visible_edit'],
       "estado" => $_POST['state_edit'],
-      "nombre" => $_POST['name_edit'],
+      "nombre" => $_POST['name_edit']
     ];
-
     $result = CurlHelper::perform_http_request(
-      'PUT',
-      $base."/roles/update/".$_POST['id_edit'], 
+      "PUT",
+      $base."/tipos_cuentas_bancarias/update/".$_POST['id_edit'], 
       $data
     );
-    echo $_POST['name_edit'];
-    header("Location: roles.php");
+    header("Location: tipo_cuenta_bancaria.php");
   }
-  header("Location: roles.php");
+  header("Location: tipo_cuenta_bancaria.php");
   exit;
 ?>

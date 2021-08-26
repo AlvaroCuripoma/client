@@ -5,12 +5,20 @@
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
+  font-family: Tangiang;
+  font-size: 20px;
+  word-wrap: break-word;
 }
-html {
-  font-size: 16px;
+.my_btn{
+  margin: auto;
+  margin-top: 1rem;
+  padding: 5px 20px;
+  border-radius: 2px;
+  width: auto;
+  color: black;
 }
 @font-face {
-  font-family: "Dunkin";
+  font-family: "Tangiang";
   src: url(../font/Tangiang.otf);
 }
 @font-face {

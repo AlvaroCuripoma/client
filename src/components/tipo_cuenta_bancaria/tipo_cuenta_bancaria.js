@@ -32,13 +32,14 @@ close_delete.addEventListener("click", function () {
 });
 // ------------- finish close views -------------
 
+
 const base = "http://127.0.0.1:8000/api";
 // ------------- start open view see -------------
 function see($id) {
   document.getElementById("view_see").classList.add("visible");
 
   // conseguimos los datos
-  fetch(`${base}/roles/show/${$id}`)
+  fetch(`${base}/tipos_cuentas_bancarias/show/${$id}`)
     .then((res) => res.json())
     .then((res) => {
       document.getElementById("id_see").value = res["id"];
@@ -54,7 +55,7 @@ function see($id) {
 // ------------- start open view edit -------------
 function edit($id) {
   document.getElementById("view_edit").classList.add("visible");
-  fetch(`${base}/roles/show/${$id}`)
+  fetch(`${base}/tipos_cuentas_bancarias/show/${$id}`)
     .then((res) => res.json())
     .then((res) => {
       document.getElementById("id_edit").value = res["id"];
@@ -68,7 +69,7 @@ function edit($id) {
 // ------------- start open view delete -------------
 function cleanUp($id) {
   document.getElementById("view_delete").classList.add("visible");
-  fetch(`${base}/roles/show/${$id}`)
+  fetch(`${base}/tipos_cuentas_bancarias/show/${$id}`)
     .then((res) => res.json())
     .then((res) => {
       document.getElementById("id_delete").value = res["id"];

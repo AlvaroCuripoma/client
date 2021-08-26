@@ -6,16 +6,16 @@
             switch ($method)
             {
                 case "POST":
-                    curl_setopt($curl, CURLOPT_POST, 1);
-                    if ($data)
-                        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                    curl_setopt($curl, CURLOPT_HTTPHEADER, array('X-HTTP-Method-Override: POST'));
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
                     break;
                 case "PUT":
-                    curl_setopt($curl, CURLOPT_PUT, 1);
-                    if ($data)
+                        curl_setopt($curl, CURLOPT_HTTPHEADER, array('X-HTTP-Method-Override: PUT'));
                         curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                    break;
                 case "DELETE":
                     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
+                    break;
                 default:
                     if ($data)
                         $url = sprintf("%s?%s", $url, http_build_query($data));

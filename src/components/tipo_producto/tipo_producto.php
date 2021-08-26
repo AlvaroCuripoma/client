@@ -2,7 +2,7 @@
   // see all roles
   include '../../../environment/environment_api_connection.php';
   include '../../../environment/environment_api.php';
-  $result_all = CurlHelper::perform_http_request("GET", $base . "/roles");
+  $tipos_productos = CurlHelper::perform_http_request("GET", $base . "/tipos_productos");
 
   session_start();
   if (isset($_SESSION['id_user'])) {
@@ -22,7 +22,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="../../resource/css/main.css" />
-  <link rel="stylesheet" href="roles.css" />
+  <link rel="stylesheet" href="tipo_producto.css" />
   <link rel="icon" href="../../resource/img/logo.jpg" type="image/x-icon">
   <title><?php echo basename(__FILE__); ?></title>
 </head>
@@ -38,7 +38,7 @@
       <!-- start content -->
       
       <div class="container_titulo">
-        <h1>ROLES</h1>
+        <h1>TIPOS DE PRODUCTOS</h1>
       </div>
       <table class="table_list_prod">
         <tr class="heder_table">
@@ -57,20 +57,20 @@
             include '../../../environment/environment_api.php';
             return $result_see = CurlHelper::perform_http_request(
               'GET',
-              $base."/roles"."/show"."/".$id
+              $base."/tipos_productos"."/show"."/".$id
             );
           }
         
-          $roles = json_decode($result_all, true);
-          foreach($roles as $rol) {
+          $tipos_productos = json_decode($tipos_productos, true);
+          foreach($tipos_productos as $tipo_producto) {
           ?>
           <tr>
-            <td class="body_iteam"><?php echo $rol['id'] ?></td>
-            <td class="body_iteam"><?php echo $rol['nombre'] ?></td>
+            <td class="body_iteam"><?php echo $tipo_producto['id'] ?></td>
+            <td class="body_iteam"><?php echo $tipo_producto['nombre'] ?></td>
             <td class="body_iteam">
-              <button onclick="see(<?php echo $rol['id'] ?>)" id="opc_see" class="my_btn">ver</button>
-              <button onclick="edit(<?php echo $rol['id'] ?>)" id="opc_edit" class="my_btn">editar</button>
-              <button onclick="cleanUp(<?php echo $rol['id'] ?>)" id="opc_delete" class="my_btn">borrar</button>
+              <button onclick="see(<?php echo $tipo_producto['id'] ?>)" id="opc_see" class="my_btn">ver</button>
+              <button onclick="edit(<?php echo $tipo_producto['id'] ?>)" id="opc_edit" class="my_btn">editar</button>
+              <button onclick="cleanUp(<?php echo $tipo_producto['id'] ?>)" id="opc_delete" class="my_btn">borrar</button>
             </td>
           </tr>
           <?php
@@ -90,9 +90,9 @@
             <div class="content_creat">
               <h3>Crear</h3>
               <form action="create.php" method="post" class="form_create">
-                <label for="name">name</label>
-                <input type="text" name="name" id="name" placeholder="nombre del rol">
-                <input type="submit" class="my_btn" value="send">
+                <label for="name">nombre</label>
+                <input type="text" name="name" id="name">
+                <input type="submit" class="my_btn" value="crear">
               </form>
             </div>
           </div>
@@ -108,17 +108,17 @@
             <div class="content_see">
               <h3>Detalles</h3>
               <label for="id_see">id</label>
-              <input class="campo_see" type="number" name="data_see" id="id_see" readonly>
+              <input type="number" name="data_see" id="id_see" readonly>
               <label for="visible_see">visible</label>
-              <input class="campo_see" type="number" name="data_see" id="visible_see" readonly>
-              <label for="state_see">state</label>
-              <input class="campo_see" type="number" name="data_see" id="state_see" readonly>
-              <label for="name_see">name</label>
-              <input class="campo_see" type="text" name="data_see" id="name_see" readonly>
-              <label for="created_at_see">created at</label>
-              <input class="campo_see" type="datetime" name="data_see" id="created_at_see" readonly>
-              <label for="updated_at_see">updated at</label>
-              <input class="campo_see" type="datetime" name="data_see" id="updated_at_see" readonly>
+              <input type="number" name="data_see" id="visible_see" readonly>
+              <label for="state_see">estado</label>
+              <input type="number" name="data_see" id="state_see" readonly>
+              <label for="name_see">nombre</label>
+              <input type="text" name="data_see" id="name_see" readonly>
+              <label for="created_at_see">fecha de creación</label>
+              <input type="datetime" name="data_see" id="created_at_see" readonly>
+              <label for="updated_at_see">fecha última actualización</label>
+              <input type="datetime" name="data_see" id="updated_at_see" readonly>
               <button id="listo_see" class="my_btn">Listo</button>
             </div>
           </div>
@@ -158,14 +158,20 @@
             <div class="content_delete">
               <h3>¿Seguro quieres eliminar?</h3>
               <form action="delete.php" method="post">
-                <input class="name_delete" type="text" name="name_delete" id="name_delete">
+                <input 
+                class="name_delete" 
+                type="text" 
+                name="name_delete" 
+                id="name_delete"
+                readonly
+                >
                 <input 
                 id="id_delete" 
                 name="id_delete" 
                 type="number" 
                 style="visibility: hidden; width: 100%;"
                 >
-                <input type="submit" class="my_btn" value="Borrar">
+                <input class="btn_submit_delete" type="submit" class="my_btn" value="Borrar">
               </form>
             </div>
           </div>
@@ -183,7 +189,7 @@
     <!-- footer -->
   </div>
   
-  <script src="roles.js"></script>
+  <script src="tipo_producto.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
 </html>

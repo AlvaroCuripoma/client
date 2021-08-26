@@ -24,9 +24,9 @@
         $_SESSION['id_user'] = $result['id'];
         if (isset($result['rol_fk'])) {
             if ($result['rol_fk'] == 1) {
-                header("Location: ../products/products.php");
+                header("Location: ../productos/productos.php");
             } if ($result['rol_fk'] == 2) {
-                header("Location: ../buy/buy.php");
+                header("Location: ../compra/compra.php");
             }
         }
         echo "<script>
