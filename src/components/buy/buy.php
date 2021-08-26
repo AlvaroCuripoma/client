@@ -101,7 +101,8 @@ if (isset($_SESSION['id_user'])) {
               <img src="" alt="" />
             </div>
             <p class="descripcion" style="text-align: justify"></p>
-            <button class="comprar">Comprar</button>
+
+            <button onclick="compra(<?php echo $rol['id'] ?>)" id="compra"class="comprar">Comprar</button>
           </section>
 
         </div>
