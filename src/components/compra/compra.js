@@ -4,7 +4,7 @@ const grid = new Muuri(".grid", {
   },
 });
 
-var id_producto_elegido = null;
+var id_prodc_elegido = null;
 var iduser = null;
 window.addEventListener("load", () => {
   grid.refreshItems().layout();
@@ -45,7 +45,7 @@ window.addEventListener("load", () => {
       overlay.classList.add("activo");
       document.querySelector("#overlay img").src = ruta;
       document.querySelector("#overlay .descripcion").innerHTML = descripcion;
-      id_producto_elegido = elemento.parentNode.parentNode.dataset.idproducto;
+      id_prodc_elegido = elemento.parentNode.parentNode.dataset.idproducto;
       iduser = elemento.parentNode.parentNode.dataset.iduser;
     });
   });
@@ -61,10 +61,7 @@ window.addEventListener("load", () => {
 
 // Eventlistener btn comparar
 function comprar() {
+  localStorage.setItem("id_usuario", JSON.stringify(iduser));
+  localStorage.setItem("id_prodc_elegido", JSON.stringify(id_prodc_elegido));
   window.location.replace("../carrito/carrito.php");
-  localStorage.setItem("usuario", JSON.stringify(iduser));
-  localStorage.setItem(
-    "id_producto_elegido",
-    JSON.stringify(id_producto_elegido)
-  );
 }

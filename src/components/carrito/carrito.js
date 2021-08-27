@@ -1,201 +1,147 @@
-// const items = document.getElementById("items");
-// const footer = document.getElementById("footer");
-// const templateCard = document.getElementById("template-card").content;
-// const templateFooter = document.getElementById("template-footer").content;
-// const templateCarrito = document.getElementById("template-carrito").content;
-// const fragment = document.createDocumentFragment();
-// let carrito = {};
+//=============================================================//
+// CARRITO DE COMPRAS
+//=============================================================//
+const base = "http://127.0.0.1:8000/api";
+//=============================================================//
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   fetchData();
-//   if (localStorage.getItem("carrito")) {
-//     carrito = JSON.parse(localStorage.getItem("carrito"));
-//     pintarCarrito();
-//   }
-// });
-// cards.addEventListener("click", (e) => {
-//   addCarrito(e);
-// });
+// traemos id del usuario logeado
+var id_usuario = JSON.parse(localStorage.getItem("id_usuario"));
 
-// items.addEventListener("click", (e) => {
-//   btnAccion(e);
-// });
+// traemos el carrito de compra
+var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
 
-// const fetchData = async () => {
-//   try {
-//     const res = await fetch("api.json");
-//     const data = await res.json();
-//     pintarCards(data);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+// traemos id de producto elegido
+var id_prodc_elegido = JSON.parse(localStorage.getItem("id_prodc_elegido"));
+if (id_prodc_elegido != null) {
+  fetch(`${base}/productos/show/${id_prodc_elegido}`)
+    .then((producto) => producto.json())
+    .then((producto) => {
+      localStorage.removeItem("id_prodc_elegido");
+      var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
+      if (carrito_compra == null) {
+        var carrito_compra = [
+          { usuario: JSON.parse(localStorage.getItem("id_usuario")) },
+          [producto],
+        ];
+        localStorage.setItem("carrito_compra", JSON.stringify(carrito_compra));
+      }
 
-// const pintarCards = (data) => {
-//   //console.log(data)
-//   data.forEach((producto) => {
-//     templateCard.querySelector("h5").textContent = producto.title;
-//     templateCard.querySelector("p").textContent = producto.precio;
-//     templateCard
-//       .querySelector("img")
-//       .setAttribute("src", producto.thumbnailUrl);
-//     templateCard.querySelector(".btn-dark").dataset.id = producto.id;
-//     const clone = templateCard.cloneNode(true);
-//     fragment.appendChild(clone);
-//   });
-//   cards.appendChild(fragment);
-// };
-
-// const addCarrito = (e) => {
-//   //console.log(e.target)
-//   //console.log(e.target.classList.contains('btn-dark'))
-//   if (e.target.classList.contains("btn-dark")) {
-//     setCarrito(e.target.parentElement);
-//   }
-//   e.stopPropagation();
-// };
-
-// const setCarrito = (objeto) => {
-//   //console.log(objeto)
-//   const producto = {
-//     id: objeto.querySelector(".btn-dark").dataset.id,
-//     title: objeto.querySelector("h5").textContent,
-//     precio: objeto.querySelector("p").textContent,
-//     cantidad: 1,
-//   };
-//   if (carrito.hasOwnProperty(producto.id)) {
-//     producto.cantidad = carrito[producto.id].cantidad + 1;
-//   }
-//   carrito[producto.id] = { ...producto };
-
-//   pintarCarrito();
-// };
-
-// const pintarCarrito = () => {
-//   //console.log(carrito)
-//   items.innerHTML = "";
-//   Object.values(carrito).forEach((producto) => {
-//     templateCarrito.querySelector("th").textContent = producto.id;
-//     templateCarrito.querySelectorAll("td")[0].textContent = producto.title;
-//     templateCarrito.querySelectorAll("td")[1].textContent = producto.cantidad;
-//     templateCarrito.querySelector(".btn-info").dataset.id = producto.id;
-//     templateCarrito.querySelector(".btn-danger").dataset.id = producto.id;
-//     templateCarrito.querySelector("span").textContent =
-//       producto.cantidad * producto.precio;
-
-//     const clone = templateCarrito.cloneNode(true);
-//     fragment.appendChild(clone);
-//   });
-//   items.appendChild(fragment);
-
-//   pintarFooter();
-
-//   localStorage.setItem("carrito", JSON.stringify(carrito));
-// };
-
-// const pintarFooter = () => {
-//   footer.innerHTML = "";
-//   if (Object.keys(carrito).length === 0) {
-//     footer.innerHTML =
-//       '<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>';
-//     return;
-//   }
-
-//   const nCantidad = Object.values(carrito).reduce(
-//     (acc, { cantidad }) => acc + cantidad,
-//     0
-//   );
-//   const nPrecio = Object.values(carrito).reduce(
-//     (acc, { cantidad, precio }) => acc + cantidad * precio,
-//     0
-//   );
-
-//   templateFooter.querySelectorAll("td")[0].textContent = nCantidad;
-//   templateFooter.querySelector("span").textContent = nPrecio;
-
-//   const clone = templateFooter.cloneNode(true);
-//   fragment.appendChild(clone);
-//   footer.appendChild(fragment);
-
-//   const btnVaciar = document.getElementById("vaciar-carrito");
-//   btnVaciar.addEventListener("click", () => {
-//     carrito = {};
-//     pintarCarrito();
-//   });
-// };
-
-// const btnAccion = (e) => {
-//   //console.log(e.target)
-//   //Accion de aumentar
-//   if (e.target.classList.contains("btn-info")) {
-//     //console.log( carrito[e.target.dataset.id])
-//     //carrito[e.target-dataset.id]
-//     const producto = carrito[e.target.dataset.id];
-//     producto.cantidad++;
-//     carrito[e.target.dataset.id] = { ...producto };
-//     pintarCarrito();
-//   }
-//   if (e.target.classList.contains("btn-danger")) {
-//     const producto = carrito[e.target.dataset.id];
-//     producto.cantidad--;
-//     if (producto.cantidad === 0) {
-//       delete carrito[e.target.dataset.id];
-//     }
-//     pintarCarrito();
-//   }
-//   e.stopPropagation();
-// };
-
-// traemos el id del usuario logeado
-var usuario = JSON.parse(localStorage.getItem("usuario"));
-
-// traemos el id del producto elegido
-var id_producto_elegido = JSON.parse(
-  localStorage.getItem("id_producto_elegido")
-);
-
-// traemos el id del usuario del carrito de compra
-var usuario_carrito = JSON.parse(
-  localStorage.getItem("productos_carrito_usuario")
-);
-
-if (usuario_carrito == null || usuario == usuario_carrito[0]["usuario"]) {
-  // array de ids de porductos del carrito y id del usuario
-  var productos_carrito_usuario = [
-    { usuario: JSON.parse(localStorage.getItem("usuario")) },
-    [],
-  ];
-  if (!localStorage.getItem("productos_carrito_usuario")) {
-    localStorage.setItem(
-      "productos_carrito_usuario",
-      JSON.stringify(productos_carrito_usuario)
-    );
-  }
-  if (id_producto_elegido) {
-    // traemos datos del producto elegido
-    const base = "http://127.0.0.1:8000/api";
-    fetch(`${base}/productos/show/${id_producto_elegido}`)
-      .then((res) => res.json())
-      .then((res) => {
-        // agregamos el producto elegido  al carrito
-        localStorage.setItem("producto_elegido", JSON.stringify(res));
-        localStorage.removeItem("id_producto_elegido");
-      });
-
-    productos_carrito_usuario = JSON.parse(
-      localStorage.getItem("productos_carrito_usuario")
-    );
-    // guardamos datos del carrito del usuario
-    productos_carrito_usuario[1].push(localStorage.getItem("producto_elegido"));
-    localStorage.removeItem("producto_elegido");
-    localStorage.setItem(
-      "productos_carrito_usuario",
-      JSON.stringify(productos_carrito_usuario)
-    );
-    console.log(productos_carrito_usuario);
-  } else {
-    window.location.replace("../compra/compra.php");
-  }
-} else {
-  localStorage.removeItem("productos_carrito_usuario");
+      // carrito de compra
+      var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
+      carrito_compra[1].push(JSON.stringify(producto));
+      localStorage.setItem("carrito_compra", JSON.stringify(carrito_compra));
+      localStorage.removeItem("producto_elegido");
+    });
 }
+//=============================================================//
+
+//=============================================================//
+window.addEventListener("load", () => {
+  var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
+  if (carrito_compra) {
+    //=============================================================//
+    // IMPRIMIMOS DATOS EN EL CARRITO
+    carrito_compra[1].forEach((producto) => {
+      console.log(producto);
+      // var fila = document.createElement("tr");
+      // var columna = document.createElement("td");
+      // var contenido = document.createTextNode(producto['nombre']);
+
+      // fila.appendChild(columna);
+      // columna.appendChild(contenido);
+      // document
+      //   .getElementById("id_body_table")
+      //   .insertAdjacentElement("beforebegin", fila);
+    }).then(prod => {});
+
+    // IMPRIMIMOS DATOS EN EL CARRITO
+    //=============================================================//
+  }
+});
+//=============================================================//
+
+//=============================================================//
+// para muestrar las ventanitas
+//=============================================================//
+const opc_create = document.getElementById("opc_create");
+
+// para cerrar las ventanitas
+const close_create = document.getElementById("close_create");
+const close_see = document.getElementById("close_see");
+const close_edit = document.getElementById("close_edit");
+const close_delete = document.getElementById("close_delete");
+const listo_see = document.getElementById("listo_see");
+
+// ------------- start open view -------------
+opc_create.addEventListener("click", function () {
+  document.getElementById("view_create").classList.add("visible");
+});
+// ------------- finish open view -------------
+
+// ------------- start close views -------------
+listo_see.addEventListener("click", function () {
+  document.getElementById("view_see").classList.remove("visible");
+});
+close_create.addEventListener("click", function () {
+  document.getElementById("view_create").classList.remove("visible");
+});
+close_see.addEventListener("click", function () {
+  document.getElementById("view_see").classList.remove("visible");
+});
+close_edit.addEventListener("click", function () {
+  document.getElementById("view_edit").classList.remove("visible");
+});
+close_delete.addEventListener("click", function () {
+  document.getElementById("view_delete").classList.remove("visible");
+});
+// ------------- finish close views -------------
+
+//------------------------------------------------
+// ------------- start open view see -------------
+//------------------------------------------------
+
+//------------------------------------------------
+function see($id) {
+  document.getElementById("view_see").classList.add("visible");
+
+  // conseguimos los datos
+  fetch(`${base}/tipos_productos/show/${$id}`)
+    .then((res) => res.json())
+    .then((res) => {
+      document.getElementById("id_see").value = res["id"];
+      document.getElementById("visible_see").value = res["visible"];
+      document.getElementById("state_see").value = res["estado"];
+      document.getElementById("name_see").value = res["nombre"];
+      document.getElementById("created_at_see").value = res["created_at"];
+      document.getElementById("updated_at_see").value = res["updated_at"];
+    });
+}
+// ------------- finish open viwe see -------------
+
+// ------------- start open view edit -------------
+function edit($id) {
+  document.getElementById("view_edit").classList.add("visible");
+  fetch(`${base}/tipos_productos/show/${$id}`)
+    .then((res) => res.json())
+    .then((res) => {
+      document.getElementById("id_edit").value = res["id"];
+      document.getElementById("visible_edit").value = res["visible"];
+      document.getElementById("state_edit").value = res["estado"];
+      document.getElementById("name_edit").value = res["nombre"];
+    });
+}
+// ------------- finish open view edit -------------
+
+// ------------- start open view delete -------------
+function cleanUp($id) {
+  document.getElementById("view_delete").classList.add("visible");
+  fetch(`${base}/tipos_productos/show/${$id}`)
+    .then((res) => res.json())
+    .then((res) => {
+      document.getElementById("id_delete").value = res["id"];
+      document.getElementById("name_delete").value = res["nombre"];
+    });
+  document.getElementById("view_delete").classList.add("visible");
+}
+// ------------- finish open view edit -------------
+//=============================================================//
