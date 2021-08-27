@@ -28,7 +28,7 @@ if (id_prodc_elegido != null) {
 
       // carrito de compra
       var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
-      carrito_compra[1].push(JSON.stringify(producto));
+      carrito_compra[1].push(producto);
       localStorage.setItem("carrito_compra", JSON.stringify(carrito_compra));
       localStorage.removeItem("producto_elegido");
     });
@@ -38,110 +38,76 @@ if (id_prodc_elegido != null) {
 //=============================================================//
 window.addEventListener("load", () => {
   var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
-  if (carrito_compra) {
+  var carrito = Array.from(carrito_compra[1]);
+  if (carrito) {
     //=============================================================//
     // IMPRIMIMOS DATOS EN EL CARRITO
-    carrito_compra[1].forEach((producto) => {
-      console.log(producto);
-      // var fila = document.createElement("tr");
-      // var columna = document.createElement("td");
-      // var contenido = document.createTextNode(producto['nombre']);
 
-      // fila.appendChild(columna);
-      // columna.appendChild(contenido);
-      // document
-      //   .getElementById("id_body_table")
-      //   .insertAdjacentElement("beforebegin", fila);
-    }).then(prod => {});
+    $.each(carrito, (i, item) => {
+      var fila = document.createElement("tr");
 
-    // IMPRIMIMOS DATOS EN EL CARRITO
-    //=============================================================//
+      var columna_1 = document.createElement("th");
+      columna_1.className = "body_iteam";
+      columna_1.scope = "row";
+      columna_1.appendChild(document.createTextNode(item.id));
+      var columna_2 = document.createElement("th");
+      columna_2.className = "body_iteam";
+      columna_2.appendChild(document.createTextNode(item.tipo_producto_fk));
+      var columna_3 = document.createElement("th");
+      columna_3.className = "body_iteam";
+      columna_3.appendChild(document.createTextNode(item.nombre));
+      var columna_4 = document.createElement("th");
+      columna_4.className = "body_iteam";
+      columna_4.appendChild(document.createTextNode(item.precio));
+      var columna_5 = document.createElement("th");
+      columna_5.className = "body_iteam";
+      columna_5.appendChild(document.createTextNode(item.cantidad));
+      var columna_6 = document.createElement("th");
+      columna_6.className = "body_iteam";
+      columna_6.appendChild(document.createTextNode(item.descripcion));
+
+      var fila_btns = document.createElement("tr");
+      fila_btns.className = "body_iteam";
+      var btn_subtract = document.createElement("button");
+      btn_subtract.className = "btn btn-light";
+      btn_subtract.id = "opc_subtract";
+      btn_subtract.onclick = `see(${item.id})`;
+      btn_subtract.innerHTML = "restar";
+      var btn_add = document.createElement("button");
+      btn_add.className = "btn btn-light";
+      btn_add.id = "opc_add";
+      btn_add.onclick = `see(${item.id})`;
+      btn_add.innerHTML = "sumar";
+      var btn_delete = document.createElement("button");
+      btn_delete.className = "btn btn-light";
+      btn_delete.id = "opc_delete";
+      btn_delete.onclick = `see(${item.id})`;
+      btn_delete.innerHTML = "borrar";
+      fila_btns.appendChild(btn_subtract);
+      fila_btns.appendChild(btn_add);
+      fila_btns.appendChild(btn_delete);
+
+      fila.appendChild(columna_1);
+      fila.appendChild(columna_2);
+      fila.appendChild(columna_3);
+      fila.appendChild(columna_4);
+      fila.appendChild(columna_5);
+      fila.appendChild(columna_6);
+      fila.appendChild(fila_btns);
+      document
+        .getElementById("fila")
+        .insertAdjacentElement("afterbegin", fila); //beforeend
+    });
   }
 });
-//=============================================================//
 
 //=============================================================//
 // para muestrar las ventanitas
 //=============================================================//
-const opc_create = document.getElementById("opc_create");
-
-// para cerrar las ventanitas
-const close_create = document.getElementById("close_create");
-const close_see = document.getElementById("close_see");
-const close_edit = document.getElementById("close_edit");
-const close_delete = document.getElementById("close_delete");
-const listo_see = document.getElementById("listo_see");
+const btn_comprar = document.getElementById("btn_comprar");
 
 // ------------- start open view -------------
-opc_create.addEventListener("click", function () {
-  document.getElementById("view_create").classList.add("visible");
+btn_comprar.addEventListener("click", function () {
+  window.location.replace("../compra/compra.php");
 });
 // ------------- finish open view -------------
-
-// ------------- start close views -------------
-listo_see.addEventListener("click", function () {
-  document.getElementById("view_see").classList.remove("visible");
-});
-close_create.addEventListener("click", function () {
-  document.getElementById("view_create").classList.remove("visible");
-});
-close_see.addEventListener("click", function () {
-  document.getElementById("view_see").classList.remove("visible");
-});
-close_edit.addEventListener("click", function () {
-  document.getElementById("view_edit").classList.remove("visible");
-});
-close_delete.addEventListener("click", function () {
-  document.getElementById("view_delete").classList.remove("visible");
-});
-// ------------- finish close views -------------
-
-//------------------------------------------------
-// ------------- start open view see -------------
-//------------------------------------------------
-
-//------------------------------------------------
-function see($id) {
-  document.getElementById("view_see").classList.add("visible");
-
-  // conseguimos los datos
-  fetch(`${base}/tipos_productos/show/${$id}`)
-    .then((res) => res.json())
-    .then((res) => {
-      document.getElementById("id_see").value = res["id"];
-      document.getElementById("visible_see").value = res["visible"];
-      document.getElementById("state_see").value = res["estado"];
-      document.getElementById("name_see").value = res["nombre"];
-      document.getElementById("created_at_see").value = res["created_at"];
-      document.getElementById("updated_at_see").value = res["updated_at"];
-    });
-}
-// ------------- finish open viwe see -------------
-
-// ------------- start open view edit -------------
-function edit($id) {
-  document.getElementById("view_edit").classList.add("visible");
-  fetch(`${base}/tipos_productos/show/${$id}`)
-    .then((res) => res.json())
-    .then((res) => {
-      document.getElementById("id_edit").value = res["id"];
-      document.getElementById("visible_edit").value = res["visible"];
-      document.getElementById("state_edit").value = res["estado"];
-      document.getElementById("name_edit").value = res["nombre"];
-    });
-}
-// ------------- finish open view edit -------------
-
-// ------------- start open view delete -------------
-function cleanUp($id) {
-  document.getElementById("view_delete").classList.add("visible");
-  fetch(`${base}/tipos_productos/show/${$id}`)
-    .then((res) => res.json())
-    .then((res) => {
-      document.getElementById("id_delete").value = res["id"];
-      document.getElementById("name_delete").value = res["nombre"];
-    });
-  document.getElementById("view_delete").classList.add("visible");
-}
-// ------------- finish open view edit -------------
-//=============================================================//

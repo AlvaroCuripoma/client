@@ -13,228 +13,40 @@ p {
   text-align: center;
 }
 /* - titulo */
-
 /* + tabla de datos */
-/* + btn de crear */
-.container_create {
+.container_comprar {
   max-width: 1200px;
   width: 100%;
   text-align: right;
   margin: auto;
 }
-#opc_create {
+#opc_comprar {
   position: relative;
   top: 20px;
   right: 2%;
 }
-/* - btn de crear */
 
 /* + muestra lista de datos*/
-.table_list_prod {
+.table * {
+  color: white;
+}
+.table thead {
+  background-color: rgba(38, 0, 255, 0.15);
+}
+.table tbody {
+  background-color: rgba(0, 110, 255, 0.1);
+}
+.container {
+  text-align: center;
   margin: auto;
-  max-width: 1200px;
-  width: 100%;
-  height: auto;
-  border: 1px solid #016c97;
 }
-.heder_table {
-  max-width: 1200px;
-  display: grid;
-  grid-template-columns: repeat(4, 33.333%);
-  padding: 0.5rem 0rem 0.5rem 0rem;
-}
-.heder_iteam {
-  background-color: #016c97;
-  color: white;
-  padding: 0.7rem;
-  text-align: center;
-}
-.body_table {
-  max-width: 1200px;
-  display: grid;
-  grid-template-columns: repeat(4, 33.333%);
-}
-.body_iteam {
-  background-color: rgba(154, 156, 255, 0.3);
-  padding: 5px 5px;
-  color: white;
-  text-align: center;
-}
-#opc_see,
-#opc_edit,
-#opc_delete {
-  margin: 0;
-}
-#opc_create:hover {
-  background-color: rgb(75, 255, 75);
-}
-#opc_see:hover {
-  background-color: rgb(25, 119, 241);
-}
-#opc_edit:hover {
-  background-color: rgb(255, 179, 0);
-}
-#opc_delete:hover {
-  background-color: rgb(243, 31, 31);
+.btn {
+  color: black;
 }
 /* - muestra lista de datos*/
 
-/* + popup */
-/* + body de poup */
-.overlay {
-  color: white;
-  -webkit-backdrop-filter: blur(15px);
-  backdrop-filter: blur(15px);
-  background-color: rgba(154, 156, 255, 0.2);
-  position: fixed;
-  top: 0px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  visibility: hidden;
-}
-/* - body de poup */
-
-/* + ventanita */
-.popup {
-  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
-  border-radius: 3px;
-  width: 550px;
-  text-align: right;
-}
-/* muestra la ventanita */
-.visible {
-  visibility: visible;
-}
-/* nav donde se cierra la ventanita */
-.view_nav {
-  -webkit-backdrop-filter: blur(15px);
-  backdrop-filter: blur(15px);
-  background-color: rgba(111, 113, 255, 0.5);
-  width: 100%;
-}
-/* - ventanita */
-
-/* + btn de cerrar la ventanita */
-#close_create,
-#close_see,
-#close_edit,
-#close_delete {
-  background: rgb(255, 0, 0);
-  border-radius: 50px;
-  padding: 5px;
-  height: 18px;
-  width: 18px;
-  margin: 8px 8px;
-  margin-right: 10px;
-}
-/* - btn de cerrar la ventanita */
-
-/* + contenedor de datos de la ventanita */
-.content_creat,
-.content_see,
-.content_edit,
-.content_delete {
-  -webkit-backdrop-filter: blur(15px);
-  backdrop-filter: blur(15px);
-  background-color: rgba(84, 86, 163);
-  text-align: center;
-  height: 100%;
-  width: 100%;
-  padding: 40px 0px;
-}
-.content_creat *,
-.content_see *,
-.content_edit *,
-.content_delete * {
-  text-align: center;
-}
-/* - contenedor de datos de la ventanita */
-
-/* + ventanita para crear registro */
-.form_create {
-  display: grid;
-  grid-template-rows: auto;
-  margin: auto;
-  width: 300px;
-}
-
-.form_create input[type="number"],
-.form_create input[type="datetime"],
-.form_create input[type="text"] {
-  width: 100%;
-}
-.form_create input[type="number"]:focus,
-.form_create input[type="datetime"]:focus,
-.form_create input[type="text"]:focus {
-  outline: none;
-}
-.form_create input[type="submit"] {
-  margin: auto;
-  margin-top: 1rem;
+#opc_subtract,
+#opc_add,
+#opc_delete {
   padding: 5px 20px;
-  border-radius: 2px;
-  width: auto;
-  background-color: rgb(150, 255, 44);
-  box-shadow: 0px 0px 10px 1px chartreuse;
 }
-
-/* - ventanita para crear registro */
-
-/* campos see */
-.content_see label {
-  background-color: transparent;
-  cursor: unset;
-  outline: none;
-  width: 100%;
-}
-.content_see input {
-  color: white;
-  text-align: center;
-  background-color: transparent;
-  cursor: unset;
-  outline: none;
-  width: 100%;
-}
-#listo_see {
-  color: white;
-  background-color: rgb(0, 163, 228);
-  box-shadow: 0px 0px 10px 1px rgb(10, 132, 189);
-}
-/* campos see */
-
-/* campos edit */
-.input_edit {
-  text-align: center;
-}
-.btn_submit_edit {
-  margin: auto;
-  padding: 10px 20px;
-  background-color: yellowgreen;
-  box-shadow: 0px 0px 10px 1px yellowgreen;
-  color: white;
-}
-/* campos edit */
-
-/* campos delete */
-.name_delete {
-  background: transparent;
-  color: white;
-  text-align: center;
-}
-.name_delete:focus {
-  outline: none;
-}
-.btn_submit_delete {
-  margin: auto;
-  padding: 10px 20px;
-  background-color: rgb(228, 19, 19);
-  box-shadow: 0px 0px 10px 1px rgb(228, 19, 19);
-  color: white;
-}
-/* campos delete */
-
-/* - popup */
