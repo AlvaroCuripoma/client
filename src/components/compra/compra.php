@@ -24,6 +24,7 @@
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
     <link rel="stylesheet" href="../../resource/css/main.css" />
     <link rel="stylesheet" href="compra.css" />
+    <script src="https://kit.fontawesome.com/e2f5225a3c.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="icon" href="../../resource/img/logo.jpg" type="image/x-icon">
     <title><?php echo basename(__FILE__); ?></title>
@@ -123,6 +124,10 @@
           include '../footer/footer.php';
         ?>
         <!-- footer -->
+        <div  id="button-up">
+              <i class="fas fa-cart-arrow-down"></i>
+            </div>
+        </div>
       </div>
     </div>
 

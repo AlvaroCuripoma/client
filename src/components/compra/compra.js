@@ -65,3 +65,14 @@ function comprar() {
   localStorage.setItem("id_prodc_elegido", JSON.stringify(id_prodc_elegido));
   window.location.replace("../carrito/carrito.php");
 }
+//Boton carrito//
+var button_up = document.getElementById("button-up");
+button_up.addEventListener("click" , function(){
+  
+  var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+  if (currentScroll > 0){
+      window.scrollTo (0, 0);
+  }
+  console.log("Hello")
+  window.location.replace("../carrito/carrito.php");
+});
