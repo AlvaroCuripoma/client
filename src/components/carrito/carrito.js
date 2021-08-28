@@ -3,7 +3,6 @@
 //=============================================================//
 const base = "http://127.0.0.1:8000/api";
 //=============================================================//
-
 // traemos id del usuario logeado
 var id_usuario = JSON.parse(localStorage.getItem("id_usuario"));
 
@@ -19,7 +18,7 @@ if (id_prodc_elegido != null) {
       localStorage.removeItem("id_prodc_elegido");
       producto.cantidad = 1;
       var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
-      if (carrito_compra[1].length === 0) {
+      if (!carrito_compra || carrito_compra[1].length === 0) {
         var carrito_compra = [
           { usuario: JSON.parse(localStorage.getItem("id_usuario")) },
           [producto],
@@ -55,56 +54,6 @@ if (id_prodc_elegido != null) {
 //=============================================================//
 
 //=============================================================//
-var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
-if (carrito_compra != null) {
-  var carrito = Array.from(carrito_compra[1]);
-  if (carrito) {
-    //=============================================================//
-    // IMPRIMIMOS DATOS EN EL CARRITO
-
-    $.each(carrito, (i, item) => {
-      var fila = document.createElement("tr");
-
-      var columna_1 = document.createElement("th");
-      columna_1.className = "body_iteam";
-      columna_1.scope = "row";
-      columna_1.appendChild(document.createTextNode(item.id));
-      var columna_2 = document.createElement("th");
-      columna_2.className = "body_iteam";
-      columna_2.appendChild(document.createTextNode(item.tipo_producto_fk));
-      var columna_3 = document.createElement("th");
-      columna_3.className = "body_iteam";
-      columna_3.appendChild(document.createTextNode(item.nombre));
-      var columna_4 = document.createElement("th");
-      columna_4.className = "body_iteam";
-      columna_4.appendChild(document.createTextNode(item.precio));
-      var columna_5 = document.createElement("th");
-      columna_5.className = "body_iteam";
-      columna_5.appendChild(document.createTextNode(item.cantidad));
-      var columna_6 = document.createElement("th");
-      columna_6.className = "body_iteam";
-      columna_6.appendChild(document.createTextNode(item.descripcion));
-
-      var fila_btns = document.createElement("tr");
-      fila_btns.className = "body_iteam";
-      fila_btns.id = "fila_btns";
-
-      fila.appendChild(columna_1);
-      fila.appendChild(columna_2);
-      fila.appendChild(columna_3);
-      fila.appendChild(columna_4);
-      fila.appendChild(columna_5);
-      fila.appendChild(columna_6);
-      fila.appendChild(fila_btns);
-      document.getElementById("fila").insertAdjacentElement("afterbegin", fila); //beforeend
-
-      var btn_1 = `<button onclick='subtract(${item.id})' class='btn btn-light'>restar</button>`;
-      var btn_2 = `<button onclick='add(${item.id})' class='btn btn-light'>sumar</button>`;
-      var btn_3 = `<button onclick='clearUp(${item.id})' class='btn btn-light'>borrar</button>`;
-      document.getElementById("fila_btns").innerHTML = btn_1 + btn_2 + btn_3;
-    });
-  }
-}
 
 function subtract(id) {
   console.log(id);
@@ -145,9 +94,80 @@ function clearUp(id) {
 
 //=============================================================//
 const btn_comprar = document.getElementById("btn_comprar");
-
-// ------------- start open view -------------
+const btn_elegir_producto = document.getElementById("btn_elegir_producto");
 btn_comprar.addEventListener("click", function () {
   window.location.replace("../compra/compra.php");
 });
-// ------------- finish open view -------------
+btn_elegir_producto.addEventListener("click", function () {
+  window.location.replace("../compra/compra.php");
+});
+
+
+//=============================================================//
+// HACER FACTURA
+//=============================================================//
+window.onload = function () {
+  const carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
+  const btn_comprar = document.getElementById("btn_comprar");
+  const hacer_factura = document.getElementById("hacer_factura");
+  const btn_elegir_producto = document.getElementById("btn_elegir_producto");
+  if (carrito_compra[1].length === 0) {
+    btn_comprar.style.display = 'none';
+    hacer_factura.style.display = 'none';
+    btn_elegir_producto.style.display = 'block';
+    console.log("No hay productos para hacer una compra");
+  } else {
+    btn_comprar.style.display = 'block';
+    hacer_factura.style.display = 'block';
+    btn_elegir_producto.style.display = 'none';
+    console.log("Si hay productos para hacer una compra");
+    //=============================================================//
+    // IMPRIMIMOS DATOS EN EL CARRITO
+    var carrito = Array.from(carrito_compra[1]);
+    if (carrito.length != 0) {
+      //=============================================================//
+      $.each(carrito, (i, item) => {
+        var fila = document.createElement("tr");
+        var columna_1 = document.createElement("th");
+        columna_1.className = "body_iteam";
+        columna_1.scope = "row";
+        columna_1.appendChild(document.createTextNode(item.id));
+        var columna_2 = document.createElement("th");
+        columna_2.className = "body_iteam";
+        columna_2.appendChild(document.createTextNode(item.tipo_producto_fk));
+        var columna_3 = document.createElement("th");
+        columna_3.className = "body_iteam";
+        columna_3.appendChild(document.createTextNode(item.nombre));
+        var columna_4 = document.createElement("th");
+        columna_4.className = "body_iteam";
+        columna_4.appendChild(document.createTextNode(item.precio));
+        var columna_5 = document.createElement("th");
+        columna_5.className = "body_iteam";
+        columna_5.appendChild(document.createTextNode(item.cantidad));
+        var columna_6 = document.createElement("th");
+        columna_6.className = "body_iteam";
+        columna_6.appendChild(document.createTextNode(item.descripcion));
+
+        var fila_btns = document.createElement("tr");
+        fila_btns.className = "body_iteam";
+        fila_btns.id = "fila_btns";
+
+        fila.appendChild(columna_1);
+        fila.appendChild(columna_2);
+        fila.appendChild(columna_3);
+        fila.appendChild(columna_4);
+        fila.appendChild(columna_5);
+        fila.appendChild(columna_6);
+        fila.appendChild(fila_btns);
+        document
+          .getElementById("fila")
+          .insertAdjacentElement("afterbegin", fila); //beforeend
+
+        var btn_1 = `<button onclick='subtract(${item.id})' class='btn btn-light'>restar</button>`;
+        var btn_2 = `<button onclick='add(${item.id})' class='btn btn-light'>sumar</button>`;
+        var btn_3 = `<button onclick='clearUp(${item.id})' class='btn btn-light'>borrar</button>`;
+        document.getElementById("fila_btns").innerHTML = btn_1 + btn_2 + btn_3;
+      });
+    }
+  }
+};

@@ -39,8 +39,8 @@ if (isset($_SESSION['id_user'])) {
             <p>C O M P R A S</p>
           </div>
 
-          <div class="container_comprar">
-            <button id="btn_comprar" class="my_btn">añadir más</button>
+          <div class="container_comprar" id="btn_comprar">
+            <button class="btn_anadir_mas">añadir más</button>
           </div>
           <div class="container">
             <table class="table">
@@ -59,17 +59,20 @@ if (isset($_SESSION['id_user'])) {
               </tbody>
             </table>
             <div class="container">
-              <button type="button" class="btn btn-warning" type="button">Factura</button>
+              <button type="button" class="my_btn" id="hacer_factura" type="button">Hacer factura</button>
+            </div>
+            <div class="elegir_productos" id="elegir_productos">
+              <button type="button" class="my_btn" id="btn_elegir_producto">Elegir producto</button>
             </div>
           </div>
-          <!-- finish content -->
-          
-          <!-- footer -->
-          <?php
-          include '../../components/footer/footer.php';
-          ?>
-          <!-- footer -->
         </div>
+        <!-- finish content -->
+        
+        <!-- footer -->
+        <?php
+        include '../../components/footer/footer.php';
+        ?>
+        <!-- footer -->
       </div>
     </div>
     <script src="carrito.js"></script>

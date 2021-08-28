@@ -34,112 +34,114 @@ if (isset($_SESSION['id_user'])) {
         <!-- navegation -->
         
         <!-- start content -->
+        <div class="content_general">
 
-        <div class="contaier_titulo">
-          <h1 class="titulo">START PLATINUM</h1>
-        </div>
+          <div class="contaier_titulo">
+            <h1 class="titulo">START PLATINUM</h1>
+          </div>
 
-        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="../../resource/img/carrucel/carrucel_1.jpg" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Servicios</h5>
-                <p>Ofrecemos los mejores planes</p>
+          <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../../resource/img/carrucel/carrucel_1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Servicios</h5>
+                  <p>Ofrecemos los mejores planes</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Planes</h5>
+                  <p>Los mejores precio</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_3.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Servico</h5>
+                  <p>El mejor servicio</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_4.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Servico</h5>
+                  <p>Ofrecemos un servicio personalizado</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_5.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Servico</h5>
+                  <p>Ofrecemos un servicio personalizado</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_6.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Servico</h5>
+                  <p>Ofrecemos un servicio personalizado</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_7.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Servico</h5>
+                  <p>Ofrecemos un servicio personalizado</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_8.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Servico</h5>
+                  <p>Ofrecemos un servicio personalizado</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_9.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Servico</h5>
+                  <p>Ofrecemos un servicio personalizado</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../../resource/img/carrucel/carrucel_10.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Servico</h5>
+                  <p>Ofrecemos un servicio personalizado</p>
+                </div>
               </div>
             </div>
-            <div class="carousel-item">
-              <img src="../../resource/img/carrucel/carrucel_2.jpg" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Planes</h5>
-                <p>Los mejores precio</p>
-              </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+          <div class="container_informacion">
+            <h1>INFORMACIÓN</h1>
+            <div class="mision">
+              <h2>MISIÓN</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis dicta aperiam mollitia vitae, consequuntur error modi et, delectus velit aut est nisi eaque libero incidunt ad qui molestias consectetur veritatis.</p>
             </div>
-            <div class="carousel-item">
-              <img src="../../resource/img/carrucel/carrucel_3.jpg" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Servico</h5>
-                <p>El mejor servicio</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="../../resource/img/carrucel/carrucel_4.jpg" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Servico</h5>
-                <p>Ofrecemos un servicio personalizado</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="../../resource/img/carrucel/carrucel_5.jpg" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Servico</h5>
-                <p>Ofrecemos un servicio personalizado</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="../../resource/img/carrucel/carrucel_6.jpg" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Servico</h5>
-                <p>Ofrecemos un servicio personalizado</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="../../resource/img/carrucel/carrucel_7.jpg" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Servico</h5>
-                <p>Ofrecemos un servicio personalizado</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="../../resource/img/carrucel/carrucel_8.png" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Servico</h5>
-                <p>Ofrecemos un servicio personalizado</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="../../resource/img/carrucel/carrucel_9.jpg" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Servico</h5>
-                <p>Ofrecemos un servicio personalizado</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="../../resource/img/carrucel/carrucel_10.jpg" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Servico</h5>
-                <p>Ofrecemos un servicio personalizado</p>
-              </div>
+            <div class="vision">
+              <h2>VISIÓN</h2>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque distinctio illo explicabo autem itaque. Facilis doloremque tempore ratione quis, praesentium repellendus. Odit iure earum tempore voluptas nobis dolor aut reiciendis?
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
+          <!-- finish content -->
 
-        <div class="container_informacion">
-          <h1>INFORMACIÓN</h1>
-          <div class="mision">
-            <h2>MISIÓN</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis dicta aperiam mollitia vitae, consequuntur error modi et, delectus velit aut est nisi eaque libero incidunt ad qui molestias consectetur veritatis.</p>
-          </div>
-          <div class="vision">
-            <h2>VISIÓN</h2>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque distinctio illo explicabo autem itaque. Facilis doloremque tempore ratione quis, praesentium repellendus. Odit iure earum tempore voluptas nobis dolor aut reiciendis?
-          </div>
+          <!-- footer -->
+          <?php
+            include '../../components/footer/footer.php';
+          ?>
+          <!-- footer -->
         </div>
-        <!-- finish content -->
-
-        <!-- footer -->
-        <?php
-          include '../../components/footer/footer.php';
-        ?>
-        <!-- footer -->
       </div>
     </div>
     <script src="../dashboard/dashboard.js"></script>

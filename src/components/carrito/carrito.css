@@ -15,18 +15,28 @@ p {
 /* - titulo */
 /* + tabla de datos */
 .container_comprar {
+  margin: auto;
+  text-align: right;
   max-width: 1200px;
   width: 100%;
+}
+.btn_anadir_mas {
+  color: white;
+  padding: 5px 30px;
+  background: transparent;
+  border: 2px solid white;
   text-align: right;
-  margin: auto;
 }
-#opc_comprar {
-  position: relative;
-  top: 20px;
-  right: 2%;
+.btn_anadir_mas:hover {
+  background: white;
+  color: black;
+  border: 2px solid white;
 }
-
 /* + muestra lista de datos*/
+.table {
+  max-width: 1200px;
+  width: 100%;
+}
 .table * {
   color: white;
 }
@@ -49,4 +59,8 @@ p {
 #opc_add,
 #opc_delete {
   padding: 5px 20px;
+}
+
+.elegir_productos {
+  width: 100%;
 }

@@ -1,11 +1,24 @@
 <style>
     /* nagiation */
   .navegation {
+    position: fixed;
+    max-width:  1900px;
+    min-width: auto;
     background-color: #2874A6;
     display: flex;
     justify-content: space-between;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    color: white;
+    line-height: 4rem;
+    height: auto;
   }
   .logo_nav {
+    display: inline-block;
     width: 95px;
     height: 95px;
   }
@@ -46,7 +59,7 @@
 
 <!-- navegation -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <div class="loader-page"></div>
+  <!-- <div class="loader-page"></div> -->
   <nav class="navegation nav">
     <img
     class="logo_nav"
@@ -58,7 +71,7 @@
       <li class="nav-item"><a id="btn_dashboard" class="btn fs-5">dashboard</a></li>
       <li class="nav-item"><a id="ver_comprar_productos" class="btn fs-5">Comprar</a></li>
     
-      <?php if (!empty($_SESSION['id_user']) && isset($_SESSION['id_user']) && $result['rol_fk'] == '1') {?>
+      <?php if (isset($_SESSION['id_user']) && $result['rol_fk'] == '1') {?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle btn fs-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Crear datos</a>
           <ul class="dropdown-menu">
