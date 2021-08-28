@@ -102,7 +102,6 @@ btn_elegir_producto.addEventListener("click", function () {
   window.location.replace("../compra/compra.php");
 });
 
-
 //=============================================================//
 // HACER FACTURA
 //=============================================================//
@@ -112,14 +111,14 @@ window.onload = function () {
   const hacer_factura = document.getElementById("hacer_factura");
   const btn_elegir_producto = document.getElementById("btn_elegir_producto");
   if (carrito_compra[1].length === 0) {
-    btn_comprar.style.display = 'none';
-    hacer_factura.style.display = 'none';
-    btn_elegir_producto.style.display = 'block';
+    btn_comprar.style.display = "none";
+    hacer_factura.style.display = "none";
+    btn_elegir_producto.style.display = "block";
     console.log("No hay productos para hacer una compra");
   } else {
-    btn_comprar.style.display = 'block';
-    hacer_factura.style.display = 'block';
-    btn_elegir_producto.style.display = 'none';
+    btn_comprar.style.display = "block";
+    hacer_factura.style.display = "block";
+    btn_elegir_producto.style.display = "none";
     console.log("Si hay productos para hacer una compra");
     //=============================================================//
     // IMPRIMIMOS DATOS EN EL CARRITO
