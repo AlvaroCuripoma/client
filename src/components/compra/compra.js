@@ -4,7 +4,6 @@ const grid = new Muuri(".grid", {
   },
 });
 
-var id_prodc_elegido = null;
 var iduser = null;
 window.addEventListener("load", () => {
   grid.refreshItems().layout();
@@ -45,7 +44,10 @@ window.addEventListener("load", () => {
       overlay.classList.add("activo");
       document.querySelector("#overlay img").src = ruta;
       document.querySelector("#overlay .descripcion").innerHTML = descripcion;
-      id_prodc_elegido = elemento.parentNode.parentNode.dataset.idproducto;
+      localStorage.setItem(
+        "id_prodc_elegido",
+        JSON.stringify(elemento.parentNode.parentNode.dataset.idproducto)
+      );
       iduser = elemento.parentNode.parentNode.dataset.iduser;
     });
   });
@@ -62,17 +64,72 @@ window.addEventListener("load", () => {
 // Eventlistener btn comparar
 function comprar() {
   localStorage.setItem("id_usuario", JSON.stringify(iduser));
-  localStorage.setItem("id_prodc_elegido", JSON.stringify(id_prodc_elegido));
-  window.location.replace("../carrito/carrito.php");
+  //=============================================================//
+  // CARRITO DE COMPRAS
+  //=============================================================//
+  const base = "http://127.0.0.1:8000/api";
+  //=============================================================//
+  // traemos id del usuario logeado
+  var id_usuario = JSON.parse(localStorage.getItem("id_usuario"));
+
+  // traemos el carrito de compra
+  var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
+
+  // traemos id de producto elegido
+  var id_prodc_elegido = JSON.parse(localStorage.getItem("id_prodc_elegido"));
+  if (id_prodc_elegido != null) {
+    fetch(`${base}/productos/show/${id_prodc_elegido}`)
+      .then((producto) => producto.json())
+      .then((producto) => {
+        localStorage.removeItem("id_prodc_elegido");
+        producto.cantidad = 1;
+        var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
+        if (!carrito_compra || carrito_compra[1].length === 0) {
+          var carrito_compra = [
+            { usuario: JSON.parse(localStorage.getItem("id_usuario")) },
+            [producto],
+          ];
+          localStorage.setItem(
+            "carrito_compra",
+            JSON.stringify(carrito_compra)
+          );
+        } else {
+          var carrito_compra = JSON.parse(
+            localStorage.getItem("carrito_compra")
+          );
+          var agregar = false;
+          $.each(Array.from(carrito_compra[1]), (i, producto_carrito) => {
+            if (parseInt(id_prodc_elegido) === producto_carrito.id) {
+              agregar = false;
+            } else {
+              agregar = true;
+            }
+          });
+          if (agregar) {
+            // carrito de compra
+            var carrito_compra = JSON.parse(
+              localStorage.getItem("carrito_compra")
+            );
+            carrito_compra[1].push(producto);
+            localStorage.setItem(
+              "carrito_compra",
+              JSON.stringify(carrito_compra)
+            );
+            localStorage.removeItem("producto_elegido");
+          }
+        }
+      });
+  }
+  //=============================================================//
+  window.location.reload("../carrito/carrito.php");
 }
 //Boton carrito//
 var button_up = document.getElementById("button-up");
-button_up.addEventListener("click" , function(){
-  
-  var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-  if (currentScroll > 0){
-      window.scrollTo (0, 0);
+button_up.addEventListener("click", function () {
+  var currentScroll =
+    document.documentElement.scrollTop || document.body.scrollTop;
+  if (currentScroll > 0) {
+    window.scrollTo(0, 0);
   }
-  console.log("Hello")
   window.location.replace("../carrito/carrito.php");
 });

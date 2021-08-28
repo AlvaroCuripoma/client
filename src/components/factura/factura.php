@@ -14,19 +14,22 @@
     <div class="container_page">
       <div class="content_page">
         <!-- navegation -->
+        <div class="noprint">
         <?php
             include '../navegation/navegation.php';
           ?>
+        </div>
         <!-- navegation -->
 
         <!-- http://localhost/proyect/client/src/components/factura/factura.php -->
         <div class="content_general">
-          <div class="btn_print">
-            <a href="javascript:window.print()">Imprimir</a>
+          
+          <div class="btn_print noprint">
+            <a class="my_btn" onclick="imprimir_factura('paper_to_print')">Imprimir</a>
           </div>
 
-          <div class="paper">
-            <header class="row">
+          <div class="paper" id="paper_to_print">
+            <header class="row printthis">
               <div class="logoholder text-center">
                 <img src="../../resource/img/logo.jpg" />
               </div>
@@ -63,7 +66,7 @@
               <!--.bank-->
             </header>
     
-            <div class="row section">
+            <div class="row section detall">
               <div class="col-2">
                 <h1 contenteditable>Factura</h1>
               </div>
@@ -87,18 +90,7 @@
                   [Tel empresa]
                 </p>
               </div>
-              <!--.col-->
-    
-              <div class="col-2">
-                <p contenteditable class="client">
-                  <strong>Enviar a</strong><br />
-                  [Nombre cliente]<br />
-                  [Nombre emmpresa]<br />
-                  [Dirección empresa]<br />
-                  [Tel empresa]
-                </p>
-              </div>
-              <!--.col-->
+
             </div>
             <!--.row-->
     
@@ -151,7 +143,7 @@
                   </tr>
                 </tbody>
               </table>
-              <a class="control newRow" href="#">+ Nueva fila</a>
+              <a class="control newRow noprint" href="#">+ Nueva fila</a>
             </div>
             <!--.invoice-body-->
     
@@ -184,9 +176,11 @@
         </div>
         <!-- finish content -->
         <!-- footer -->
+        <div class="noprint">
         <?php
             include '../footer/footer.php';
           ?>
+        </div>
         <!-- footer -->
       </div>
     </div>

@@ -41,7 +41,7 @@ if (isset($_SESSION['id_user'])) {
           </div>
 
           <div class="container_comprar" id="btn_comprar">
-            <button class="btn_anadir_mas">añadir más</button>
+            <button class="btn_anadir_mas">Añadir más</button>
           </div>
           <div class="container">
             <table class="table">
@@ -59,7 +59,7 @@ if (isset($_SESSION['id_user'])) {
               <tbody id="fila">
               </tbody>
             </table>
-            <div class="container">
+            <div class="container_btn_factura">
               <button type="button" class="my_btn" id="hacer_factura" type="button">Hacer factura</button>
             </div>
             <div class="elegir_productos" id="elegir_productos">

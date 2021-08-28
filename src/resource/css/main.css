@@ -9,14 +9,6 @@
   font-size: 20px;
   word-wrap: break-word;
 }
-.my_btn {
-  margin: auto;
-  margin-top: 1rem;
-  padding: 5px 20px;
-  border-radius: 2px;
-  width: auto;
-  color: black;
-}
 @font-face {
   font-family: "Tangiang";
   src: url(../font/Tangiang.otf);
@@ -35,18 +27,16 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
 }
 .my_btn {
-  display: block;
   color: white;
   padding: 5px 30px;
   background: transparent;
-  border: 2px solid white;
+  border: 1px solid white;
+  text-align: right;
 }
 .my_btn:hover {
   background: white;
   color: black;
-  border: 2px solid white;
 }
-
 .container_page {
   background: black;
   background: linear-gradient(135deg, black, #0077a7);
@@ -131,39 +121,30 @@ body::-webkit-scrollbar-thumb {
   left: 0;
   right: 0;
   z-index: 100;
-  color: white;
   line-height: 4rem;
   height: auto;
+}
+.my_a {
+  color: white;
+}
+.my_a:hover {
+  color: white;
+}
+.my_a:focus {
+  color: white;
 }
 .logo_nav {
   display: inline-block;
   width: 95px;
   height: 95px;
 }
-.nav {
-  color: white;
-}
-.nav * {
-  color: white;
-}
-.nav li * {
-  background-color: #2874a6;
-}
-.nav li *:hover {
-  color: white;
-}
-.nav li *:focus {
-  color: white;
-}
-.nav li ul li *:hover {
-  color: black;
-}
-.btn {
-  padding-top: 25px;
+.dropdown {
+  padding: 0.7rem 0rem;
 }
 /*===========================================================================*/
 /* - navegation */
 /*===========================================================================*/
+
 /*===========================================================================*/
 /* + footer */
 /*===========================================================================*/

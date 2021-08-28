@@ -1,59 +1,4 @@
 //=============================================================//
-// CARRITO DE COMPRAS
-//=============================================================//
-const base = "http://127.0.0.1:8000/api";
-//=============================================================//
-// traemos id del usuario logeado
-var id_usuario = JSON.parse(localStorage.getItem("id_usuario"));
-
-// traemos el carrito de compra
-var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
-
-// traemos id de producto elegido
-var id_prodc_elegido = JSON.parse(localStorage.getItem("id_prodc_elegido"));
-if (id_prodc_elegido != null) {
-  fetch(`${base}/productos/show/${id_prodc_elegido}`)
-    .then((producto) => producto.json())
-    .then((producto) => {
-      localStorage.removeItem("id_prodc_elegido");
-      producto.cantidad = 1;
-      var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
-      if (!carrito_compra || carrito_compra[1].length === 0) {
-        var carrito_compra = [
-          { usuario: JSON.parse(localStorage.getItem("id_usuario")) },
-          [producto],
-        ];
-        localStorage.setItem("carrito_compra", JSON.stringify(carrito_compra));
-      } else {
-        var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
-        var agregar = false;
-        $.each(Array.from(carrito_compra[1]), (i, producto_carrito) => {
-          console.log(parseInt(id_prodc_elegido));
-          console.log(producto_carrito.id);
-          if (parseInt(id_prodc_elegido) === producto_carrito.id) {
-            agregar = false;
-          } else {
-            agregar = true;
-          }
-        });
-        if (agregar) {
-          // carrito de compra
-          var carrito_compra = JSON.parse(
-            localStorage.getItem("carrito_compra")
-          );
-          carrito_compra[1].push(producto);
-          localStorage.setItem(
-            "carrito_compra",
-            JSON.stringify(carrito_compra)
-          );
-          localStorage.removeItem("producto_elegido");
-        }
-      }
-    });
-}
-//=============================================================//
-
-//=============================================================//
 
 function subtract(id) {
   console.log(id);
@@ -111,15 +56,16 @@ window.onload = function () {
   const hacer_factura = document.getElementById("hacer_factura");
   const btn_elegir_producto = document.getElementById("btn_elegir_producto");
   if (carrito_compra[1].length === 0) {
-    btn_comprar.style.display = "none";
-    hacer_factura.style.display = "none";
-    btn_elegir_producto.style.display = "block";
-    console.log("No hay productos para hacer una compra");
+    btn_comprar.style.visibility = "hidden";
+    hacer_factura.style.visibility = "hidden";
+    btn_elegir_producto.style.visibility = "visible";
   } else {
-    btn_comprar.style.display = "block";
-    hacer_factura.style.display = "block";
-    btn_elegir_producto.style.display = "none";
-    console.log("Si hay productos para hacer una compra");
+    btn_comprar.style.visibility = "visible";
+    hacer_factura.style.visibility = "visible";
+    btn_elegir_producto.style.visibility = "hidden";
+    hacer_factura.addEventListener('click', () => {
+      window.location.replace('../factura/factura.php');
+    });
     //=============================================================//
     // IMPRIMIMOS DATOS EN EL CARRITO
     var carrito = Array.from(carrito_compra[1]);
@@ -162,11 +108,12 @@ window.onload = function () {
           .getElementById("fila")
           .insertAdjacentElement("afterbegin", fila); //beforeend
 
-        var btn_1 = `<button onclick='subtract(${item.id})' class='btn btn-light'>restar</button>`;
-        var btn_2 = `<button onclick='add(${item.id})' class='btn btn-light'>sumar</button>`;
-        var btn_3 = `<button onclick='clearUp(${item.id})' class='btn btn-light'>borrar</button>`;
+        var btn_1 = `<button onclick='subtract(${item.id})' class='my_btn'>restar</button>`;
+        var btn_2 = `<button onclick='add(${item.id})' class='my_btn'>sumar</button>`;
+        var btn_3 = `<button onclick='clearUp(${item.id})' class='my_btn'>borrar</button>`;
         document.getElementById("fila_btns").innerHTML = btn_1 + btn_2 + btn_3;
       });
     }
+    hacer_factura.addEventListener("click", () => {});
   }
 };
