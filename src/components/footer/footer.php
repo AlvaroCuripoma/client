@@ -3,7 +3,7 @@
     <div class="py-5 px-3">
         <div class="row">
             <div class="col-12 col-lg-2 mb-3">
-                <h5>redes sociales</h5>
+                <h5 class="redes">Redes sociales</h5>
                 <table>
                     <tr><a href="#" class="icono_1">f</a></tr>
                     <tr><a href="#" class="icono_1">3</a></tr>
