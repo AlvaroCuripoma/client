@@ -43,7 +43,7 @@
         <table class="table_list_prod">
           <tr class="heder_table">
             <div class="container_create">
-              <button id="opc_create" class="my_btn">crear</button>
+              <button id="opc_create" class="my_btn btn_crear">crear</button>
             </div>
             <tr>
               <td class="heder_iteam">número</td>
@@ -68,9 +68,9 @@
               <td class="body_iteam"><?php echo $tipo_producto['id'] ?></td>
               <td class="body_iteam"><?php echo $tipo_producto['nombre'] ?></td>
               <td class="body_iteam">
-                <button onclick="see(<?php echo $tipo_producto['id'] ?>)" id="opc_see" class="my_btn">ver</button>
-                <button onclick="edit(<?php echo $tipo_producto['id'] ?>)" id="opc_edit" class="my_btn">editar</button>
-                <button onclick="cleanUp(<?php echo $tipo_producto['id'] ?>)" id="opc_delete" class="my_btn">borrar</button>
+                <button onclick="see(<?php echo $tipo_producto['id'] ?>)" id="opc_see" class="my_btn btn_ver">ver</button>
+                <button onclick="edit(<?php echo $tipo_producto['id'] ?>)" id="opc_edit" class="my_btn btn_editar">editar</button>
+                <button onclick="cleanUp(<?php echo $tipo_producto['id'] ?>)" id="opc_delete" class="my_btn btn_eliminar">borrar</button>
               </td>
             </tr>
             <?php
@@ -92,7 +92,7 @@
                 <form action="create.php" method="post" class="form_create">
                   <label for="name">nombre</label>
                   <input type="text" name="name" id="name">
-                  <input type="submit" class="my_btn" value="crear">
+                  <input type="submit" class="my_btn btn_crear" value="crear">
                 </form>
               </div>
             </div>
@@ -119,7 +119,7 @@
                 <input type="datetime" name="data_see" id="created_at_see" readonly>
                 <label for="updated_at_see">fecha última actualización</label>
                 <input type="datetime" name="data_see" id="updated_at_see" readonly>
-                <button id="listo_see" class="my_btn">Listo</button>
+                <button id="listo_see" class="my_btn btn_ver">Listo</button>
               </div>
             </div>
           </div>
@@ -142,7 +142,7 @@
                   <input class="input_edit" type="number" name="state_edit" id="state_edit">
                   <label for="name_edit">name</label>
                   <input class="input_edit" type="text" name="name_edit" id="name_edit">
-                  <input type="submit" class="my_btn" value="send">
+                  <input type="submit" class="my_btn btn_editar" value="send">
                 </form>
               </div>
             </div>
@@ -171,7 +171,7 @@
                   type="number" 
                   style="visibility: hidden; width: 100%;"
                   >
-                  <input class="btn_submit_delete" type="submit" class="my_btn" value="Borrar">
+                  <input type="submit" class="my_btn btn_eliminar" value="Borrar">
                 </form>
               </div>
             </div>

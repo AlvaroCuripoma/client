@@ -24,7 +24,7 @@
         <main>
           <!------------------------------------------------------------------------>
           <div class="caja__trasera">
-            <div class="caja__trasera-register">
+            <div class="caja__trasera-login">
               <h3>¿Aún no tienes cuenta?</h3>
               <p>Registrate para que puedas Iniciar Sesión</p>
               <button id="btn__registrarse">Registrarse</button>

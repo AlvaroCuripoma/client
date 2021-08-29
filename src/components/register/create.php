@@ -43,8 +43,9 @@
             if (isset($result['id'])) {
                 echo "<script>
                 localStorage.setItem('register', '5');
-                window.location = '../buy/buy.php';
                 </script>";
+                header("Location: ../compra/compra.php");
+                exit();
             }
             if (isset($result['message'])) {
                 echo "<script>
@@ -52,6 +53,8 @@
                     localStorage.setItem('nom_register', '');
                     window.location = 'register.php';
                     </script>";
+                header("Location: register.php");
+                exit();
             }
             // datos del usuario
             $data = [
@@ -79,9 +82,9 @@
             if (isset($result['id'])) {
                 echo "<script>
                 localStorage.setItem('register', '3');
-                window.location = '../buy/buy.php';
                 </script>";
                 $_SESSION['id_user'] = $result['id'];
+                header("Location: ../compra/compra.php");
                 exit();
             }
             //============================//
@@ -89,11 +92,11 @@
             //============================//
             if (isset($result['nombres'])) {
                 echo "<script>
-                    window.location = 'register.php';
                     localStorage.setItem('register', '2');
                     </script>";
+                    header("Location: register.php");
+                    exit();
             }
-            exit();
         }
         $data = [
             "visible" => true,
@@ -120,9 +123,10 @@
         if (isset($result['id'])) {
             echo "<script>
             localStorage.setItem('register', '3');
-            window.location = '../buy/buy.php';
             </script>";
             $_SESSION['id_user'] = $result['id'];
+            header("Location: ../compra/compra.php");
+            exit();
         }
         //=============================//
         // CUANDO EL USUARIO YA EXISTE //
@@ -130,8 +134,9 @@
         if (isset($result['nombres'])) {
             echo "<script>
             localStorage.setItem('register', '2');
-            window.location = 'register.php';
             </script>";
+            header("Location: register.php");
+            exit();
         }
     } else {
         //=============================================//
@@ -139,8 +144,8 @@
         //=============================================//
         echo "<script>
         localStorage.setItem('register', '1');
-        window.location = 'register.php';
         </script>";
+        header("Location: register.php");
     }
     exit();
     ?>

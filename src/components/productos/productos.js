@@ -12,36 +12,54 @@ const close_delete = document.getElementById("close_delete");
 const listo_see = document.getElementById("listo_see");
 
 // ------------- muestra ventanita
-opc_create.addEventListener("click", function () {
-  document.getElementById("view_create").classList.add("visible");
-});
-opc_see.addEventListener("click", function () {
-  document.getElementById("view_see").classList.add("visible");
-});
-opc_edit.addEventListener("click", function () {
-  document.getElementById("view_edit").classList.add("visible");
-});
-opc_delete.addEventListener("click", function () {
-  document.getElementById("view_delete").classList.add("visible");
-});
+if (opc_create) {
+  opc_create.addEventListener("click", function () {
+    document.getElementById("view_create").classList.add("visible");
+  });
+}
+if (opc_see) {
+  opc_see.addEventListener("click", function () {
+    document.getElementById("view_see").classList.add("visible");
+  });
+}
+if (opc_edit) {
+  opc_edit.addEventListener("click", function () {
+    document.getElementById("view_edit").classList.add("visible");
+  });
+}
+if (opc_delete){
+  opc_delete.addEventListener("click", function () {
+    document.getElementById("view_delete").classList.add("visible");
+  });
+}
 // ------------- muestra ventanita
 
 // ------------- cierra ventanita
-listo_see.addEventListener("click", function () {
-  document.getElementById("view_see").classList.remove("visible");
-});
-close_create.addEventListener("click", function () {
-  document.getElementById("view_create").classList.remove("visible");
-});
-close_see.addEventListener("click", function () {
-  document.getElementById("view_see").classList.remove("visible");
-});
-close_edit.addEventListener("click", function () {
-  document.getElementById("view_edit").classList.remove("visible");
-});
-close_delete.addEventListener("click", function () {
-  document.getElementById("view_delete").classList.remove("visible");
-});
+if (listo_see) {
+  listo_see.addEventListener("click", function () {
+    document.getElementById("view_see").classList.remove("visible");
+  });
+}
+if (close_create) {
+  close_create.addEventListener("click", function () {
+    document.getElementById("view_create").classList.remove("visible");
+  });
+}
+if (close_see) {
+  close_see.addEventListener("click", function () {
+    document.getElementById("view_see").classList.remove("visible");
+  });
+}
+if (close_edit) {
+  close_edit.addEventListener("click", function () {
+    document.getElementById("view_edit").classList.remove("visible");
+  });
+}
+if (close_delete) {
+  close_delete.addEventListener("click", function () {
+    document.getElementById("view_delete").classList.remove("visible");
+  });
+}
 // ------------- cierra ventanita
 
 const base = "http://127.0.0.1:8000/api";

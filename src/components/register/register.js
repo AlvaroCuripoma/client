@@ -18,23 +18,29 @@ cbox_cuenta_banco.addEventListener("click", () => {
 //----------------------------------------------------------//
 // MOSTRAMOS MENSAJES DE ACUERDO AL NUMERO EN LOCAL STORAGE //
 //----------------------------------------------------------//
-const tipo_error = localStorage.getItem('register');
+const tipo_error = localStorage.getItem("register");
 switch (tipo_error) {
-    case '1':
-        document.getElementById('sms_llene_campos').classList.remove('sms_llene_campos');
-        document.getElementById('sms_llene_campos').classList.add('mostrar');
-        localStorage.removeItem('register');
-        break;
-    case '2':
-        document.getElementById('sms_inicie_session').classList.remove('sms_inicie_session');
-        document.getElementById('sms_inicie_session').classList.add('mostrar');
-        localStorage.removeItem('register');
-        break;
-    case '4':
-        document.getElementById('sms_cuenta_banco').classList.remove('sms_cuenta_banco');
-        document.getElementById('sms_cuenta_banco').classList.add('mostrar');
-        localStorage.removeItem('register');
-        break;
-    default:
-        break;
+  case "1":
+    document
+      .getElementById("sms_llene_campos")
+      .classList.remove("sms_llene_campos");
+    document.getElementById("sms_llene_campos").classList.add("mostrar");
+    localStorage.removeItem("register");
+    break;
+  case "2":
+    document
+      .getElementById("sms_inicie_session")
+      .classList.remove("sms_inicie_session");
+    document.getElementById("sms_inicie_session").classList.add("mostrar");
+    localStorage.removeItem("register");
+    break;
+  case "4":
+    document
+      .getElementById("sms_cuenta_banco")
+      .classList.remove("sms_cuenta_banco");
+    document.getElementById("sms_cuenta_banco").classList.add("mostrar");
+    localStorage.removeItem("register");
+    break;
+  default:
+    break;
 }

@@ -1,3 +1,4 @@
+var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
 const grid = new Muuri(".grid", {
   layout: {
     rounding: false,
@@ -69,12 +70,6 @@ function comprar() {
   //=============================================================//
   const base = "http://127.0.0.1:8000/api";
   //=============================================================//
-  // traemos id del usuario logeado
-  var id_usuario = JSON.parse(localStorage.getItem("id_usuario"));
-
-  // traemos el carrito de compra
-  var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
-
   // traemos id de producto elegido
   var id_prodc_elegido = JSON.parse(localStorage.getItem("id_prodc_elegido"));
   if (id_prodc_elegido != null) {
@@ -99,9 +94,9 @@ function comprar() {
           );
           var agregar = false;
           $.each(Array.from(carrito_compra[1]), (i, producto_carrito) => {
-            if (parseInt(id_prodc_elegido) === producto_carrito.id) {
+            if (parseInt(id_prodc_elegido) === parseInt(producto_carrito.id)) {
               agregar = false;
-            } else {
+            } else{
               agregar = true;
             }
           });
@@ -133,3 +128,13 @@ button_up.addEventListener("click", function () {
   }
   window.location.replace("../carrito/carrito.php");
 });
+
+if (carrito_compra && carrito_compra[1] && carrito_compra[1].length > 0) {
+  var cantidadProd = null;
+  $.each(Array.from(carrito_compra[1]),(i, producto) => {
+    cantidadProd += producto.cantidad;
+  });
+  document.getElementById("cantidad_prod_carrito").value = cantidadProd;
+} else {
+  document.getElementById("cantidad_prod_carrito").value = "0";
+}

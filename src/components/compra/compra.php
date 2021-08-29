@@ -112,7 +112,9 @@
                   <?php if (!empty($_SESSION['id_user'])) { ?>
                   <button onclick="comprar()" class="comprar">Añadir al carrito</button>
                   <?php } else {?>
-                    <p><a href="../login/login.php">Inicia session</a> para poder comprar</p>
+                    <div class="sms_debes_iniciar_session">
+                      <p>Primero debes <a href="../login/login.php">iniciar sesión</a>.</p>
+                    </div>
                   <?php }?>
                 </section>
               
@@ -124,13 +126,25 @@
           include '../footer/footer.php';
         ?>
         <!-- footer -->
-        <div  id="button-up">
-              <i class="fas fa-cart-arrow-down"></i>
-            </div>
+
+        <!-- burbuja carrito-->
+        <div id="button-up">
+          <input 
+          class="cantidad_prod_carrito" 
+          type="text"
+          name="cantidad_prod_carrito" 
+          id="cantidad_prod_carrito"
+          value=""
+          readonly
+          >
+          <i class="fas fa-cart-arrow-down"></i>
         </div>
+        <div class="onda">
+        </div>
+        <!-- burbuja carrito-->
+
       </div>
     </div>
-
     <script src="https://unpkg.com/web-animations-js@2.3.2/web-animations.min.js"></script>
     <script src="https://unpkg.com/muuri@0.8.0/dist/muuri.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>

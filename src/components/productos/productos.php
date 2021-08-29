@@ -43,7 +43,7 @@ if (isset($_SESSION['id_user'])) {
         <table class="table_list_prod">
           <tr class="heder_table">
             <div class="container_create">
-              <button id="opc_create" class="my_btn">crear</button>
+              <button id="opc_create" class="my_btn btn_crear">crear</button>
             </div>
             <tr>
               <td class="heder_iteam">número</td>
@@ -77,9 +77,9 @@ if (isset($_SESSION['id_user'])) {
                 <td class="body_iteam"><?php echo $producto['cantidad'] ?></td>
                 <td class="body_iteam"><?php echo $producto['descripcion'] ?></td>
                 <td class="body_iteam">
-                  <button onclick="see(<?php echo $producto['id'] ?>)" id="opc_see" class="my_btn">ver</button>
-                  <button onclick="edit(<?php echo $producto['id'] ?>)" id="opc_edit" class="my_btn">editar</button>
-                  <button onclick="cleanUp(<?php echo $producto['id'] ?>)" id="opc_delete" class="my_btn">borrar</button>
+                  <button onclick="see(<?php echo $producto['id'] ?>)" id="opc_see" class="my_btn btn_ver">ver</button>
+                  <button onclick="edit(<?php echo $producto['id'] ?>)" id="opc_edit" class="my_btn btn_editar">editar</button>
+                  <button onclick="cleanUp(<?php echo $producto['id'] ?>)" id="opc_delete" class="my_btn btn_eliminar">borrar</button>
                 </td>
               </tr>
               <?php
@@ -134,7 +134,7 @@ if (isset($_SESSION['id_user'])) {
               <input type="number" name="cantidad_creat" id="cantidad_creat">
               <label for="descripcion_creat">descripción</label>
               <input type="text" name="descripcion_creat" id="descripcion_creat">
-              <input type="submit" class="my_btn" value="Crear">
+              <input type="submit" class="my_btn btn_crear" value="Crear">
             </form>
           </div>
         </div>
@@ -152,7 +152,7 @@ if (isset($_SESSION['id_user'])) {
             <label for="id_see">id</label>
             <input type="number" name="id_see" id="id_see" readonly>
             <label for="visible_see">visible</label>
-            <input type="number" name="visible_see" id="visible_see">
+            <input type="number" name="visible_see" id="visible_see" readonly>
             <label for="state_see">estado</label>
             <input type="number" name="state_see" id="state_see" readonly>
             <label for="tipo_producto_see">tipo de producto</label>
@@ -173,7 +173,7 @@ if (isset($_SESSION['id_user'])) {
             <input type="datetime" name="created_at_see" id="created_at_see" readonly>
             <label for="updated_at_see">fecha última actualización</label>
             <input type="datetime" name="updated_at_see" id="updated_at_see" readonly>
-            <button id="listo_see" class="my_btn">Listo</button>
+            <button id="listo_see" class="my_btn btn_ver">Listo</button>
           </div>
         </div>
       </div>
@@ -188,54 +188,54 @@ if (isset($_SESSION['id_user'])) {
           <div class="content_edit">
             <h3>Editar</h3>
             <form action="actualizar.php" method="post" class="form_create">
-            <label for="id_edit">id</label>
-            <input type="number" name="id_edit" id="id_edit">
-            <label for="visible_edit">visible</label>
-            <input type="number" name="visible_edit" id="visible_edit">
-            <label for="state_edit">estado</label>
-            <input type="number" name="state_edit" id="state_edit">
-            <label for="tipo_producto_creat">tipo de producto</label>
-            <select 
-            type="text"
-            name="tipo_producto_edit" 
-            class="opcines_tipo_producto"
-            autocomplete="on"
-            >
-              <option class="opc_tipo_producto"></option>
-              <!--  -->
-              <?php
-                include '../../../environment/environment_api.php';
-                $url = $base . "/tipos_productos";
-                $tipos_productos = CurlHelper::perform_http_request(
-                  'GET', 
-                  $url
-                );
-                $tipos_productos = json_decode($tipos_productos, true);
-                foreach ($tipos_productos as $tipo_producto) {
-              ?>
-                <option class="opc_tipo_producto"><?php echo $tipo_producto['nombre'] ?></option>
-              <?php 
-              }
-              ?>
-              <!--  -->
-            </select>
-            <label for="name_edit">nombre</label>
-            <input type="text" name="name_edit" id="name_edit" placeholder="type product">
-            <label for="fecha_fabricacion_edit">fecha fabricación</label>
-            <input type="datetime" name="fecha_fabricacion_edit" id="fecha_fabricacion_edit" placeholder="type product">
-            <label for="fecha_vencimiento_edit">fecha vencimiento</label>
-            <input type="datetime" name="fecha_vencimiento_edit" id="fecha_vencimiento_edit" placeholder="type product">
-            <label for="precio_edit">precio</label>
-            <input type="number" step="any" name="precio_edit" id="precio_edit" placeholder="type product">
-            <label for="cantidad_edit">cantidad</label>
-            <input type="number" name="cantidad_edit" id="cantidad_edit" placeholder="type product">
-            <label for="descripcion_edit">descripción</label>
-            <input type="text" name="descripcion_edit" id="descripcion_edit" placeholder="type product">
-            <label for="created_at_edit">fecha de creación</label>
-            <input type="datetime" name="created_at_edit" id="created_at_edit">
-            <label for="updated_at_edit">fecha última actualización</label>
-            <input type="datetime" name="updated_at_edit" id="updated_at_edit">
-            <input type="submit" class="my_btn" value="send">
+              <label for="id_edit">id</label>
+              <input type="number" name="id_edit" id="id_edit">
+              <label for="visible_edit">visible</label>
+              <input type="number" name="visible_edit" id="visible_edit">
+              <label for="state_edit">estado</label>
+              <input type="number" name="state_edit" id="state_edit">
+              <label for="tipo_producto_creat">tipo de producto</label>
+              <select 
+              type="text"
+              name="tipo_producto_edit" 
+              class="opcines_tipo_producto"
+              autocomplete="on"
+              >
+                <option class="opc_tipo_producto"></option>
+                <!--  -->
+                <?php
+                  include '../../../environment/environment_api.php';
+                  $url = $base . "/tipos_productos";
+                  $tipos_productos = CurlHelper::perform_http_request(
+                    'GET', 
+                    $url
+                  );
+                  $tipos_productos = json_decode($tipos_productos, true);
+                  foreach ($tipos_productos as $tipo_producto) {
+                ?>
+                  <option class="opc_tipo_producto"><?php echo $tipo_producto['nombre'] ?></option>
+                <?php 
+                }
+                ?>
+                <!--  -->
+              </select>
+              <label for="name_edit">nombre</label>
+              <input type="text" name="name_edit" id="name_edit" placeholder="type product">
+              <label for="fecha_fabricacion_edit">fecha fabricación</label>
+              <input type="datetime" name="fecha_fabricacion_edit" id="fecha_fabricacion_edit" placeholder="type product">
+              <label for="fecha_vencimiento_edit">fecha vencimiento</label>
+              <input type="datetime" name="fecha_vencimiento_edit" id="fecha_vencimiento_edit" placeholder="type product">
+              <label for="precio_edit">precio</label>
+              <input type="number" step="any" name="precio_edit" id="precio_edit" placeholder="type product">
+              <label for="cantidad_edit">cantidad</label>
+              <input type="number" name="cantidad_edit" id="cantidad_edit" placeholder="type product">
+              <label for="descripcion_edit">descripción</label>
+              <input type="text" name="descripcion_edit" id="descripcion_edit" placeholder="type product">
+              <label for="created_at_edit">fecha de creación</label>
+              <input type="datetime" name="created_at_edit" id="created_at_edit">
+              <label for="updated_at_edit">fecha última actualización</label>
+              <input type="datetime" name="updated_at_edit" id="updated_at_edit">
+              <input type="submit" class="my_btn btn_editar" value="send">
             </form>
           </div>
         </div>
@@ -251,14 +251,14 @@ if (isset($_SESSION['id_user'])) {
           <div class="content_delete">
           <h3>¿Seguro quieres eliminar?</h3>
             <form action="eliminar.php" method="post">
-              <input class="name_delete" type="text" name="name_delete" id="name_delete">
+              <input class="name_delete" type="text" name="name_delete" id="name_delete" readonly>
               <input 
               id="id_delete" 
               name="id_delete" 
               type="number" 
               style="visibility: hidden; width: 100%;"
               >
-              <input class="my_btn" type="submit" value="Borrar">
+              <input class="my_btn btn_eliminar" type="submit" value="Borrar">
             </form>
           </div>
         </div>

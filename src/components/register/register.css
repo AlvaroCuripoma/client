@@ -1,14 +1,14 @@
+
 main {
   width: 100%;
   padding: 20px;
   margin: auto;
-}
-.register {
-  margin: 160px  0px 350px 0px;
+  margin-top: 200px;
+  padding-bottom: 500px;
 }
 .caja__trasera {
   width: 100%;
-  height: 350px;
+  height: auto;
 }
 .caja__trasera-register {
   backdrop-filter: blur(10px);
@@ -16,10 +16,11 @@ main {
   color: white;
   border-radius: 3%;
   transition: all 500ms;
-  height: 100%;
-  width: 800px;
   padding: 90px 0px 0px 80px;
   margin: auto;
+  text-align: left;
+  height: 350px;
+  width: 900px;
 }
 .caja__trasera div p,
 .caja__trasera div button {
@@ -44,9 +45,7 @@ main {
   max-width: 500px;
   width: 100%;
   position: relative;
-  top: -100px;
   left: 55%;
-  padding: 0px 10px 0px 10px;
   transition: left 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation: moveForm 0.2s linear;
 }
@@ -133,13 +132,13 @@ input[type="email"] {
   display: block;
 }
 .opcines_tipo_cuenta {
-  margin: auto;
-  margin-top: 20px;
-  margin-left: 55px;
-  background-color: rgb(0, 236, 177);
-  width: 200px;
-  height: 20px;
-  outline: none;
+  width: 100%;
+  background-color: rgb(0, 153, 255);
+  color: white;
+}
+.opcines_tipo_cuenta:focus {
+  width: 100%;
+  color: black;
 }
 .opc_tipo_cuenta {
   background-color: rgb(255, 255, 255);

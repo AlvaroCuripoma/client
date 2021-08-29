@@ -1,4 +1,4 @@
-.content_general{ 
+.content_general {
   padding: 0px 0px 100px 0px;
 }
 /* + titulo */
@@ -34,7 +34,7 @@
   max-width: 1200px;
   width: 100%;
   height: auto;
-  border: 1px solid #016c97;
+  border: 1px solid rgb(0, 107, 200);
 }
 .heder_table {
   max-width: 1200px;
@@ -43,7 +43,7 @@
   padding: 0.5rem 0rem 0.5rem 0rem;
 }
 .heder_iteam {
-  background-color: #016c97;
+  background-color: rgb(0, 107, 200);
   color: white;
   padding: 0.7rem;
   text-align: center;
@@ -59,23 +59,6 @@
   color: white;
   text-align: center;
 }
-#opc_see,
-#opc_edit,
-#opc_delete {
-  margin: 0;
-}
-#opc_create:hover {
-  background-color: rgb(75, 255, 75);
-}
-#opc_see:hover {
-  background-color: rgb(25, 119, 241);
-}
-#opc_edit:hover {
-  background-color: rgb(255, 179, 0);
-}
-#opc_delete:hover {
-  background-color: rgb(243, 31, 31);
-}
 /* - muestra lista de datos*/
 
 /* + popup */
@@ -84,7 +67,12 @@
   color: white;
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
-  background-color: rgba(154, 156, 255, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(15, 84, 230, 0.8) 0%,
+    rgba(112, 77, 251, 0.8) 50%,
+    rgba(11, 162, 230, 0.8) 100%
+  );
   position: fixed;
   top: 0px;
   bottom: 0;
@@ -157,6 +145,7 @@
 .form_create {
   display: grid;
   grid-template-rows: auto;
+  row-gap: 10px;
   margin: auto;
   width: 300px;
 }
@@ -173,12 +162,7 @@
 }
 .form_create input[type="submit"] {
   margin: auto;
-  margin-top: 1rem;
-  padding: 5px 20px;
-  border-radius: 2px;
   width: auto;
-  background-color: rgb(150, 255, 44);
-  box-shadow: 0px 0px 10px 1px chartreuse;
 }
 
 /* - ventanita para crear registro */
@@ -197,11 +181,6 @@
   cursor: unset;
   outline: none;
   width: 100%;
-}
-#listo_see {
-  color: white;
-  background-color: rgb(0, 163, 228);
-  box-shadow: 0px 0px 10px 1px rgb(10, 132, 189);
 }
 /* campos see */
 
@@ -226,13 +205,6 @@
 }
 .name_delete:focus {
   outline: none;
-}
-.btn_submit_delete {
-  margin: auto;
-  padding: 10px 20px;
-  background-color: rgb(228, 19, 19);
-  box-shadow: 0px 0px 10px 1px rgb(228, 19, 19);
-  color: white;
 }
 /* campos delete */
 

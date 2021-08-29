@@ -1,6 +1,7 @@
 <?php
   ini_set('display_errors', '1');
   include '../../../environment/environment_api.php';
+  $result = null;
   if (isset($_SESSION['id_user'])) {
     $result = CurlHelper::perform_http_request(
       'GET',
@@ -13,40 +14,43 @@
 <!-- navegation -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <!-- <div class="loader-page"></div> -->
-  <nav class="navegation nav">
-    <img
-    class="logo_nav"
-    src="../../resource/img/logo.jpg"
-    alt="logo de la empresa"
-    />
+  <nav class="nav">
+    <a href="../dashboard/dashboard.php">
+      <img
+      class="logo_nav"
+      src="../../resource/img/logo.jpg"
+      alt="logo de la empresa"
+      />
+    </a>
     <ul class="nav justify-content-end">
-      <li class="nav-item"><a id="btn_carrito" class="btn">Carrito</a></li>
-      <li class="nav-item"><a id="btn_dashboard" class="btn">dashboard</a></li>
-      <li class="nav-item"><a id="ver_comprar_productos" class="btn">Comprar</a></li>
+      <li><a id="btn_carrito" class="my_a">Carrito</a></li>
+      <li><a id="btn_dashboard" class="my_a">dashboard</a></li>
+      <li><a id="ver_comprar_productos" class="my_a">Comprar</a></li>
     
-      <?php if (isset($_SESSION['id_user']) && $result['rol_fk'] == '1') {?>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle btn" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Crear datos</a>
+      <?php if ($result && !empty($_SESSION) && isset($_SESSION['id_user']) && $result['rol_fk'] == '1') { ?>
+      <li class=" dropdown">
+        <a class="dropdown-toggle my_a" data-bs-toggle="dropdown">Crear datos</a>
         <ul class="dropdown-menu">
-          <li><button class="btn btn-light" id="btn_crear_roles">roles</button></li>
-          <li><button class="btn btn-light" id="btn_crear_tipo_cuenta_bancaria">tipo cuenta bancaria</button></li>
-          <li><button class="btn btn-light" id="btn_crear_tipo_producto">tipo produto</button></li>
-          <li><button class="btn btn-light"id="btn_crear_productos">productos</button></li>
+          <li><a class="my_a" id="btn_crear_roles">roles</a></li>
+          <li><a class="my_a" id="btn_crear_tipo_cuenta_bancaria">tipo cuenta bancaria</a></li>
+          <li><a class="my_a" id="btn_crear_tipo_producto">tipo produto</a></li>
+          <li><a class="my_a"id="btn_crear_productos">productos</a></li>
         </ul>
       </li>
-      <?php }?>
+      <?php } ?>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle btn" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-          <?php if (empty($_SESSION['id_user']) && isset($_SESSION['id_user'])) {echo $result['nombres'];}else {echo 'usuario';}
+      <li class=" dropdown">
+        <a class="dropdown-toggle my_a" data-bs-toggle="dropdown" >
+          <?php 
+            if ($result && !empty($_SESSION) && isset($_SESSION['id_user'])) {echo $result['nombres'];}else {echo 'usuario';}
           ?>
         </a>
         <ul class="dropdown-menu">
         <?php if (!isset($_SESSION['id_user'])) {?>
-          <li><button class="btn btn-light" id="btn_register">Register</button></li>
-          <li><button class="btn btn-light" id="btn_login">Login</button></li>
+          <li><a class="my_a" id="btn_register">Register</a></li>
+          <li><a class="my_a" id="btn_login">Login</a></li>
         <?php }else {?>
-          <li><button  class="btn btn-light" id="btn_logout">Logout</button></li>
+          <li><a  class="my_a" id="btn_logout">Logout</a></li>
         <?php }?>
         </ul>
       </li>

@@ -207,6 +207,12 @@ td,
 th {
   padding: 0;
 }
+.btn_factura {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  text-align: right;
+}
 .btn_print {
   max-width: 1000px;
   width: 100%;
@@ -226,11 +232,10 @@ th {
 }
 
 .paper {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 6rem auto 0;
   max-width: 800px;
   background: white;
-  padding: 2rem;
+  padding: 5rem 2rem 5rem 2rem;
 }
 
 .container {
@@ -384,8 +389,10 @@ p {
 
 header {
   margin: 1rem 0 0;
-  padding: 0 0 2rem 0;
+  padding: 0 0 1rem 0;
+  width: 100%;
   border-bottom: 3pt solid #009688;
+  margin: auto;
 }
 
 header p {
@@ -416,7 +423,7 @@ header a {
 }
 
 .info {
-  width: 30%;
+  width: 50%;
 }
 
 .bank {
@@ -584,8 +591,6 @@ footer {
 footer p {
   font-size: 0.8rem;
 }
-
-
 
 /*===========================================================================*/
 /* + IMPRIME LA FACTURA */
@@ -812,10 +817,19 @@ footer p {
     border-collapse: collapse;
     border-spacing: 0;
   }
-
+  .my_table {
+    position: relative;
+    top: -120px;
+  }
   td,
   th {
     padding: 0;
+  }
+  .btn_factura {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    text-align: right;
   }
   .btn_print {
     max-width: 1000px;
@@ -836,11 +850,9 @@ footer p {
   }
 
   .paper {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 6rem auto 0;
+    position: relative;
     max-width: 800px;
     background: white;
-    padding: 2rem;
   }
 
   .container {
@@ -887,7 +899,7 @@ footer p {
     position: relative;
     display: block;
     width: 100%;
-    font-size: 0;
+    top: -100px;
   }
 
   .col,
@@ -993,9 +1005,13 @@ footer p {
   }
 
   header {
+    position: relative;
     margin: 1rem 0 0;
     padding: 0 0 2rem 0;
+    width: 100%;
     border-bottom: 3pt solid #009688;
+    margin: auto;
+    top: -120px;
   }
 
   header p {
@@ -1026,7 +1042,7 @@ footer p {
   }
 
   .info {
-    width: 30%;
+    width: 50%;
   }
 
   .bank {

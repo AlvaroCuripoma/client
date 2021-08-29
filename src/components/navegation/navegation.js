@@ -31,7 +31,8 @@ btn_carrito.addEventListener("click", function () {
 });
 if (btn_logout) {
   btn_logout.addEventListener("click", function () {
-    localStorage.removeItem("data");
+    localStorage.removeItem('id_usuario');
+    localStorage.removeItem('carrito_compra');
     window.location.replace("../navegation/logout.php");
   });
 }

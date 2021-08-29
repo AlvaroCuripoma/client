@@ -42,71 +42,71 @@ if (isset($_SESSION['id_user'])) {
 
           <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../../resource/img/carrucel/carrucel_1.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-item active" data-bs-interval="1500">
+                <img src="../../resource/img/carrucel/carrucel_1.jpg" class="d-block w-100" alt="imagen de nuestros servicios">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Servicios</h5>
                   <p>Ofrecemos los mejores planes</p>
                 </div>
               </div>
-              <div class="carousel-item">
-                <img src="../../resource/img/carrucel/carrucel_2.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-item" data-bs-interval="1500">
+                <img src="../../resource/img/carrucel/carrucel_2.jpg" class="d-block w-100" alt="imagen de nuestros servicios">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Planes</h5>
                   <p>Los mejores precio</p>
                 </div>
               </div>
-              <div class="carousel-item">
-                <img src="../../resource/img/carrucel/carrucel_3.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-item" data-bs-interval="1500">
+                <img src="../../resource/img/carrucel/carrucel_3.jpg" class="d-block w-100" alt="imagen de nuestros servicios">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Servico</h5>
                   <p>El mejor servicio</p>
                 </div>
               </div>
-              <div class="carousel-item">
-                <img src="../../resource/img/carrucel/carrucel_4.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-item" data-bs-interval="1500">
+                <img src="../../resource/img/carrucel/carrucel_4.jpg" class="d-block w-100" alt="imagen de nuestros servicios">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Servico</h5>
                   <p>Ofrecemos un servicio personalizado</p>
                 </div>
               </div>
-              <div class="carousel-item">
-                <img src="../../resource/img/carrucel/carrucel_5.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-item" data-bs-interval="1500">
+                <img src="../../resource/img/carrucel/carrucel_5.jpg" class="d-block w-100" alt="imagen de nuestros servicios">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Servico</h5>
                   <p>Ofrecemos un servicio personalizado</p>
                 </div>
               </div>
-              <div class="carousel-item">
-                <img src="../../resource/img/carrucel/carrucel_6.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-item" data-bs-interval="1500">
+                <img src="../../resource/img/carrucel/carrucel_6.jpg" class="d-block w-100" alt="imagen de nuestros servicios">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Servico</h5>
                   <p>Ofrecemos un servicio personalizado</p>
                 </div>
               </div>
-              <div class="carousel-item">
-                <img src="../../resource/img/carrucel/carrucel_7.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-item" data-bs-interval="1500">
+                <img src="../../resource/img/carrucel/carrucel_7.jpg" class="d-block w-100" alt="imagen de nuestros servicios">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Servico</h5>
                   <p>Ofrecemos un servicio personalizado</p>
                 </div>
               </div>
-              <div class="carousel-item">
-                <img src="../../resource/img/carrucel/carrucel_8.png" class="d-block w-100" alt="...">
+              <div class="carousel-item" data-bs-interval="1500">
+                <img src="../../resource/img/carrucel/carrucel_8.png" class="d-block w-100" alt="imagen de nuestros servicios">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Servico</h5>
                   <p>Ofrecemos un servicio personalizado</p>
                 </div>
               </div>
-              <div class="carousel-item">
-                <img src="../../resource/img/carrucel/carrucel_9.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-item" data-bs-interval="1500">
+                <img src="../../resource/img/carrucel/carrucel_9.jpg" class="d-block w-100" alt="imagen de nuestros servicios">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Servico</h5>
                   <p>Ofrecemos un servicio personalizado</p>
                 </div>
               </div>
-              <div class="carousel-item">
-                <img src="../../resource/img/carrucel/carrucel_10.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-item" data-bs-interval="1500">
+                <img src="../../resource/img/carrucel/carrucel_10.jpg" class="d-block w-100" alt="imagen de nuestros servicios">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Servico</h5>
                   <p>Ofrecemos un servicio personalizado</p>
@@ -136,12 +136,12 @@ if (isset($_SESSION['id_user'])) {
           </div>
           <!-- finish content -->
 
-          <!-- footer -->
-          <?php
-            include '../../components/footer/footer.php';
-          ?>
-          <!-- footer -->
         </div>
+        <!-- footer -->
+        <?php
+          include '../../components/footer/footer.php';
+        ?>
+        <!-- footer -->
       </div>
     </div>
     <script src="../dashboard/dashboard.js"></script>
