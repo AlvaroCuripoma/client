@@ -40,9 +40,9 @@
 }
 /*==================*/
 
-/*==================*/
+/*===========================================================================*/
 /* + patalla cargando */
-/*==================*/
+/*===========================================================================*/
 .loader-page {
   position: fixed;
   z-index: 25000;
@@ -65,7 +65,7 @@
   box-sizing: border-box;
   border-left: 2px solid rgba(50, 150, 176, 0);
   border-top: 2px solid rgba(50, 150, 176, 0);
-  animation: rotarload 2s linear infinite;
+  animation: rotarload 0.3s linear infinite;
   transform: rotate(0deg);
 }
 @keyframes rotarload {
@@ -89,9 +89,9 @@
   animation: rotarload 1s ease-out infinite;
   transform: rotate(0deg);
 }
-/*==================*/
+/*===========================================================================*/
 /* - patalla cargando */
-/*==================*/
+/*===========================================================================*/
 
 /*===========================================================================*/
 /* + navegation */

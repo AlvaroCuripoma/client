@@ -22,19 +22,19 @@
       />
     </a>
     <ul class="nav justify-content-end">
-      <li class="nav-item"><a id="btn_carrito" class="my_a">Carrito</a></li>
-      <li class="nav-item"><a id="btn_dashboard" class="my_a">Dashboard</a></li>
-      <li class="nav-item"><a id="ver_comprar_productos" class="my_a">Comprar</a></li>
+      <li class="nav-item"><a href="../carrito/carrito.php" class="my_a">Carrito</a></li>
+      <li class="nav-item"><a href="../dashboard/dashboard.php" class="my_a">Dashboard</a></li>
+      <li class="nav-item"><a href="../compra/compra.php" class="my_a">Comprar</a></li>
     
       <?php if ($result && !empty($_SESSION) && isset($_SESSION['id_user']) && $result['rol_fk'] == '1') { ?>
       <li class="nav-item dropdown">
         <a class="dropdown-toggle my_a" data-bs-toggle="dropdown">Crear datos</a>
         <ul class="dropdown-menu">
         <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item my_a_dropdown" id="btn_crear_roles">Roles</a></li>
-          <li><a class="dropdown-item my_a_dropdown" id="btn_crear_tipo_cuenta_bancaria">Tipo cuenta bancaria</a></li>
-          <li><a class="dropdown-item my_a_dropdown" id="btn_crear_tipo_producto">Tipo produto</a></li>
-          <li><a class="dropdown-item my_a_dropdown"id="btn_crear_productos">Productos</a></li>
+          <li><a class="dropdown-item my_a_dropdown" href="../roles/roles.php">Roles</a></li>
+          <li><a class="dropdown-item my_a_dropdown" href="../tipo_cuenta_bancaria/tipo_cuenta_bancaria.php">Tipo cuenta bancaria</a></li>
+          <li><a class="dropdown-item my_a_dropdown" href="../tipo_producto/tipo_producto.php">Tipo produto</a></li>
+          <li><a class="dropdown-item my_a_dropdown" href="../productos/productos.php">Productos</a></li>
         </ul>
       </li>
       <?php } ?>
@@ -47,10 +47,10 @@
         </a>
         <ul class="dropdown-menu">
         <?php if (!isset($_SESSION['id_user'])) {?>
-          <li><a class="my_a_dropdown" id="btn_register">Register</a></li>
-          <li><a class="my_a_dropdown" id="btn_login">Login</a></li>
+          <li><a class="my_a_dropdown" href="../register/register.php">Register</a></li>
+          <li><a class="my_a_dropdown" href="../login/login.php">Login</a></li>
         <?php }else {?>
-          <li><a  class="my_a_dropdown" id="btn_logout">Logout</a></li>
+          <li><a  class="my_a_dropdown" href="../navegation/logout.php" id="btn_logout">Logout</a></li>
         <?php }?>
         </ul>
       </li>

@@ -90,7 +90,7 @@ input[type="email"] {
   opacity: 1;
   display: block;
 }
-.formulario__register form p {
+.quiero_log{
   margin: 50px 0 0 0;
   float: right;
   display: none;
@@ -115,7 +115,7 @@ input[type="email"] {
     top: 200px;
     text-align: center;
   }
-  .formulario__register form p {
+  .quiero_log {
     float: none;
     display: block;
   }

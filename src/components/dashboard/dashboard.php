@@ -20,7 +20,6 @@ if (isset($_SESSION['id_user'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="../../resource/css/main.css" />
     <link rel="stylesheet" href="dashboard.css" />
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <link rel="icon" href="../../resource/img/logo.jpg" type="image/x-icon">
     <title><?php echo basename(__FILE__); ?></title>
   </head>
@@ -145,8 +144,8 @@ if (isset($_SESSION['id_user'])) {
         <!-- footer -->
       </div>
     </div>
-    <script src="../dashboard/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="dashboard.js"></script>
     <script src="../../resource/js/main.js"></script>
   </body>
 </html>

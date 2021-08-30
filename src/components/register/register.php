@@ -149,17 +149,15 @@ if (isset($_SESSION['id_user'])) {
               class="opcines_tipo_cuenta"
               autocomplete="on"
               >
-                <option class="opc_tipo_cuenta">Pichincha</option>
+                <option class="opc_tipo_cuenta">Banco Pichincha</option>
                 <option class="opc_tipo_cuenta">Produbanco</option>
+                <option class="opc_tipo_cuenta">Diners Club</option>
                 <option class="opc_tipo_cuenta">Banco de Guayaquil</option>
                 <option class="opc_tipo_cuenta">Banco del Pacífico</option>
-                
               </select>
             </div>
-            <button>Registrarse</button>
-            <div>
-              <p>Quiero <a href="../login/login.php">iniciar sesión</a>.</p>
-            </div>
+            <button id="registrarse">Registrarse</button>
+            <p class="quiero_log">Quiero <a href="../login/login.php">iniciar sesión</a>.</p>
           </form>
         </div>
      

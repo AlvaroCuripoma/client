@@ -1,3 +1,7 @@
+window.onload = function () {
+  $(".loader-page").css({ visibility: "hidden", opacity: "0" });
+};
+
 //===========================================================================//
 // + IMPRIMIENDO DATOS DE LA FACTURA
 const base = "http://127.0.0.1:8000/api";
@@ -19,10 +23,11 @@ sumaFecha = function (d, fecha) {
   var fechaFinal = dia + sep + mes + sep + anno;
   return fechaFinal;
 };
-window.onload = () => {
-  const tiempoTranscurrido = Date.now();
-  const hoy = new Date(tiempoTranscurrido);
-  const id_user = JSON.parse(localStorage.getItem("id_usuario"));
+
+const tiempoTranscurrido = Date.now();
+const hoy = new Date(tiempoTranscurrido);
+const id_user = JSON.parse(localStorage.getItem("id_usuario"));
+if (id_user) {
   fetch(`${base}/clientes/show/${id_user}`)
     .then((res) => res.json())
     .then((usuario) => {
@@ -95,18 +100,24 @@ window.onload = () => {
   }
   const iva = 0.12;
   document.getElementById("iva").innerHTML = `Iva: ${iva} %`;
-  document.getElementById("total").innerHTML = `Total: $ ${total + (total * iva)}`;
+  document.getElementById("total").innerHTML = `Total: $ ${
+    total + total * iva
+  }`;
   document.getElementById("nota").innerHTML = `Nota: Sin comentarios`;
-};
-// - IMPRIMIENDO DATOS DE LA FACTURA
-//===========================================================================//
 
-//===========================================================================//
-// + IMPRIMIENDO FACTURA
-function imprimir_factura(id) {
-  var paper = document.getElementById(id);
-  paper.className = paper.className.replace("noprint", "printme");
-  window.print();
+  // - IMPRIMIENDO DATOS DE LA FACTURA
+  //===========================================================================//
+
+  //===========================================================================//
+  // + IMPRIMIENDO FACTURA
+  function imprimir_factura(id) {
+    var paper = document.getElementById(id);
+    paper.className = paper.className.replace("noprint", "printme");
+    window.print();
+  }
+  // - IMPRIMIENDO FACTURA
+  //===========================================================================//
+} else {
+  alert("Tu carrito de compra esta vacío!.\nCompra al menos un producto.");
+  window.location.replace("../carrito/carrito.php");
 }
-// - IMPRIMIENDO FACTURA
-//===========================================================================//

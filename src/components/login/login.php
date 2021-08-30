@@ -59,7 +59,7 @@
                 autocomplete="on"
               />
 
-              <button>Entrar</button>
+              <button id="login">Entrar</button>
              
                 <p>Quiero <a href="../register/register.php">registrarme</a>.</p>
               
