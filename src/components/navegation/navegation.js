@@ -31,8 +31,8 @@ btn_carrito.addEventListener("click", function () {
 });
 if (btn_logout) {
   btn_logout.addEventListener("click", function () {
-    localStorage.removeItem('id_usuario');
-    localStorage.removeItem('carrito_compra');
+    localStorage.removeItem("id_usuario");
+    localStorage.removeItem("carrito_compra");
     window.location.replace("../navegation/logout.php");
   });
 }
@@ -59,7 +59,3 @@ if (
   });
 }
 //_____________ FIN LINKS _____________
-
-window.onload = function () {
-  $(".loader-page").css({ visibility: "hidden", opacity: "0" });
-};

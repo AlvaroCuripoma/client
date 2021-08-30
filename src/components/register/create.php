@@ -1,5 +1,4 @@
 <?php
-
     session_start();
     // ==================================================================== //
     // VERIFICAMOS DATOS DEL USUARIO PARA REGISTRARLO O RECORDALE SU CUENTA //
@@ -45,16 +44,12 @@
                 localStorage.setItem('register', '5');
                 </script>";
                 header("Location: ../compra/compra.php");
-                exit();
             }
             if (isset($result['message'])) {
                 echo "<script>
                     localStorage.setItem('register', '4');
-                    localStorage.setItem('nom_register', '');
-                    window.location = 'register.php';
+                    window.location.replace('register.php');
                     </script>";
-                header("Location: register.php");
-                exit();
             }
             // datos del usuario
             $data = [
@@ -80,12 +75,11 @@
             // CUANDO EL USUARIO NO EXISTE, SE CREARÁ EL USUARIO //
             //==================================================//
             if (isset($result['id'])) {
+                $_SESSION['id_user'] = $result['id'];
                 echo "<script>
                 localStorage.setItem('register', '3');
+                window.location.replace('../compra/compra.php');
                 </script>";
-                $_SESSION['id_user'] = $result['id'];
-                header("Location: ../compra/compra.php");
-                exit();
             }
             //============================//
             // CUAND EL USUARIO YA EXISTE //
@@ -93,9 +87,8 @@
             if (isset($result['nombres'])) {
                 echo "<script>
                     localStorage.setItem('register', '2');
+                    window.location.replace('register.php');
                     </script>";
-                    header("Location: register.php");
-                    exit();
             }
         }
         $data = [
@@ -121,12 +114,11 @@
         // CUANDO EL USUARIO NO EXISTE, SE CREARÁ EL USUARIO //
         //===================================================//
         if (isset($result['id'])) {
+            $_SESSION['id_user'] = $result['id'];
             echo "<script>
             localStorage.setItem('register', '3');
+            window.location.replace('../compra/compra.php');
             </script>";
-            $_SESSION['id_user'] = $result['id'];
-            header("Location: ../compra/compra.php");
-            exit();
         }
         //=============================//
         // CUANDO EL USUARIO YA EXISTE //
@@ -134,9 +126,8 @@
         if (isset($result['nombres'])) {
             echo "<script>
             localStorage.setItem('register', '2');
+            window.location.replace('register.php');
             </script>";
-            header("Location: register.php");
-            exit();
         }
     } else {
         //=============================================//
@@ -144,8 +135,7 @@
         //=============================================//
         echo "<script>
         localStorage.setItem('register', '1');
+        window.location.replace('register.php');
         </script>";
-        header("Location: register.php");
     }
-    exit();
     ?>

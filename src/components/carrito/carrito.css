@@ -114,7 +114,7 @@ input[type="number"] {
 
 /* - pedir inicio de sessión */
 .sms_debes_iniciar_session {
-  width: 400px;
+  max-width: 400px;
   margin: auto;
   background-color: white;
   color: black;

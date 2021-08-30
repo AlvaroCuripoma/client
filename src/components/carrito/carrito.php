@@ -24,6 +24,7 @@ if (isset($_SESSION['id_user'])) {
     <title><?php echo basename(__FILE__); ?></title>
   </head>
   <body>
+    <div class="loader-page"></div>
     <div class="container_page">
       <div class="content_page">
         <!-- navegation -->
@@ -138,6 +139,7 @@ if (isset($_SESSION['id_user'])) {
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="carrito.js"></script>
+    <script src="../../resource/js/main.js"></script>
   </body>
 </html>
 <!-- boton de ir haci arriva-->

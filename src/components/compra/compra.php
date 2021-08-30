@@ -17,6 +17,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap"
     rel="stylesheet"
@@ -25,11 +26,11 @@
     <link rel="stylesheet" href="../../resource/css/main.css" />
     <link rel="stylesheet" href="compra.css" />
     <script src="https://kit.fontawesome.com/e2f5225a3c.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="icon" href="../../resource/img/logo.jpg" type="image/x-icon">
     <title><?php echo basename(__FILE__); ?></title>
   </head>
   <body>
+    <div class="loader-page"></div>
     <div class="container_page">
       <div class="content_page">
         <!-- navegation -->
@@ -110,7 +111,7 @@
                   </div>
                   <p class="descripcion" style="text-align: justify"></p>
                   <?php if (!empty($_SESSION['id_user'])) { ?>
-                  <button onclick="comprar()" class="comprar">Añadir al carrito</button>
+                  <button onclick="comprar()" class="btn btn_editar comprar">Añadir al carrito</button>
                   <?php } else {?>
                     <div class="sms_debes_iniciar_session">
                       <p>Primero debes <a href="../login/login.php">iniciar sesión</a>.</p>
@@ -149,5 +150,6 @@
     <script src="https://unpkg.com/muuri@0.8.0/dist/muuri.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="compra.js"></script>
+    <script src="../../resource/js/main.js"></script>
   </body>
 </html>

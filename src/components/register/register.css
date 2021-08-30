@@ -1,14 +1,10 @@
-
-main {
-  width: 100%;
-  padding: 20px;
-  margin: auto;
-  margin-top: 200px;
+.content_general {
+  min-width: 100%;
+  margin-top: 150px;
   padding-bottom: 500px;
 }
 .caja__trasera {
   width: 100%;
-  height: auto;
 }
 .caja__trasera-register {
   backdrop-filter: blur(10px);
@@ -39,13 +35,11 @@ main {
   background: #fff;
   color: #13161a;
 }
-.contenedor__login-register {
-  display: flex;
-  align-items: center;
-  max-width: 500px;
+.contenedor__register {
   width: 100%;
   position: relative;
-  left: 55%;
+  top: -400px;
+  left: 800px;
   transition: left 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation: moveForm 0.2s linear;
 }
@@ -55,24 +49,24 @@ main {
     opacity: 0.7;
   }
   to {
-    left: 55%;
+    left: 800px;
   }
 }
-.contenedor__login-register form {
-  width: 100%;
+.contenedor__register form {
+  max-width: 500px;
   padding: 0px 20px 80px 20px;
   background: #fff;
   position: absolute;
   border-radius: 20px;
 }
-.contenedor__login-register form h2 {
-  text-align: center;
-  margin-bottom: 15px;
-  color: #000000;
+.contenedor__register form h3 {
   position: relative;
-  top: 50px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: black;
+  top: 60px;
 }
-.contenedor__login-register form input[type="number"],
+.contenedor__register form input[type="number"],
 input[type="text"],
 input[type="password"],
 input[type="email"] {
@@ -83,7 +77,7 @@ input[type="email"] {
   background: #f2f2f2;
   outline: none;
 }
-.contenedor__login-register form button {
+.contenedor__register form button {
   padding: 10px 40px;
   margin-top: 40px;
   border: none;
@@ -96,28 +90,34 @@ input[type="email"] {
   opacity: 1;
   display: block;
 }
-@media screen and( max-width:850px) {
-  main {
-    margin-top: 50px;
+.formulario__register form p {
+  margin: 50px 0 0 0;
+  float: right;
+  display: none;
+}
+@media (max-width: 1300px) {
+  .content_general {
+    padding: 100px 0 200px 0;
+    margin: 0;
   }
   .caja__trasera {
-    max-width: 350px;
-    height: 300px;
-    flex-direction: column;
+    display: none;
+  }
+  .contenedor__register {
+    max-width: 100%;
+    position: initial;
+    padding: 0px;
+  }
+  .contenedor__register form {
+    position: initial;
+    max-width: 500px;
     margin: auto;
+    top: 200px;
+    text-align: center;
   }
-  .caja__trasera div {
-    margin: 0px;
-    position: absolute;
-  }
-  /*Formulario*/
-  .contenedor__login-register {
-    top: -10px;
-    left: -5px;
-    margin: auto;
-  }
-  .contenedor__login-register form {
-    position: relative;
+  .formulario__register form p {
+    float: none;
+    display: block;
   }
 }
 .input_checkbox {
@@ -155,6 +155,7 @@ input[type="email"] {
   color: white;
   animation: entrada 0.4s linear;
   position: relative;
+  top: 70px;
   padding: 10px;
   z-index: 3;
   width: 100%;

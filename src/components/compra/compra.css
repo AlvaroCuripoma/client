@@ -57,12 +57,15 @@ header .categorias {
 }
 
 header .categorias a {
-  color: #9b9b9b;
+  color: #bdbdbd;
+  text-decoration: none;
   margin: 10px 20px;
   font-weight: 700;
+  transition: all 0.3s;
 }
 
 header .categorias a.activo {
+  transform: scale(1.1);
   color: rgb(250, 250, 250);
 }
 
@@ -130,12 +133,6 @@ header .categorias a.activo {
   right: 0;
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
-  background: linear-gradient(
-    135deg,
-    rgba(15, 84, 230, 0.8) 0%,
-    rgba(112, 77, 251, 0.8) 50%,
-    rgba(11, 162, 230, 0.8) 100%
-  );
   width: 100%;
   height: 100vh;
   display: none;
@@ -176,7 +173,7 @@ header .categorias a.activo {
 
 .overlay #btn-cerrar-popup {
   background: none;
-  color: #fff;
+  color: rgb(255, 255, 255);
   border: none;
   cursor: pointer;
   position: absolute;
@@ -184,11 +181,9 @@ header .categorias a.activo {
   top: -20px;
 }
 .comprar {
-  padding: 5px 20px;
-  background-color: rgb(166, 228, 42);
-  box-shadow: 0px 0px 5px 1px rgb(170, 255, 0, 0.5);
-  color: black;
+  color: white;
 }
+
 /* ------------------------- */
 /* Mediaqueries */
 /* ------------------------- */
@@ -196,7 +191,6 @@ header .categorias a.activo {
   .grid .item {
     width: calc(50% - 20px);
   }
-
   header .barra-busqueda {
     width: 100%;
   }
@@ -260,15 +254,15 @@ header .categorias a.activo {
   }
 }
 .cantidad_prod_carrito {
-  width: 30px;
-  height: 30px;
   background-color: red;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
   position: relative;
   top: -30px;
   left: -20px;
-  border-radius: 50%;
-  text-align: center;
-  color: white;
+  width: 23px;
+  height: 23px;
 }
 .fas {
   position: relative;

@@ -1,3 +1,4 @@
+
 //=============================================================//
 const base = "http://127.0.0.1:8000/api";
 const id_usuario = JSON.parse(localStorage.getItem("id_usuario"));
@@ -46,12 +47,16 @@ function clearUp(id) {
 }
 
 //=============================================================//
-btn_comprar.addEventListener("click", function () {
-  window.location.replace("../compra/compra.php");
-});
-btn_elegir_producto.addEventListener("click", function () {
-  window.location.replace("../compra/compra.php");
-});
+if (btn_comprar) {
+  btn_comprar.addEventListener("click", function () {
+    window.location.replace("../compra/compra.php");
+  });
+}
+if (btn_elegir_producto) {
+  btn_elegir_producto.addEventListener("click", function () {
+    window.location.replace("../compra/compra.php");
+  });
+}
 
 //=============================================================//
 // HACER FACTURA
@@ -140,5 +145,3 @@ if (hacer_factura) {
       });
   });
 }
-
-// 49 cuenta

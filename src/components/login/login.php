@@ -6,22 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="../../resource/css/main.css" />
-  <link rel="icon" href="../../resource/img/logo.jpg" type="image/x-icon">
   <link rel="stylesheet" href="login.css" />
+  <link rel="icon" href="../../resource/img/logo.jpg" type="image/x-icon">
   <title><?php echo basename(__FILE__); ?></title>
 </head>
 <body>
+  <div class="loader-page"></div>
   <div class="container_page">
-    <div class="content_page">
-      <!-- navegation -->
-      <?php
-          include '../navegation/navegation.php';
-        ?>
-      <!-- navegation -->
-      
-      <!-- start content -->
-      <div class="content_general">
-        <main>
+      <div class="content_page">
+        <!-- navegation -->
+        <?php
+            include '../navegation/navegation.php';
+          ?>
+        <!-- navegation -->
+        
+        <!-- start content -->
+        <div class="content_general">
           <!------------------------------------------------------------------------>
           <div class="caja__trasera">
             <div class="caja__trasera-login">
@@ -31,14 +31,13 @@
             </div>
           </div>
           <!-------------------------------------------------------------------------->
-          <div class="contenedor__login-register">
+          <div class="contenedor__login">
             <form
             action="verificar.php"
             method="POST"
-            class="formulario__login"
             id="login_form"
             >
-              <h2>Iniciar Sesión</h2>
+              <h3>Iniciar Sesión</h3>
               <div class="msm_llenar_campso" id="cont_msm_llenar_campso">
                 <p>Llena todos los campos...</p>
               </div>
@@ -61,24 +60,27 @@
               />
 
               <button>Entrar</button>
+             
+                <p>Quiero <a href="../register/register.php">registrarme</a>.</p>
+              
             </form>
             <!------------------------------------------------------------------------>
           </div>
-        </main>
-      </div>
-      <!-- finish content -->
-      <!------------------------------------------------------------------------>
+        </div>
+        <!-- finish content -->
+        <!------------------------------------------------------------------------>
 
-      <!-- footer -->
-      <?php
-          include '../footer/footer.php';
-        ?>
-      <!-- footer -->
+        <!-- footer -->
+        <?php
+            include '../footer/footer.php';
+          ?>
+        <!-- footer -->
     </div>
   </div>
   <!-------------------------------------------------------------------------------->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
   <script src="login.js"></script>
+  <script src="../../resource/js/main.js"></script>
   <!-------------------------------------------------------------------------------->
 </body>
 </html>
