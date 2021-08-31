@@ -9,7 +9,6 @@ hgroup,
 main,
 menu,
 nav,
-section,
 summary {
   display: block;
 }
@@ -54,23 +53,13 @@ dfn {
   font-style: italic;
 }
 
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
 mark {
   background: #ff0;
   color: #000;
 }
 
-small {
-  font-size: 80%;
-}
-
 sub,
 sup {
-  font-size: 75%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
@@ -104,14 +93,6 @@ hr {
 
 pre {
   overflow: auto;
-}
-
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
 }
 
 button,
@@ -246,13 +227,6 @@ th {
   padding-right: 1rem;
 }
 
-*,
-*:before,
-*:after {
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
-}
-
 [contenteditable]:hover,
 [contenteditable]:focus,
 input:hover,
@@ -282,7 +256,6 @@ p {
   position: relative;
   display: block;
   width: 100%;
-  font-size: 0;
 }
 
 .col,
@@ -293,7 +266,6 @@ p {
 [class*="col-"] {
   vertical-align: top;
   display: inline-block;
-  font-size: 1rem;
   padding: 0 1rem;
   min-height: 1px;
 }
@@ -340,7 +312,6 @@ p {
 
 .control-bar .slogan {
   font-weight: bold;
-  font-size: 1.2rem;
   display: inline-block;
   margin-right: 2rem;
 }
@@ -395,10 +366,6 @@ header {
   margin: auto;
 }
 
-header p {
-  font-size: 0.9rem;
-}
-
 header a {
   color: #000;
 }
@@ -438,7 +405,6 @@ header a {
   display: inline-block;
   text-transform: uppercase;
   margin: 0 0 2rem 0;
-  font-size: 0.9rem;
 }
 
 .client {
@@ -448,7 +414,6 @@ header a {
 h1 {
   margin: 0;
   padding: 0;
-  font-size: 2rem;
   color: #009688;
 }
 
@@ -520,7 +485,6 @@ h1 {
   color: white;
   background: #009688;
   padding: 3px 7px;
-  font-size: 0.9rem;
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -540,7 +504,6 @@ h1 {
   top: 0.1rem;
   bottom: 0.1rem;
   left: -1.3rem;
-  font-size: 0.7rem;
   border-radius: 3px 0 0 3px;
   padding: 0.5rem;
 }
@@ -564,7 +527,6 @@ h1 {
 }
 
 .invoicelist-footer table #total_price {
-  font-size: 2rem;
   color: #009688;
 }
 
@@ -578,7 +540,6 @@ h1 {
 
 .note h2 {
   margin: 0;
-  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -588,10 +549,14 @@ footer {
   padding: 1rem 0 0;
 }
 
-footer p {
-  font-size: 0.8rem;
+.container_confirmar_factura {
+  width: 100%;
+  text-align: center;
+  padding: 100px 0 0px 0;
 }
-
+.confirmar_factura {
+  margin: auto;
+}
 /*===========================================================================*/
 /* + IMPRIME LA FACTURA */
 /*===========================================================================*/
@@ -624,7 +589,6 @@ footer p {
   main,
   menu,
   nav,
-  section,
   summary {
     display: block;
   }
@@ -670,7 +634,6 @@ footer p {
   }
 
   h1 {
-    font-size: 2em;
     margin: 0.67em 0;
   }
 
@@ -679,13 +642,8 @@ footer p {
     color: #000;
   }
 
-  small {
-    font-size: 80%;
-  }
-
   sub,
   sup {
-    font-size: 75%;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
@@ -720,15 +678,6 @@ footer p {
   pre {
     overflow: auto;
   }
-
-  code,
-  kbd,
-  pre,
-  samp {
-    font-family: monospace, monospace;
-    font-size: 1em;
-  }
-
   button,
   input,
   optgroup,
@@ -910,7 +859,6 @@ footer p {
   [class*="col-"] {
     vertical-align: top;
     display: inline-block;
-    font-size: 1rem;
     padding: 0 1rem;
     min-height: 1px;
   }
@@ -957,7 +905,6 @@ footer p {
 
   .control-bar .slogan {
     font-weight: bold;
-    font-size: 1.2rem;
     display: inline-block;
     margin-right: 2rem;
   }
@@ -1014,10 +961,6 @@ footer p {
     top: -120px;
   }
 
-  header p {
-    font-size: 0.9rem;
-  }
-
   header a {
     color: #000;
   }
@@ -1057,7 +1000,6 @@ footer p {
     display: inline-block;
     text-transform: uppercase;
     margin: 0 0 2rem 0;
-    font-size: 0.9rem;
   }
 
   .client {
@@ -1067,7 +1009,6 @@ footer p {
   h1 {
     margin: 0;
     padding: 0;
-    font-size: 2rem;
     color: #009688;
   }
 
@@ -1139,7 +1080,6 @@ footer p {
     color: white;
     background: #009688;
     padding: 3px 7px;
-    font-size: 0.9rem;
     text-transform: uppercase;
     cursor: pointer;
   }
@@ -1159,7 +1099,6 @@ footer p {
     top: 0.1rem;
     bottom: 0.1rem;
     left: -1.3rem;
-    font-size: 0.7rem;
     border-radius: 3px 0 0 3px;
     padding: 0.5rem;
   }
@@ -1183,7 +1122,6 @@ footer p {
   }
 
   .invoicelist-footer table #total_price {
-    font-size: 2rem;
     color: #009688;
   }
 
@@ -1197,18 +1135,7 @@ footer p {
 
   .note h2 {
     margin: 0;
-    font-size: 1rem;
     font-weight: bold;
-  }
-
-  footer {
-    display: block;
-    margin: 1rem 0;
-    padding: 1rem 0 0;
-  }
-
-  footer p {
-    font-size: 0.8rem;
   }
 }
 /*===========================================================================*/

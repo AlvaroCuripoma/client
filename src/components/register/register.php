@@ -20,7 +20,7 @@ if (isset($_SESSION['id_user'])) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="../../resource/css/main.css" />
   <link rel="stylesheet" href="register.css" />
-  <link rel="icon" href="../../resource/img/logo.jpg" type="image/x-icon">
+  <link rel="icon" href="../../resource/img/logo.png" type="image/x-icon">
   <title><?php echo basename(__FILE__); ?></title>
 </head>
 <body>
@@ -68,13 +68,13 @@ if (isset($_SESSION['id_user'])) {
               >
             <input
               type="text"
-              placeholder="Nombres Completos"
+              placeholder="Nombres completos"
               name="nombres"
               autocomplete="on"
               >
             <input
               type="text"
-              placeholder="Apellidos Completos"
+              placeholder="Apellidos completos"
               name="apellidos"
               autocomplete="on"
             >
@@ -98,13 +98,13 @@ if (isset($_SESSION['id_user'])) {
             >
             <input 
               type="number" 
-              placeholder="número de teléfono" 
+              placeholder="Número de teléfono" 
               name="numero_telefono" 
               autocomplete="on"
             >
             <input 
               type="number" 
-              placeholder="número de identificación" 
+              placeholder="Número de identificación" 
               name="numero_identificacion" 
               autocomplete="on"
             >
@@ -140,7 +140,7 @@ if (isset($_SESSION['id_user'])) {
               </select>
               <input 
               type="number" 
-              placeholder="número cuenta" 
+              placeholder="Número cuenta" 
               name="numero_cuenta" 
               autocomplete="on"
               >

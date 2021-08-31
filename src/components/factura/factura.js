@@ -2,9 +2,16 @@ window.onload = function () {
   $(".loader-page").css({ visibility: "hidden", opacity: "0" });
 };
 
+var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
+const base = "http://127.0.0.1:8000/api";
+const listo = document.getElementById("listo");
+listo.addEventListener("click", () => {
+  localStorage.removeItem("id_venta"),
+    localStorage.removeItem("carrito_compra");
+  window.location.replace("../compra/compra.php");
+});
 //===========================================================================//
 // + IMPRIMIENDO DATOS DE LA FACTURA
-const base = "http://127.0.0.1:8000/api";
 sumaFecha = function (d, fecha) {
   var Fecha = new Date();
   var sFecha =
@@ -67,9 +74,11 @@ if (id_user) {
     });
   // IMPRESIÓN DE PRODUCTOS DEL CARRITO A LA FACTURA
   //productos_factura
-  const carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
+  carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
   var carrito = Array.from(carrito_compra[1]);
   var total = null;
+  const descuento = 0;
+  const iva = 0.12;
   if (carrito.length != 0) {
     $.each(carrito, (i, producto) => {
       var fila = document.createElement("tr");
@@ -98,12 +107,11 @@ if (id_user) {
       total += producto.precio * producto.cantidad;
     });
   }
-  const iva = 0.12;
+  document.getElementById("descuento").innerHTML = `${descuento}`;
   document.getElementById("iva").innerHTML = `Iva: ${iva} %`;
   document.getElementById("total").innerHTML = `Total: $ ${
     total + total * iva
   }`;
-  document.getElementById("nota").innerHTML = `Nota: Sin comentarios`;
 
   // - IMPRIMIENDO DATOS DE LA FACTURA
   //===========================================================================//

@@ -35,7 +35,7 @@
   color: #13161a;
 }
 .contenedor__login {
-  width: 100%;
+  width: 500px;
   position: relative;
   top: -400px;
   left: 200px;
@@ -55,7 +55,6 @@
   max-width: 500px;
   padding: 80px 50px;
   background: #fff;
-  position: absolute;
   border-radius: 20px;
 }
 .contenedor__login form h3 {
@@ -80,38 +79,10 @@
   cursor: pointer;
   outline: none;
 }
-.contenedor__login form p {
+.iniciar_sesion {
   margin: 50px 0 0 0;
   float: right;
   display: none;
-}
-
-@media (max-width: 1300px) {
-  .content_general {
-    padding: 100px 0 200px 0;
-    margin: 0;
-  }
-  .caja__trasera {
-    display: none;
-  }
-  .contenedor__login {
-    max-width: 100%;
-    position: initial;
-    padding: 0px;
-  }
-  .contenedor__login form {
-    position: initial;
-    max-width: 500px;
-    margin: auto;
-    top: 200px;
-    height: auto;
-    padding: 80px 20px;
-    text-align: center;
-  }
-  .contenedor__login form p {
-    float: none;
-    display: block;
-  }
 }
 /*--------------------------------------------------------*/
 /* MSM LLENA TODOS LOS CAMPOS */
@@ -124,7 +95,6 @@
   background: rgb(255, 69, 69);
   color: white;
   animation: entrada 0.4s linear;
-  position: relative;
   padding: 10px;
   z-index: 3;
   width: 100%;
@@ -134,9 +104,12 @@
 .msm_no_usuario {
   display: none;
 }
+.msm_llenar_campso {
+  color: black;
+}
 @keyframes entrada {
   from {
-    left: 100px;
+    left: 0px;
   }
   to {
     left: 0px;
@@ -145,3 +118,56 @@
 /*--------------------------------------------------------*/
 /* MSM LLENA TODOS LOS CAMPOS */
 /*--------------------------------------------------------*/
+@media (max-width: 1300px) {
+  .content_general {
+    padding: 100px 0 200px 0;
+    margin: 0;
+  }
+  .caja__trasera {
+    display: none;
+  }
+  .contenedor__login {
+    width: 100%;
+    position: initial;
+    padding: 0px;
+  }
+  .contenedor__login form {
+    position: initial;
+    max-width: 500px;
+    margin: auto;
+    top: 200px;
+    height: auto;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  .iniciar_sesion {
+    float: none;
+    display: block;
+  }
+
+  #msm_llenar_campso,
+  #msm_no_usuario {
+    background: rgb(255, 69, 69);
+    color: white;
+    animation: entrada 0.4s linear;
+    padding: 10px;
+    z-index: 3;
+    width: 100%;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+  }
+  .msm_llenar_campso,
+  .msm_no_usuario {
+    display: none;
+  }
+  .msm_llenar_campso {
+    color: black;
+  }
+  @keyframes entrada {
+    from {
+      left: 100px;
+    }
+    to {
+      left: 0px;
+    }
+  }
+}

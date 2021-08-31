@@ -22,7 +22,7 @@
     <script src="https://kit.fontawesome.com/e2f5225a3c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../resource/css/main.css" />
     <link rel="stylesheet" href="compra.css" />
-    <link rel="icon" href="../../resource/img/logo.jpg" type="image/x-icon">
+    <link rel="icon" href="../../resource/img/logo.png" type="image/x-icon">
     <title><?php echo basename(__FILE__); ?></title>
   </head>
   <body>
@@ -40,7 +40,7 @@
           <div class="container_logo">
             <div class="logo">
               <h1>PRODUCTOS EN VENTA</h1>
-              <p>S T A R S -- P R O D U C T</p>
+              <p>S T A R S - P R O D U C T</p>
             </div>
           </div>
             <div class="contenedor">
@@ -69,8 +69,9 @@
                     'GET',
                     $base . "/productos"
                   );
-                  $productos = json_decode($productos, true);
-                  foreach ($productos as $producto) {
+                  if ($productos) {
+                    $productos = json_decode($productos, true);
+                    foreach ($productos as $producto) {
                 ?>
                   <div
                     class="item"
@@ -96,9 +97,14 @@
                         </div>
                     </div>
                   </div>
-                <?php
-                  }
-                ?>
+                  <?php
+                      }
+                    } else {
+                  ?>
+                  <div class="container_no_datos">
+                    <p>No hay datos.</p>
+                  </div>
+                  <?php } ?>
                 </section>
                 <section class="overlay" id="overlay">
                   <div class="contenedor-img">
@@ -107,14 +113,13 @@
                   </div>
                   <p class="descripcion" style="text-align: justify"></p>
                   <?php if (!empty($_SESSION['id_user'])) { ?>
-                  <button onclick="comprar()" class="btn btn_editar comprar">Añadir al carrito</button>
+                  <button onclick="comprar()" class="my_btn btn_editar">Añadir al carrito</button>
                   <?php } else {?>
                     <div class="sms_debes_iniciar_session">
                       <p>Primero debes <a href="../login/login.php">iniciar sesión</a>.</p>
                     </div>
                   <?php }?>
                 </section>
-              
             </div>
         </div>
         <!-- finish content -->

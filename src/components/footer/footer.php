@@ -43,10 +43,10 @@
                 </table>
             </div>
         </div>
-        <div class="row container_redes">
-            <p>STAR PLATINUM.</p>
-            <p>Todos los derechos reservados.</p>
-            <p>Copyright© 2021-2022</p>
+        <div class="row container_redes text-center">
+            <p class="text-center">STAR PLATINUM.</p>
+            <p class="text-center">Todos los derechos reservados.</p>
+            <p class="text-center">Copyright© 2021-2022</p>
         </div>
     </div>
 </footer>

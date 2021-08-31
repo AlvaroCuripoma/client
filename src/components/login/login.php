@@ -7,7 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="../../resource/css/main.css" />
   <link rel="stylesheet" href="login.css" />
-  <link rel="icon" href="../../resource/img/logo.jpg" type="image/x-icon">
+  <link rel="icon" href="../../resource/img/logo.png" type="image/x-icon">
   <title><?php echo basename(__FILE__); ?></title>
 </head>
 <body>
@@ -60,9 +60,9 @@
               />
 
               <button id="login">Entrar</button>
-             
-                <p>Quiero <a href="../register/register.php">registrarme</a>.</p>
-              
+             <div class="iniciar_sesion">
+               <p>Quiero <a href="../register/register.php">registrarme</a>.</p>
+             </div>
             </form>
             <!------------------------------------------------------------------------>
           </div>

@@ -20,14 +20,16 @@
             $base . "/cuenta_bancaria/store",
             $data
         );
-        // if (isset($res_cuenta_bancaria['id'])) {
-        //     echo "<script> localStorage.setItem('cuenta_banco','3')</script>";
-        //     header("Location: ../factura/factura.php");
-        // }
-        // if (isset($res_cuenta_bancaria['message'])) {
-        //     echo "<script>localStorage.setItem('cuenta_banco','2')</script>";
-        //     header("Location: carrito.php");
-        // }
+        $res_cuenta_bancaria = json_decode($res_cuenta_bancaria, true);
+        if (!empty($res_cuenta_bancaria['message'])) {
+            echo "<script>localStorage.setItem('cuenta_banco','2');
+            </script>";
+        }
+        if (!empty($res_cuenta_bancaria)) {
+            echo "<script>localStorage.setItem('cuenta_banco','3');
+            </script>";
+        }
+        $res_cuenta_bancaria = json_encode($res_cuenta_bancaria, true);
         $data = [
             "id"=>$_SESSION['id_user'],
             "cuenta_bancaria_fk" => $res_cuenta_bancaria
@@ -37,10 +39,12 @@
             $base . "/clientes/update/".$_SESSION['id_user'], 
             $data
         );
-        header("Location: ../factura/factura.php");
+        echo "<script>
+        window.location.replace('carrito.php');
+        </script>";
     } else {
-        echo "<script>localStorage.setItem('cuenta_banco','1')</script>";
-        header("Location: carrito.php");
-        exit();  
+        echo "<script>localStorage.setItem('cuenta_banco','1');
+        window.location.replace('carrito.php');
+        </script>"; 
     }
 ?>

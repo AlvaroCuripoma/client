@@ -96,7 +96,7 @@ function comprar() {
           $.each(Array.from(carrito_compra[1]), (i, producto_carrito) => {
             if (parseInt(id_prodc_elegido) === parseInt(producto_carrito.id)) {
               agregar = false;
-            } else{
+            } else {
               agregar = true;
             }
           });
@@ -131,7 +131,7 @@ button_up.addEventListener("click", function () {
 
 if (carrito_compra && carrito_compra[1] && carrito_compra[1].length > 0) {
   var cantidadProd = null;
-  $.each(Array.from(carrito_compra[1]),(i, producto) => {
+  $.each(Array.from(carrito_compra[1]), (i, producto) => {
     cantidadProd += producto.cantidad;
   });
   document.getElementById("cantidad_prod_carrito").value = cantidadProd;

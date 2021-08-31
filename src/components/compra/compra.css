@@ -249,7 +249,7 @@ header .categorias a.activo {
     opacity: 1;
   }
   100% {
-    transform: scale(2);
+    transform: scale(1.5);
     opacity: 0;
   }
 }
@@ -285,3 +285,16 @@ header .categorias a.activo {
   color: red;
 }
 /* - pedir inicio de sessión */
+
+
+/* + mssg de no datos o erroes de server */
+.container_no_datos {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  text-align: center;
+}
+.container_no_datos p {
+  color: rgb(224, 50, 50);
+}
+/* - mssg de no datos o erroes de server */

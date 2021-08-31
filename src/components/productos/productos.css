@@ -59,23 +59,7 @@
   color: white;
   text-align: center;
 }
-#opc_see,
-#opc_edit,
-#opc_delete {
-  margin: 0;
-}
-#opc_create:hover {
-  background-color: rgb(75, 255, 75);
-}
-#opc_see:hover {
-  background-color: rgb(25, 119, 241);
-}
-#opc_edit:hover {
-  background-color: rgb(255, 179, 0);
-}
-#opc_delete:hover {
-  background-color: rgb(243, 31, 31);
-}
+
 /* - muestra lista de datos*/
 
 /* + popup */
@@ -84,12 +68,7 @@
   color: white;
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
-  background: linear-gradient(
-    135deg,
-    rgba(15, 84, 230, 0.8) 0%,
-    rgba(112, 77, 251, 0.8) 50%,
-    rgba(11, 162, 230, 0.8) 100%
-  );
+  background-color: var(--colo-bg-overlay);
   position: fixed;
   top: 0px;
   bottom: 0;
@@ -104,7 +83,7 @@
 
 /* + ventanita */
 .popup {
-  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
   width: 550px;
   text-align: right;
@@ -117,7 +96,7 @@
 .view_nav {
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
-  background-color: rgba(111, 113, 255, 0.5);
+  background-color: rgba(111, 127, 255, 0.5);
   width: 100%;
 }
 /* - ventanita */
@@ -144,7 +123,7 @@
 .content_delete {
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
-  background-color: rgba(84, 86, 163);
+  background: rgb(0, 115, 182);
   text-align: center;
   height: 100%;
   width: 100%;
@@ -222,13 +201,6 @@
 }
 .name_delete:focus {
   outline: none;
-}
-.btn_submit_delete {
-  margin: auto;
-  padding: 10px 20px;
-  background-color: rgb(228, 19, 19);
-  box-shadow: 0px 0px 10px 1px rgb(228, 19, 19);
-  color: white;
 }
 /* campos delete */
 
