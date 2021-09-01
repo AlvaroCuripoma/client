@@ -116,7 +116,6 @@
         if (isset($result['id'])) {
             $_SESSION['id_user'] = $result['id'];
             echo "<script>
-            
             window.location.replace('../compra/compra.php');
             </script>";
         }
