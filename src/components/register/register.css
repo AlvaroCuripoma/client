@@ -36,10 +36,10 @@
   color: #13161a;
 }
 .contenedor__register {
-  width: 100%;
+  max-width: 500px;
   position: relative;
   top: -400px;
-  left: 800px;
+  left: 750px;
   transition: left 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation: moveForm 0.2s linear;
 }
@@ -49,8 +49,11 @@
     opacity: 0.7;
   }
   to {
-    left: 800px;
+    left: 750px;
   }
+}
+.contenedor__register {
+  width: 100%;
 }
 .contenedor__register form {
   max-width: 500px;

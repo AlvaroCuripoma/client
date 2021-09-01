@@ -2,6 +2,7 @@
 session_start();
 include '../../../environment/environment_api_connection.php';
 include '../../../environment/environment_api.php';
+$usuario = null;
 if (isset($_SESSION['id_user'])) {
   $usuario = CurlHelper::perform_http_request(
     'GET',
@@ -36,7 +37,7 @@ if (isset($_SESSION['id_user'])) {
         <!-- start content -->
         <div class="content_general">
 
-          <?php if ($_SESSION) { ?>
+          <?php if ($usuario && !empty($_SESSION) && isset($_SESSION['id_user'])) { ?>
           <div class="container_welcome">
             <h3>START PLATINUM</h3>
             <h4>Bienvenido</h4>

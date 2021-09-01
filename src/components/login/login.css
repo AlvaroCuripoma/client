@@ -91,7 +91,8 @@
   display: block;
 }
 #cont_msm_llenar_campso,
-#cont_msm_no_usuario {
+#cont_msm_no_usuario,
+#cont_msm_pass_incorrect {
   background: rgb(255, 69, 69);
   color: white;
   animation: entrada 0.4s linear;

@@ -9,10 +9,14 @@
   border: none;
   outline: none;
   word-wrap: break-word;
-  font-size: 16px;
+  font-size: 13px;
 }
 :root {
-  --bg: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgb(0, 100, 220) 100%);
+  --bg: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgb(31, 120, 204) 100%
+  );
   --colo-bg: var(--bg);
   --colo-bg-overlay: var(--bg);
 }
@@ -24,6 +28,31 @@
   font-family: "socialmedia";
   src: url(../font/socialmedia.ttf);
 }
+
+/* + barra de scroll */
+body::-webkit-scrollbar {
+  background: rgb(0, 71, 146);
+  max-width: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background: rgb(127, 127, 127);
+  border-radius: 15px;
+}
+/* - barra de scroll */
+
+/* + error del server */
+.container_error_server {
+  padding: 10px 0 5px 0;
+  background-color: white;
+  max-width: 400px;
+  margin: auto;
+}
+.container_error_server * {
+  color: rgb(230, 49, 49);
+  text-align: center;
+}
+/* - error del server */
+
 /*==================*/
 .container_page {
   background: var(--colo-bg);

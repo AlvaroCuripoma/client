@@ -89,7 +89,7 @@
                     data-iduser="<?php echo $_SESSION['id_user'] ?>"
                   >
                   <div class="item-contenido">
-                        <img src="../../resource/img/fondo_planes.jpg" alt="" />
+                        <img class="imagen_prod" src="../../resource/img/fondo_planes.jpg" alt="" />
                         <div class="detalle_producto">
                           <p>Disponible: <?php echo $producto['cantidad']?></p>
                           <p>Nombre: <?php echo $producto['nombre']?></p>
@@ -99,12 +99,8 @@
                   </div>
                   <?php
                       }
-                    } else {
+                    }
                   ?>
-                  <div class="container_no_datos">
-                    <p>No hay datos.</p>
-                  </div>
-                  <?php } ?>
                 </section>
                 <section class="overlay" id="overlay">
                   <div class="contenedor-img">

@@ -58,6 +58,7 @@ if (isset($_SESSION['id_user'])) {
           </tr>
           <tr class="body_table">
             <?php
+            if ($productos) {
               function see($id){
                 include '../../../environment/environment_api.php';
                 $action_see = "GET";
@@ -84,7 +85,7 @@ if (isset($_SESSION['id_user'])) {
                 </td>
               </tr>
               <?php
-              }
+              } }
             ?>
           </tr>
         </table>
@@ -189,8 +190,8 @@ if (isset($_SESSION['id_user'])) {
           <div class="content_edit">
             <h3>Editar</h3>
             <form action="actualizar.php" method="post" class="form_create">
-              <label for="id_edit">id</label>
-              <input type="number" name="id_edit" id="id_edit">
+              <label for="id_edit" style="display: none;">id</label>
+              <input type="number" style="display: none;" name="id_edit" id="id_edit">
               <label for="visible_edit">visible</label>
               <input type="number" name="visible_edit" id="visible_edit">
               <label for="state_edit">estado</label>
@@ -232,10 +233,10 @@ if (isset($_SESSION['id_user'])) {
               <input type="number" name="cantidad_edit" id="cantidad_edit" placeholder="type product">
               <label for="descripcion_edit">descripción</label>
               <input type="text" name="descripcion_edit" id="descripcion_edit" placeholder="type product">
-              <label for="created_at_edit">fecha de creación</label>
-              <input type="datetime" name="created_at_edit" id="created_at_edit">
-              <label for="updated_at_edit">fecha última actualización</label>
-              <input type="datetime" name="updated_at_edit" id="updated_at_edit">
+              <label for="created_at_edit" style="display: none;">fecha de creación</label>
+              <input type="datetime" style="display: none;" name="created_at_edit" id="created_at_edit">
+              <label for="updated_at_edit" style="display: none;">fecha última actualización</label>
+              <input type="datetime" style="display: none;" name="updated_at_edit" id="updated_at_edit">
               <input type="submit" class="my_btn btn_editar" value="send">
             </form>
           </div>

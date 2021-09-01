@@ -2,7 +2,7 @@
   // see all roles
   include '../../../environment/environment_api_connection.php';
   include '../../../environment/environment_api.php';
-  $tipos_pago_all = CurlHelper::perform_http_request("GET", $base . "/tipo_pago");
+  $tipos_pago = CurlHelper::perform_http_request("GET", $base . "/tipo_pago");
 
   session_start();
   if (isset($_SESSION['id_user'])) {
@@ -55,6 +55,7 @@
           </tr>
           <tr class="body_table">
           <?php
+          if ($tipos_pago) {
             function see($id){
               include '../../../environment/environment_api.php';
               return $result_see = CurlHelper::perform_http_request(
@@ -63,7 +64,7 @@
               );
             }
           
-            $tipos_pago = json_decode($tipos_pago_all, true);
+            $tipos_pago = json_decode($tipos_pago, true);
             foreach($tipos_pago as $tipo_pago) {
             ?>
             <tr>
@@ -76,7 +77,7 @@
               </td>
             </tr>
             <?php
-            }
+            } }
             ?>
           </tr>
         </table>
@@ -136,8 +137,8 @@
               <div class="content_edit">
                 <h3>Editar</h3>
                 <form action="update.php" method="post" class="form_create">
-                  <label for="id_edit">id</label>
-                  <input class="input_edit" type="number" name="id_edit" id="id_edit">
+                  <label for="id_edit" style="display: none;">id</label>
+                  <input class="input_edit" type="number"  style="display: none;" name="id_edit" id="id_edit">
                   <label for="visible_edit">visible</label>
                   <input class="input_edit" type="number" name="visible_edit" id="visible_edit">
                   <label for="state_edit">state</label>

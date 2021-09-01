@@ -2,16 +2,9 @@
   // see all roles
   include '../../../environment/environment_api_connection.php';
   include '../../../environment/environment_api.php';
-  $result_all = CurlHelper::perform_http_request("GET", $base . "/roles");
+  $roles = CurlHelper::perform_http_request("GET", $base . "/roles");
 
   session_start();
-  if (isset($_SESSION['id_user'])) {
-    $result = CurlHelper::perform_http_request(
-      'GET',
-      $base . "/clientes/show/". $_SESSION['id_user'],
-    );
-    $result = json_decode($result, true);
-  }
 ?>
 
 <!DOCTYPE html>
@@ -55,15 +48,15 @@
           </tr>
           <tr class="body_table">
           <?php
+          if ($roles) {
             function see($id){
               include '../../../environment/environment_api.php';
-              return $result_see = CurlHelper::perform_http_request(
+              return $rol_show = CurlHelper::perform_http_request(
                 'GET',
                 $base."/roles"."/show"."/".$id
               );
             }
-          
-            $roles = json_decode($result_all, true);
+            $roles = json_decode($roles, true);
             foreach($roles as $rol) {
             ?>
             <tr>
@@ -76,7 +69,7 @@
               </td>
             </tr>
             <?php
-            }
+            } }
             ?>
           </tr>
         </table>
@@ -136,8 +129,8 @@
               <div class="content_edit">
                 <h3>Editar</h3>
                 <form action="update.php" method="post" class="form_create">
-                  <label for="id_edit">id</label>
-                  <input class="input_edit" type="number" name="id_edit" id="id_edit">
+                  <label for="id_edit" style="display: none;">id</label>
+                  <input class="input_edit" type="number" style="display: none;"name="id_edit" id="id_edit">
                   <label for="visible_edit">visible</label>
                   <input class="input_edit" type="number" name="visible_edit" id="visible_edit">
                   <label for="state_edit">state</label>

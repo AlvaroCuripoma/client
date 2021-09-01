@@ -21,7 +21,9 @@
         // VERIFICAMSO SI HAY DATOS EN EL CAMPO ROL_FK //
         //---------------------------------------------//
         $result = json_decode($result, true);
-        $_SESSION['id_user'] = $result['id'];
+        if ($result && !empty($result['id'])) {
+            $_SESSION['id_user'] = $result['id'];
+        }
         if (isset($result['rol_fk'])) {
             if ($result['rol_fk'] == 1) {
                 header("Location: ../productos/productos.php");
@@ -29,16 +31,25 @@
                 header("Location: ../compra/compra.php");
             }
         }
+        if (isset($result['message_2'])) {
+            echo "<script>
+                localStorage.setItem('login', '3');
+                window.location = 'login.php';
+                </script>";
+        }
+        if (isset($result['message_1'])) {
+            echo "<script>
+                localStorage.setItem('login', '2');
+                window.location = 'login.php';
+                </script>";
+        }
         echo "<script>
-            localStorage.setItem('login', '2');
             window.location = 'login.php';
             </script>";
-        exit();
     } else {
         echo "<script>
             localStorage.setItem('login', '1');
             window.location = 'login.php';
             </script>";
-        exit();
     }
 ?>

@@ -3,15 +3,19 @@
   include '../../../environment/environment_api_connection.php';
   include '../../../environment/environment_api.php';
 
-  if ($_POST['id_edit'] != null &&
-  $_POST['visible_edit'] != null &&
-  $_POST['state_edit'] != null &&
-  $_POST['name_edit'] != null
+  if ($_POST['visible_edit'] &&
+  $_POST['state_edit'] &&
+  $_POST['name_edit'] &&
+  $_POST['fecha_fabricacion_edit'] &&
+  $_POST['fecha_vencimiento_edit'] &&
+  $_POST['precio_edit'] &&
+  $_POST['cantidad_edit'] &&
+  $_POST['descripcion_edit'] &&
+  $_POST['descripcion_edit']
   ) {
     $data = [
-        "id" => $_POST['id_edit'],
-        "visible" => true,
-        "estado" => true,
+        "visible" => $_POST['visible_edit'],
+        "estado" => $_POST['state_edit'],
         "tipo_producto_fk_nombre" => $_POST['tipo_producto_edit'],
         "nombre" => $_POST['name_edit'],
         "fecha_fabricacion" => $_POST['fecha_fabricacion_edit'],
@@ -26,8 +30,7 @@
       $data
     );
     header("Location: productos.php");
-    exit;
+
   }
   header("Location: productos.php");
-  exit;
 ?>

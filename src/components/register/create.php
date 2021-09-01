@@ -4,14 +4,14 @@
     // VERIFICAMOS DATOS DEL USUARIO PARA REGISTRARLO O RECORDALE SU CUENTA //
     // ==================================================================== //
     if (
-        $_POST["rol_fk"] != null && 
-        $_POST["nombres"] != null && 
-        $_POST["apellidos"] != null && 
-        $_POST["email"] != null && 
-        $_POST["clave"] != null && 
-        $_POST["direccion"] != null && 
-        $_POST["numero_telefono"] != null && 
-        $_POST["numero_identificacion"] != null 
+        $_POST["rol_fk"] && 
+        $_POST["nombres"] && 
+        $_POST["apellidos"] && 
+        $_POST["email"] && 
+        $_POST["clave"] && 
+        $_POST["direccion"] && 
+        $_POST["numero_telefono"] && 
+        $_POST["numero_identificacion"] 
     ) {
         include '../../../environment/environment_api_connection.php';
         include '../../../environment/environment_api.php';
@@ -19,9 +19,9 @@
         // GUARDAMOS SU CUENTA BANCARIA, SI ES QUE HAY DATOS EN ESOS CAMPOS //
         // ================================================================ //
         if (
-            $_POST["tipo_cuenta_bancaria_fk"] != null && 
-            $_POST["numero_cuenta"] != null && 
-            $_POST["nombre_banco"] != null 
+            !empty($_POST["tipo_cuenta_bancaria_fk"]) && 
+            !empty($_POST["numero_cuenta"]) && 
+            !empty($_POST["nombre_banco"])
         ) {
             // datos de la cuenta bancaria del usuario
             $data = [
@@ -42,13 +42,13 @@
             if (isset($result['id'])) {
                 echo "<script>
                 localStorage.setItem('register', '5');
+                window.location.replace('../compra/compra.php');
                 </script>";
-                header("Location: ../compra/compra.php");
             }
             if (isset($result['message'])) {
                 echo "<script>
                     localStorage.setItem('register', '4');
-                    window.location.replace('register.php');
+                    
                     </script>";
             }
             // datos del usuario
@@ -116,7 +116,7 @@
         if (isset($result['id'])) {
             $_SESSION['id_user'] = $result['id'];
             echo "<script>
-            localStorage.setItem('register', '3');
+            
             window.location.replace('../compra/compra.php');
             </script>";
         }

@@ -24,7 +24,6 @@ localStorage.removeItem("cuenta_banco");
 
 //=============================================================//
 function subtract(id) {
-  console.log(id);
   var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
   $.each(Array.from(carrito_compra[1]), (i, item) => {
     if (item.id == id) {
@@ -37,8 +36,6 @@ function subtract(id) {
   window.location.reload(true);
 }
 function add(id) {
-  console.log(id);
-  console.log(id);
   var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
   $.each(Array.from(carrito_compra[1]), (i, item) => {
     if (item.id == id) {
@@ -49,7 +46,6 @@ function add(id) {
   window.location.reload(true);
 }
 function clearUp(id) {
-  console.log(id);
   var carrito_compra = JSON.parse(localStorage.getItem("carrito_compra"));
   $.each(Array.from(carrito_compra[1]), (i, item) => {
     if (item.id == id) {
@@ -140,21 +136,6 @@ if (carrito_compra) {
   }
 }
 
-// if (comprar) {
-//   comprar.addEventListener("click", () => {
-//     fetch(`${base}/clientes/show/${id_usuario}`)
-//       .then((res) => res.json())
-//       .then((res) => {
-//         console.log(res.cuenta_bancaria_fk);
-//         if (res.cuenta_bancaria_fk) {
-//           window.location.replace("../factura/factura.php");
-//         } else {
-//           alert("No tienes cuenta bancaria");
-//         }
-//       });
-//   });
-// }
-
 //===========================================================================//
 // + COMFIRMAR LA FACTURA
 var view_hacer_factura = document.getElementById("view_hacer_factura");
@@ -175,7 +156,7 @@ if (listo_factura) {
     view_hacer_factura.classList.remove("visible");
     view_factura_realizada.classList.remove("visible");
     localStorage.removeItem("id_venta"),
-    localStorage.removeItem("carrito_compra")
+      localStorage.removeItem("carrito_compra");
     window.location.replace("../compra/compra.php");
   });
 }
@@ -222,19 +203,14 @@ finalizar_comprar.addEventListener("click", () => {
   })
     .then((res) => res.json())
     .then((res) => {
-      localStorage.setItem("id_venta", JSON.stringify(res));
-    })
-    .then(
-      console.log(carrito),
       carrito.forEach((producto) => {
         data = {
           visible: 1,
           estado: 1,
-          venta_fk: JSON.parse(localStorage.getItem("id_venta")),
+          venta_fk: res,
           producto_fk: producto.id,
           cantidad: producto.cantidad,
         };
-        console.log(producto);
         fetch(`${base}/detalles_venta/store`, {
           method: "POST",
           mode: "cors",
@@ -244,11 +220,7 @@ finalizar_comprar.addEventListener("click", () => {
           redirect: "follow",
           referrerPolicy: "no-referrer",
           body: JSON.stringify(data),
-        })
-          .then((res) => res.json())
-          .then((res) => {
-            console.log(res);
-          });
-      })
-    )
+        });
+      });
+    });
 });

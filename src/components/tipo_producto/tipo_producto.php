@@ -54,6 +54,7 @@
           </tr>
           <tr class="body_table">
           <?php
+          if ($tipos_productos) {
             function see($id){
               include '../../../environment/environment_api.php';
               return $result_see = CurlHelper::perform_http_request(
@@ -75,7 +76,7 @@
               </td>
             </tr>
             <?php
-            }
+            } }
             ?>
           </tr>
         </table>
@@ -135,8 +136,8 @@
               <div class="content_edit">
                 <h3>Editar</h3>
                 <form action="update.php" method="post" class="form_create">
-                  <label for="id_edit">id</label>
-                  <input class="input_edit" type="number" name="id_edit" id="id_edit">
+                  <label for="id_edit" style="display: none;">id</label>
+                  <input class="input_edit" type="number" style="display: none;" name="id_edit" id="id_edit">
                   <label for="visible_edit">visible</label>
                   <input class="input_edit" type="number" name="visible_edit" id="visible_edit">
                   <label for="state_edit">state</label>

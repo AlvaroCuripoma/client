@@ -22,6 +22,13 @@ switch (tipo_error) {
     document.getElementById("cont_msm_no_usuario").classList.add("mostrar");
     localStorage.removeItem("login");
     break;
+  case "3":
+    document
+      .getElementById("cont_msm_pass_incorrect")
+      .classList.remove("msm_no_usuario");
+    document.getElementById("cont_msm_no_usuario").classList.add("mostrar");
+    localStorage.removeItem("login");
+    break;
   default:
     break;
 }

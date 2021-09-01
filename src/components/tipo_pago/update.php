@@ -3,13 +3,11 @@
   include '../../../environment/environment_api_connection.php';
   include '../../../environment/environment_api.php';
 
-  if ($_POST['id_edit'] != null &&
-  $_POST['visible_edit'] != null &&
-  $_POST['state_edit'] != null &&
-  $_POST['name_edit'] != null
+  if ($_POST['visible_edit'] &&
+  $_POST['state_edit'] &&
+  $_POST['name_edit']
   ) {
     $data = [
-      "id" => $_POST["id_edit"],
       "visible" => $_POST['visible_edit'],
       "estado" => $_POST['state_edit'],
       "nombre" => $_POST['name_edit']
