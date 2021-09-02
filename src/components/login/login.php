@@ -57,6 +57,7 @@
                   placeholder="Correo Electronico" 
                   name="correo" 
                   id="correo" 
+                  required
                   autocomplete="on"
                 />
                   <input 
@@ -64,6 +65,7 @@
                   placeholder="Contraseña" 
                   name="pass"
                   id="pass"
+                  required
                   autocomplete="on"
                 />
 

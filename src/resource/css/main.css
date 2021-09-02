@@ -12,13 +12,10 @@
   font-size: 13px;
 }
 :root {
-  --bg: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgb(31, 120, 204) 100%
-  );
+  --bg: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgb(31, 120, 204) 100%);
   --colo-bg: var(--bg);
   --colo-bg-overlay: var(--bg);
+  --bg-carga: rgb(9, 69, 126);
 }
 @font-face {
   font-family: "Tangiang";

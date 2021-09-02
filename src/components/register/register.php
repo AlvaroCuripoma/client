@@ -63,49 +63,59 @@ if (isset($_SESSION['id_user'])) {
               type="number" 
               name="rol_fk" 
               id="rol_fk" 
-              value="2" 
+              value="2"
+              required
               style="visibility: hidden;"
               >
             <input
               type="text"
               placeholder="Nombres completos"
               name="nombres"
+              required
               autocomplete="on"
               >
             <input
               type="text"
               placeholder="Apellidos completos"
               name="apellidos"
+              required
               autocomplete="on"
             >
             <input
               type="email"
               placeholder="Correo"
               name="email"
+              required
               autocomplete="on"
             >
             <input 
               type="password" 
               placeholder="Contraseña" 
               name="clave"
+              required
               autocomplete="on"
             >
             <input 
               type="text" 
               placeholder="Dirección" 
               name="direccion" 
+              required
               autocomplete="on"
             >
             <input 
               type="number" 
               placeholder="Número de teléfono" 
               name="numero_telefono" 
+              required
               autocomplete="on"
             >
             <input 
               type="number" 
               placeholder="Número de identificación" 
-              name="numero_identificacion" 
+              name="numero_identificacion"
+              minlength="5" 
+              maxlength="40" 
+              required
               autocomplete="on"
             >
             <label 

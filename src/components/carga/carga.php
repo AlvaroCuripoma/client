@@ -17,22 +17,17 @@
     <title><?php echo basename(__FILE__); ?></title>
   </head>
   <body>
-    <div class="loader-page"></div>
     <div class="container_page">
       <div class="content_page">
         <div class="content_general">
-          <div class="container_progress_bar">
-            <div class="progress_bar">
-              <div class="bar" id="barra">
-                <div class="barra">
-                  <div class="onda"></div>
-                </div>
-              </div>
-            </div>
+          <div class="container_progress bg-6">
+            <h1 class="glitch" data-text="START PLATINUM">START PLATINUM</h1>
           </div>
         </div>
       </div>
     </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="carga.js"></script>
